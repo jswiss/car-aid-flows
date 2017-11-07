@@ -44,6 +44,7 @@
   import TreeMap2015 from './treemap/TreeMap2015';
   import TreeMap2016 from './treemap/TreeMap2016';
   import TreeMap2017 from './treemap/TreeMap2017';
+  // import { reduceObj } from '../utils/helpers';
 
   export default {
   	name: 'home',
@@ -59,6 +60,7 @@
   			tree: '',
   			tree2017: true,
   			raw: '',
+  			newData: {},
   		};
   	},
   	beforeCreate() {
@@ -71,7 +73,22 @@
   	},
   	created() {
   		this.raw = this.$store.state.raw;
-  		console.log(this.raw);
+  	},
+  	mounted() {
+  		this.newData = this.raw.map(d => {
+  			return {
+  				'Nom du projet': d['Nom du projet'],
+  				'Date de début': d['Date de début'],
+  				'Date de clôture': d['Date de clôture'],
+  				Pilier: d['Pilier'],
+  				Composante: d['Composante'],
+  				'Secteur principal': d['Secteur principal'],
+  				'Décaissements 2017 USD': d['Décaissements 2017 USD'],
+  				'Décaissements 2018 USD': d['Décaissements 2018 USD'],
+  				'Décaissements 2019 USD': d['Décaissements 2019 USD'],
+  			};
+  		});
+  		console.log(this.newData);
   	},
   };
 </script>

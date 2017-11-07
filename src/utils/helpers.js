@@ -1,8 +1,8 @@
 function reduceObj(arr, obj) {
-	arr.forEach(key => {
-		delete obj[!key];
-		return obj;
-	});
+	for (let i of arr) {
+		let newData = obj.i;
+	}
+	console.log(newData);
 }
 
-export default { reduceObj };
+export { reduceObj };

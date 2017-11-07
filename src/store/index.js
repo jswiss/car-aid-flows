@@ -32,14 +32,6 @@ export default new Vuex.Store({
 		locationTableArray: [],
 	},
 
-	// actions: {
-	// 	FETCH_DATA: ({ commit }) => {
-	// 		return api.get('/16qbu7').then(res => {
-	// 			commit('SET_RAW_DATA', res.data);
-	// 		});
-	// 	},
-	// },
-
 	mutations: {
 		SET_RAW_DATA: (state, data) => {
 			state.raw = data;
