@@ -83,92 +83,89 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import jsonexport from 'jsonexport';
-import DataTable from './v-data-table.vue';
-import store from '../../vuex/store';
+  import Vue from 'vue';
+  import jsonexport from 'jsonexport';
+  import DataTable from './v-data-table.vue';
+  import store from '../../store';
 
-const funds = store.state.funds;
+  // funds.forEach(d => {
+  // 	d['2015'] = parseInt(d['2015']);
+  // 	d['2016'] = parseInt(d['2016']);
+  // 	d['2017'] = parseInt(d['2017']);
+  // 	d.Total = parseInt(d.Total);
+  // });
 
-funds.forEach(d => {
-  d['2015'] = parseInt(d['2015']);
-  d['2016'] = parseInt(d['2016']);
-  d['2017'] = parseInt(d['2017']);
-  d.Total = parseInt(d.Total);
-})
-
-export default {
-  name: 'FundsTable',
-  components: {
-    DataTable,
-  },
-  data() {
-    return {
-      funds,
-      gridColumns: ['Fund', 'Partner', '2015', '2016', '2017', 'Total', 'SDRF'],
-      columnsToDisplay: ['Partner', 'Fund', '2015', '2016', '2017', 'Total'],
-      displayNames: {
-        '2015': '2015 Partner Disbursement (millions, USD)',
-        '2016': '2016 Partner Disbursement (millions, USD)',
-        '2017': '2017 Partner Disbursement (millions, USD)',
-      },
-      searchQuery: '',
-    };
-  },
-  methods: {
-    exportCSV() {
-      jsonexport(funds, (err, csv) => {
-        if (err) return console.log(err);
-        (function downloadCSV(args) {
-          if (csv === null) return;
-          const filename = 'Somalia_Funds_Data_2015-17.csv';
-          if (!csv.match(/^data:text\/csv/i)) {
-            csv = 'data:text/csv;charset=utf-8,' + csv;
-          }
-          const data = encodeURI(csv);
-          let link = document.createElement('a');
-          link.setAttribute('href', data);
-          link.setAttribute('download', filename);
-          link.click();
-        })();
-      });
-    },
-  },
-  computed: {
-    // sumSDRF: function() {
-    //   let sdrfArray = [];
-    //   this.funds.forEach(d => {
-    //     if (d.SDRF === 'SDRF') {
-    //       sdrfArray.push(d['2015'] * 1, d['2016'] * 1, d['2017'] * 1);
-    //     }
-    //     let sdrf = sdrfArray.reduce((a, b) => a + b, 0);
-    //     return sdrf;
-    //   });
-    // },
-    // sumOther: function() {
-    //   let otherArray = [];
-    //   this.funds.forEach(d => {
-    //     if (d.SDRF === 'Other') {
-    //       otherArray.push(+d['2015'] * 1, +d['2016'] * 1, +d['2017'] * 1);
-    //     }
-    //     console.log(otherArray);
-    //     return otherArray.reduce((a, b) => a + b, 0);
-    //   });
-    // },
-  }
-};
+  export default {
+  	name: 'FundsTable',
+  	components: {
+  		DataTable,
+  	},
+  	data() {
+  		return {
+  			gridColumns: ['Fund', 'Partner', '2015', '2016', '2017', 'Total', 'SDRF'],
+  			columnsToDisplay: ['Partner', 'Fund', '2015', '2016', '2017', 'Total'],
+  			displayNames: {
+  				'2015': '2015 Partner Disbursement (millions, USD)',
+  				'2016': '2016 Partner Disbursement (millions, USD)',
+  				'2017': '2017 Partner Disbursement (millions, USD)',
+  			},
+  			searchQuery: '',
+  		};
+  	},
+  	methods: {
+  		exportCSV() {
+  			jsonexport(funds, (err, csv) => {
+  				if (err) return console.log(err);
+  				(function downloadCSV(args) {
+  					if (csv === null) return;
+  					const filename = 'Somalia_Funds_Data_2015-17.csv';
+  					if (!csv.match(/^data:text\/csv/i)) {
+  						csv = 'data:text/csv;charset=utf-8,' + csv;
+  					}
+  					const data = encodeURI(csv);
+  					let link = document.createElement('a');
+  					link.setAttribute('href', data);
+  					link.setAttribute('download', filename);
+  					link.click();
+  				})();
+  			});
+  		},
+  	},
+  	computed: {
+  		// sumSDRF: function() {
+  		//   let sdrfArray = [];
+  		//   this.funds.forEach(d => {
+  		//     if (d.SDRF === 'SDRF') {
+  		//       sdrfArray.push(d['2015'] * 1, d['2016'] * 1, d['2017'] * 1);
+  		//     }
+  		//     let sdrf = sdrfArray.reduce((a, b) => a + b, 0);
+  		//     return sdrf;
+  		//   });
+  		// },
+  		// sumOther: function() {
+  		//   let otherArray = [];
+  		//   this.funds.forEach(d => {
+  		//     if (d.SDRF === 'Other') {
+  		//       otherArray.push(+d['2015'] * 1, +d['2016'] * 1, +d['2017'] * 1);
+  		//     }
+  		//     console.log(otherArray);
+  		//     return otherArray.reduce((a, b) => a + b, 0);
+  		//   });
+  		// },
+  	},
+  };
 </script>
 
 <style scoped>
   .scrollable {
-    position: relative;
-    overflow: auto;
+  	position: relative;
+  	overflow: auto;
   }
   .level {
-    margin-top: 2%;
-    margin-bottom: 0%;
+  	margin-top: 2%;
+  	margin-bottom: 0%;
   }
   input {
-    width: 300px;
+  	width: 300px;
   }
 </style>

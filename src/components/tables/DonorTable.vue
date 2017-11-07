@@ -92,70 +92,86 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import jsonexport from 'jsonexport';
-import DataTable from './v-data-table.vue';
-import store from '../../vuex/store';
+  import Vue from 'vue';
+  import jsonexport from 'jsonexport';
+  import DataTable from './v-data-table.vue';
+  import store from '../../store';
 
-const donors = store.state.donors;
-
-export default {
-  name: 'DonorTable',
-  components: {
-    DataTable,
-  },
-  data() {
-    return {
-      donors,
-      gridColumns: ['Agency', 'Agency category', 'Aid Flow category', 'Allocation 2015 - USD', 'Allocation 2016 - USD', 'Allocation 2017 - USD', 'Allocation 2018 - USD', 'Allocation 2019 - USD', 'Total 2015-19', 'Currency'],
-      columnsToDisplay: ['Agency', 'Agency category', 'Aid Flow category', 'Allocation 2015 - USD', 'Allocation 2016 - USD', 'Allocation 2017 - USD', 'Allocation 2018 - USD', 'Allocation 2019 - USD', 'Total 2015-19'],
-      searchQuery: '',
-      displayNames: {
-        'Agency category': 'Agency Category',
-        'Aid Flow category': 'Aid Category',
-        'Allocation 2015 - USD': '2015',
-        'Allocation 2016 - USD': '2016',
-        'Allocation 2017 - USD': '2017',
-        'Allocation 2018 - USD': '2018',
-        'Allocation 2019 - USD': '2019',
-      },
-    };
-  },
-  methods: {
-    exportCSV() {
-      jsonexport(donors, (err, csv) => {
-        if (err) return console.log(err);
-        (function downloadCSV(args) {
-          if (csv === null) return;
-          const filename = 'Somalia_Aid_Flows_Donor_Envelope.csv';
-          if (!csv.match(/^data:text\/csv/i)) {
-            csv = 'data:text/csv;charset=utf-8,' + csv;
-          }
-          const data = encodeURI(csv);
-          let link = document.createElement('a');
-          link.setAttribute('href', data);
-          link.setAttribute('download', filename);
-          link.click();
-        })();
-      });
-    },
-  },
-  beforeDestroy() {
-
-  },
-};
+  export default {
+  	name: 'DonorTable',
+  	components: {
+  		DataTable,
+  	},
+  	data() {
+  		return {
+  			gridColumns: [
+  				'Agency',
+  				'Agency category',
+  				'Aid Flow category',
+  				'Allocation 2015 - USD',
+  				'Allocation 2016 - USD',
+  				'Allocation 2017 - USD',
+  				'Allocation 2018 - USD',
+  				'Allocation 2019 - USD',
+  				'Total 2015-19',
+  				'Currency',
+  			],
+  			columnsToDisplay: [
+  				'Agency',
+  				'Agency category',
+  				'Aid Flow category',
+  				'Allocation 2015 - USD',
+  				'Allocation 2016 - USD',
+  				'Allocation 2017 - USD',
+  				'Allocation 2018 - USD',
+  				'Allocation 2019 - USD',
+  				'Total 2015-19',
+  			],
+  			searchQuery: '',
+  			displayNames: {
+  				'Agency category': 'Agency Category',
+  				'Aid Flow category': 'Aid Category',
+  				'Allocation 2015 - USD': '2015',
+  				'Allocation 2016 - USD': '2016',
+  				'Allocation 2017 - USD': '2017',
+  				'Allocation 2018 - USD': '2018',
+  				'Allocation 2019 - USD': '2019',
+  			},
+  		};
+  	},
+  	methods: {
+  		exportCSV() {
+  			jsonexport(donors, (err, csv) => {
+  				if (err) return console.log(err);
+  				(function downloadCSV(args) {
+  					if (csv === null) return;
+  					const filename = 'Somalia_Aid_Flows_Donor_Envelope.csv';
+  					if (!csv.match(/^data:text\/csv/i)) {
+  						csv = 'data:text/csv;charset=utf-8,' + csv;
+  					}
+  					const data = encodeURI(csv);
+  					let link = document.createElement('a');
+  					link.setAttribute('href', data);
+  					link.setAttribute('download', filename);
+  					link.click();
+  				})();
+  			});
+  		},
+  	},
+  	beforeDestroy() {},
+  };
 </script>
 
 <style scoped>
   .scrollable {
-    position: relative;
-    overflow: auto;
+  	position: relative;
+  	overflow: auto;
   }
   .level {
-    margin-top: 2%;
-    margin-bottom: 0%;
+  	margin-top: 2%;
+  	margin-bottom: 0%;
   }
   input {
-    width: 300px;
+  	width: 300px;
   }
 </style>

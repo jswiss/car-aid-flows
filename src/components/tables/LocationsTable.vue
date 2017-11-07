@@ -89,76 +89,101 @@
 <script src="https://cdn.rawgit.com/mikemenaker/vue-data-table/1.0.1/src/v-data-table.min.js"></script>
 
 <script>
-import Vue from 'vue';
-import jsonexport from 'jsonexport';
-import DataTable from './v-data-table.vue';
-import store from '../../vuex/store';
+  import Vue from 'vue';
+  import jsonexport from 'jsonexport';
+  import DataTable from './v-data-table.vue';
+  import store from '../../store';
 
-const locations = store.state.locations;
+  // locations.forEach(d => {
+  // 	d['2015 Project Location Allocation'] = +d[
+  // 		'2015 Project Location Allocation'
+  // 	];
+  // 	d['2016 Project Location Allocation'] = +d[
+  // 		'2016 Project Location Allocation'
+  // 	];
+  // 	d['2017 Project Location Allocation'] = +d[
+  // 		'2017 Project Location Allocation'
+  // 	];
+  // 	d['Location Total 2015-17'] = +d['Location Total 2015-17'];
+  // });
 
-locations.forEach(d => {
-  d['2015 Project Location Allocation'] = +(d['2015 Project Location Allocation']);
-  d['2016 Project Location Allocation'] = +(d['2016 Project Location Allocation']);
-  d['2017 Project Location Allocation'] = +(d['2017 Project Location Allocation']);
-  d['Location Total 2015-17'] = +(d['Location Total 2015-17']);
-});
-
-export default {
-  name: 'LocationsTable',
-  components: {
-    DataTable,
-  },
-  data() {
-    return {
-      locations,
-      gridColumns: ['Location', 'Project title', 'Start Date', 'End Date', 'NDP Pillar', 'SubSector', 'Funders', '2015 Project Location Allocation', '2016 Project Location Allocation', '2017 Project Location Allocation', 'Location Total 2015-17', 'Project objectives / purpose', 'Implementers'],
-      columnsToDisplay: ['Project title', 'Start Date', 'End Date', 'NDP Pillar', 'SubSector', '2015 Project Location Allocation', '2016 Project Location Allocation', '2017 Project Location Allocation', 'Location Total 2015-17'],
-      searchQuery: '',
-      displayNames: {
-        'Project title': 'Project Title',
-        'Location Total 2015-17': 'Total Project Location Value (2015-17)',
-        '2015 Project Location Allocation': '2015',
-        '2016 Project Location Allocation': '2016',
-        '2017 Project Location Allocation': '2017',
-        'SubSector': 'Primary Sector',
-      },
-    };
-  },
-  methods: {
-    exportCSV() {
-      jsonexport(locations, (err, csv) => {
-        if (err) return console.log(err);
-        (function downloadCSV(args) {
-          if (csv === null) return;
-          const filename = 'Somalia_Aid_Flows_Project_Location_Data.csv';
-          if (!csv.match(/^data:text\/csv/i)) {
-            csv = 'data:text/csv;charset=utf-8,' + csv;
-          }
-          const data = encodeURI(csv);
-          let link = document.createElement('a');
-          link.setAttribute('href', data);
-          link.setAttribute('download', filename);
-          link.click();
-        })();
-      });
-    },
-  },
-  beforeDestroy() {
-
-  },
-};
+  export default {
+  	name: 'LocationsTable',
+  	components: {
+  		DataTable,
+  	},
+  	data() {
+  		return {
+  			gridColumns: [
+  				'Location',
+  				'Project title',
+  				'Start Date',
+  				'End Date',
+  				'NDP Pillar',
+  				'SubSector',
+  				'Funders',
+  				'2015 Project Location Allocation',
+  				'2016 Project Location Allocation',
+  				'2017 Project Location Allocation',
+  				'Location Total 2015-17',
+  				'Project objectives / purpose',
+  				'Implementers',
+  			],
+  			columnsToDisplay: [
+  				'Project title',
+  				'Start Date',
+  				'End Date',
+  				'NDP Pillar',
+  				'SubSector',
+  				'2015 Project Location Allocation',
+  				'2016 Project Location Allocation',
+  				'2017 Project Location Allocation',
+  				'Location Total 2015-17',
+  			],
+  			searchQuery: '',
+  			displayNames: {
+  				'Project title': 'Project Title',
+  				'Location Total 2015-17': 'Total Project Location Value (2015-17)',
+  				'2015 Project Location Allocation': '2015',
+  				'2016 Project Location Allocation': '2016',
+  				'2017 Project Location Allocation': '2017',
+  				SubSector: 'Primary Sector',
+  			},
+  		};
+  	},
+  	methods: {
+  		exportCSV() {
+  			// jsonexport(locations, (err, csv) => {
+  			// 	if (err) return console.log(err);
+  			// 	(function downloadCSV(args) {
+  			// 		if (csv === null) return;
+  			// 		const filename = 'Somalia_Aid_Flows_Project_Location_Data.csv';
+  			// 		if (!csv.match(/^data:text\/csv/i)) {
+  			// 			csv = 'data:text/csv;charset=utf-8,' + csv;
+  			// 		}
+  			// 		const data = encodeURI(csv);
+  			// 		let link = document.createElement('a');
+  			// 		link.setAttribute('href', data);
+  			// 		link.setAttribute('download', filename);
+  			// 		link.click();
+  			// 	})();
+  			// });
+  		},
+  	},
+  	beforeDestroy() {},
+  };
 </script>
 
 <style scoped>
   .scrollable {
-    position: relative;
-    overflow: auto;
+  	position: relative;
+  	overflow: auto;
   }
   .level {
-    margin-top: 2%;
-    margin-bottom: 0%;
+  	margin-top: 2%;
+  	margin-bottom: 0%;
   }
   input {
-    width: 300px;
+  	width: 300px;
   }
 </style>

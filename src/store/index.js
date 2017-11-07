@@ -4,6 +4,10 @@ import axios from 'axios';
 
 Vue.use(Vuex);
 
+const api = axios.create({
+	baseURL: 'https://api.myjson.com/bins',
+});
+
 export default new Vuex.Store({
 	state: {
 		rawData: null,
@@ -11,7 +15,7 @@ export default new Vuex.Store({
 
 	actions: {
 		FETCH_DATA: ({ commit }) => {
-			return axios.get('https://api.myjson.com/bins/16qbu7').then(res => {
+			return api.get('/16qbu7').then(res => {
 				commit('SET_RAW_DATA', res.data);
 			});
 		},

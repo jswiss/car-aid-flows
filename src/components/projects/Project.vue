@@ -183,132 +183,123 @@
 </template>
 
 <script type="text/javascript">
-  import store from '../../vuex/store';
+  import store from '../../store';
 
-  const projects = store.state.projectTable;
-
-   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-99055406-1', 'auto');
-    ga('send', 'pageview');
+  // const projects = store.state.projectTable;
 
   export default {
-    name: 'Project',
-    data() {
-      return {
-        projects: projects,
-        project: null,
-      };
-    },
-    mounted() {
-      this.fetchData();
-    },
-    watch: {
-      '$route': 'fetchData', 
-    },
-    methods: {
-      fetchData() {
-        const projectName = this.$route.params.projectName;
-        function findProject(project) {
-          return project['Project title'] === projectName;
-        }
-        this.project = projects.find(findProject);
-        console.log(this.project);
-      },
-      printPage(el) {
-        window.print();
-      }
-    },
-  }
+  	name: 'Project',
+  	data() {
+  		return {
+  			// projects: projects,
+  			// project: null,
+  		};
+  	},
+  	mounted() {
+  		this.fetchData();
+  	},
+  	watch: {
+  		$route: 'fetchData',
+  	},
+  	methods: {
+  		fetchData() {
+  			const projectName = this.$route.params.projectName;
+  			function findProject(project) {
+  				return project['Project title'] === projectName;
+  			}
+  			this.project = projects.find(findProject);
+  			console.log(this.project);
+  		},
+  		printPage(el) {
+  			window.print();
+  		},
+  	},
+  };
 </script>
 
 <style scoped>
   #title {
-    margin-top: 20px;
+  	margin-top: 20px;
   }
   #pillars {
-    margin-top: 1%;
+  	margin-top: 1%;
   }
   .title {
-    margin-bottom: 2px;
+  	margin-bottom: 2px;
   }
   .year-row {
-    font-weight: bold;
+  	font-weight: bold;
   }
   #table-allocation {
-    margin-top: 2%;
+  	margin-top: 2%;
   }
   .info-box {
-    border: 1px solid #8D8D8D;
-    margin: 2%;
-    padding: 0% 2% 1% 2%;
-    box-shadow: 1px 1px 3px #c6c6c6;
+  	border: 1px solid #8d8d8d;
+  	margin: 2%;
+  	padding: 0% 2% 1% 2%;
+  	box-shadow: 1px 1px 3px #c6c6c6;
   }
   .info-title {
-    margin-top: 2%;
+  	margin-top: 2%;
   }
   #total-value {
-    font-weight: bold;
+  	font-weight: bold;
   }
   #value {
-    margin-top: 1%;
+  	margin-top: 1%;
   }
   #funder {
-    margin-top: 1%;
+  	margin-top: 1%;
   }
   #focuses {
-    margin-top: 1%;
+  	margin-top: 1%;
   }
   #dates {
-    margin-top: 1%;
+  	margin-top: 1%;
   }
   @media print {
-    #pillars {
-      margin-top: 1%;
-    }
-    .title {
-      margin-bottom: 2px;
-    }
-    .year-row {
-      font-weight: bold;
-    }
-    #table-allocation {
-      margin-top: 2%;
-    }
-    .info-box {
-      border: 1px solid #8D8D8D;
-      margin: 2%;
-      padding: 0% 2% 1% 2%;
-      box-shadow: 1px 1px 3px #c6c6c6;
-    }
-    .info-title {
-      margin-top: 2%;
-    }
-    #total-value {
-      font-weight: bold;
-    }
-    #value {
-      margin-top: 1%;
-    }
-    #funder {
-      margin-top: 1%;
-    }
-    #focuses {
-      margin-top: 1%;
-    }
+  	#pillars {
+  		margin-top: 1%;
+  	}
+  	.title {
+  		margin-bottom: 2px;
+  	}
+  	.year-row {
+  		font-weight: bold;
+  	}
+  	#table-allocation {
+  		margin-top: 2%;
+  	}
+  	.info-box {
+  		border: 1px solid #8d8d8d;
+  		margin: 2%;
+  		padding: 0% 2% 1% 2%;
+  		box-shadow: 1px 1px 3px #c6c6c6;
+  	}
+  	.info-title {
+  		margin-top: 2%;
+  	}
+  	#total-value {
+  		font-weight: bold;
+  	}
+  	#value {
+  		margin-top: 1%;
+  	}
+  	#funder {
+  		margin-top: 1%;
+  	}
+  	#focuses {
+  		margin-top: 1%;
+  	}
   }
   template {
-    margin: 70px;
+  	margin: 70px;
   }
   #topmost {
-    margin-top: 50px;
+  	margin-top: 50px;
   }
   #title-link {
-    color: black;
-    text-decoration: none;
+  	color: black;
+  	text-decoration: none;
   }
-
 </style>

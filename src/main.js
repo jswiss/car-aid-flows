@@ -1,17 +1,10 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
-import accounting from 'accounting';
 import App from './App';
 import store from './store';
 import router from './router';
 import navbar from './components/Navbar';
-
-Vue.filter('currency', val => accounting.formatNumber(val));
-Vue.filter('decimal', val => accounting.formatNumber(val, 2));
-
-const projectData = require('./assets/project-master-csv.csv');
-const donorData = require('./assets/donor-envelopes-csv.csv');
 
 Vue.config.productionTip = false;
 
@@ -30,10 +23,7 @@ new Vue({
 	router,
 	store,
 	data() {
-		return {
-			projectData,
-			donorData,
-		};
+		return {};
 	},
 	components: {
 		navbar,
