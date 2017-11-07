@@ -92,20 +92,6 @@
   import Vue from 'vue';
   import jsonexport from 'jsonexport';
   import DataTable from './v-data-table.vue';
-  import store from '../../store';
-
-  // locations.forEach(d => {
-  // 	d['2015 Project Location Allocation'] = +d[
-  // 		'2015 Project Location Allocation'
-  // 	];
-  // 	d['2016 Project Location Allocation'] = +d[
-  // 		'2016 Project Location Allocation'
-  // 	];
-  // 	d['2017 Project Location Allocation'] = +d[
-  // 		'2017 Project Location Allocation'
-  // 	];
-  // 	d['Location Total 2015-17'] = +d['Location Total 2015-17'];
-  // });
 
   export default {
   	name: 'LocationsTable',
@@ -114,6 +100,11 @@
   	},
   	data() {
   		return {
+  			locations: this.$store.dispatch('FETCH_DATA').then(d => {
+  				// parse data here
+  				const raw = this.$store.state.rawData;
+  				console.log(raw);
+  			}),
   			gridColumns: [
   				'Location',
   				'Project title',
@@ -153,21 +144,21 @@
   	},
   	methods: {
   		exportCSV() {
-  			// jsonexport(locations, (err, csv) => {
-  			// 	if (err) return console.log(err);
-  			// 	(function downloadCSV(args) {
-  			// 		if (csv === null) return;
-  			// 		const filename = 'Somalia_Aid_Flows_Project_Location_Data.csv';
-  			// 		if (!csv.match(/^data:text\/csv/i)) {
-  			// 			csv = 'data:text/csv;charset=utf-8,' + csv;
-  			// 		}
-  			// 		const data = encodeURI(csv);
-  			// 		let link = document.createElement('a');
-  			// 		link.setAttribute('href', data);
-  			// 		link.setAttribute('download', filename);
-  			// 		link.click();
-  			// 	})();
-  			// });
+  			jsonexport(locations, (err, csv) => {
+  				if (err) return console.log(err);
+  				(function downloadCSV(args) {
+  					if (csv === null) return;
+  					const filename = 'localisations.csv';
+  					if (!csv.match(/^data:text\/csv/i)) {
+  						csv = 'data:text/csv;charset=utf-8,' + csv;
+  					}
+  					const data = encodeURI(csv);
+  					let link = document.createElement('a');
+  					link.setAttribute('href', data);
+  					link.setAttribute('download', filename);
+  					link.click();
+  				})();
+  			});
   		},
   	},
   	beforeDestroy() {},

@@ -38,6 +38,7 @@
 </template>
 
 <script type="text/javascript">
+  import axios from 'axios';
   import HomeText from './HomeText';
   import TreeTabs from './treemap/TreeTabs';
   import TreeMap2015 from './treemap/TreeMap2015';
@@ -57,11 +58,20 @@
   		return {
   			tree: '',
   			tree2017: true,
-  			raw: this.$store.dispatch('FETCH_DATA').then(d => {
-  				// parse data here
-  				console.log(this.$store.state.rawData);
-  			}),
+  			raw: '',
   		};
+  	},
+  	beforeCreate() {
+  		axios
+  			.get('https://api.myjson.com/bins/16qbu7')
+  			.then(res => {
+  				this.$store.commit('SET_RAW_DATA', res.data);
+  			})
+  			.catch(err => console.log(err));
+  	},
+  	created() {
+  		this.raw = this.$store.state.raw;
+  		console.log(this.raw);
   	},
   };
 </script>

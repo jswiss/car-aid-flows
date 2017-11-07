@@ -29,48 +29,6 @@
         </a>
       </div>
     </nav>
-    <div class="scrollable">
-      <data-table class="table is-bordered is-striped is-narrow"
-        :data="projects"
-        :columns-to-display="columnsToDisplay"
-        :display-names="displayNames"
-        :filter-key="searchQuery"
-        :child-hideable="true"
-        :child-init-hide="true"
-        :columns-to-not-display="true"
-      >
-        <template slot="Project title" scope="props">
-          <a v-bind:href="`http://somaliaaidflows.so/projects/${props.entry['Project title']}`"><p class="url">{{ props.entry['Project title'] }}</p></a>
-        </template>
-        <template slot="Start Date" scope="props">
-          <p>{{ props.entry['Start Date'] || 'n/a' }}</p>
-        </template>
-        <template slot="End Date " scope="props">
-          <p>{{ props.entry['End Date'] || 'n/a' }}</p>
-        </template>
-        <template slot="Sum 2015-17" scope="props">
-          <p>${{ props.entry['Sum 2015-17']  | currency }}</p>
-        </template>
-        <template slot="2015 Disbursements (USD)" scope="props">
-          <p>{{ props.entry['2015 Disbursements (USD)']  | currency }}</p>
-        </template>
-        <template slot="2016 Disbursements (USD)" scope="props">
-          <p>{{ props.entry['2016 Disbursements (USD)']  | currency }}</p>
-        </template>
-        <template slot="2017 Disbursements (USD)" scope="props">
-          <p>{{ props.entry['2017 Disbursements (USD)']  | currency }}</p>
-        </template>
-        <template slot="child" scope="props">
-          <b>Project Description: </b>{{ props.entry['Project objectives / purpose'] || 'n/a' }}
-          <br>
-          <br>
-          <b>Funders: </b>{{ props.entry['Funders'] || 'n/a' }}
-          <br>
-          <br>
-          <b>Implementers: </b>{{ props.entry['Implementers'] || 'n/a' }}
-        </template>
-      </data-table>
-    </div>
   </div>
 </template>
 
@@ -80,7 +38,6 @@
   import Vue from 'vue';
   import jsonexport from 'jsonexport';
   import DataTable from './v-data-table.vue';
-  import store from '../../store';
 
   export default {
   	name: 'ProjectTable',
@@ -123,6 +80,9 @@
   				'2017 Disbursements (USD)': '2017',
   			},
   		};
+  	},
+  	mounted() {
+  		console.log(this.$store.state.raw);
   	},
   	methods: {
   		exportCSV() {

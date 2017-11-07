@@ -13,6 +13,7 @@
 		"lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
 	},
 	"dependencies": {
+		"anychart": "^8.0.1",
 		"axios": "^0.15.3",
 		"babel-preset-es2015": "^6.24.1",
 		"bulma": "^0.4.1",
