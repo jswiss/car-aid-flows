@@ -13,17 +13,17 @@
             2017 Project-level Disbursements
           </label>
           <label class="radio">
-            <input type="radio" name="question" value="2016" v-on:click="tree = 2016, tree2017 = false">
-            2016 Project-level Disbursements
+            <input type="radio" name="question" value="2018" v-on:click="tree = 2018, tree2018 = false">
+            2018 Project-level Disbursements
           </label>
           <label class="radio">
-            <input type="radio" name="question" value="2015" v-on:click="tree = 2015, tree2017 = false">
-            2015 Project-level Disbursements
+            <input type="radio" name="question" value="2019" v-on:click="tree = 2019, tree2019 = false">
+            2019 Project-level Disbursements
           </label>
         </p>
-        <tree-map-2015 v-if="tree === 2015"></tree-map-2015>
-        <tree-map-2016 v-if="tree === 2016"></tree-map-2016>
         <tree-map-2017 v-if="tree2017"></tree-map-2017>
+        <tree-map-2018 v-if="tree === 2018"></tree-map-2018>
+        <tree-map-2019 v-if="tree === 2019"></tree-map-2019>
         <div class="disclaimer">
           <p class="disclaimer-text">
             * Projects under a certain value, relative to the largest project within each subsector, are not shown in this chart. To see all projects, please visit the <router-link to="/tables/projects">projects table</router-link>.
@@ -41,54 +41,34 @@
   import axios from 'axios';
   import HomeText from './HomeText';
   import TreeTabs from './treemap/TreeTabs';
-  import TreeMap2015 from './treemap/TreeMap2015';
-  import TreeMap2016 from './treemap/TreeMap2016';
   import TreeMap2017 from './treemap/TreeMap2017';
-  // import { reduceObj } from '../utils/helpers';
+  import TreeMap2018 from './treemap/TreeMap2018';
+  import TreeMap2019 from './treemap/TreeMap2019';
 
   export default {
   	name: 'home',
   	components: {
   		HomeText,
   		TreeTabs,
-  		TreeMap2015,
-  		TreeMap2016,
   		TreeMap2017,
+  		TreeMap2018,
+  		TreeMap2019,
   	},
   	data() {
   		return {
   			tree: '',
   			tree2017: true,
   			raw: '',
-  			newData: {},
   		};
   	},
   	beforeCreate() {
   		axios
   			.get('https://api.myjson.com/bins/16qbu7')
   			.then(res => {
-  				this.$store.commit('SET_RAW_DATA', res.data);
+  				this.raw = res.data;
+  				// this.$store.commit('SET_RAW_DATA', res.data);
   			})
   			.catch(err => console.log(err));
-  	},
-  	created() {
-  		this.raw = this.$store.state.raw;
-  	},
-  	mounted() {
-  		this.newData = this.raw.map(d => {
-  			return {
-  				'Nom du projet': d['Nom du projet'],
-  				'Date de début': d['Date de début'],
-  				'Date de clôture': d['Date de clôture'],
-  				Pilier: d['Pilier'],
-  				Composante: d['Composante'],
-  				'Secteur principal': d['Secteur principal'],
-  				'Décaissements 2017 USD': d['Décaissements 2017 USD'],
-  				'Décaissements 2018 USD': d['Décaissements 2018 USD'],
-  				'Décaissements 2019 USD': d['Décaissements 2019 USD'],
-  			};
-  		});
-  		console.log(this.newData);
   	},
   };
 </script>

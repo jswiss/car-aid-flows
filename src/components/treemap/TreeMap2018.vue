@@ -1,5 +1,5 @@
- <!--tree2017 component-->
-<template>
+ <!--Tree 2018 component-->
+<template v-if="seen">
   <div id="treemap-=content" class="columns is-mobile">
     <div class="column">
       <div id="container" style="width: 100%; height: 500px;"></div>
@@ -7,25 +7,21 @@
   </div>
 </template>
 
-<script type='module'>
-	import '../../../node_modules/anychart/dist/js/anychart-base.min.js';
-	import '../../../node_modules/anychart/dist/js/anychart-treemap.min.js';
-
+<script type='text/javascript'>
 	anychart.licenseKey('80outrage-432962df-89451e8b');
 
 	export default {
-		name: 'TreeMap2017',
+		name: 'TreeMap2018',
+		props: [],
 		data() {
-			return {
-				// tree2017: tree2017,
-			};
+			return {};
 		},
 		mounted() {
 			// this.treeMap();
 		},
-		watch: {},
 		methods: {
 			treeMap() {
+				const years = document.querySelectorAll('input');
 				const colorScheme = [
 					'#45B9EA',
 					'#262261',
@@ -42,16 +38,19 @@
 					'#ecf8fc',
 				];
 				const colorRange = ['#262261', '#45B9EA'];
-				// const year2017 = anychart.data.tree(tree2017, anychart.enums.TreeFillingMethod.AS_TREE);
+				const year2018 = anychart.data.tree(
+					// tree2018,
+					anychart.enums.TreeFillingMethod.AS_TREE
+				);
 
-				// const chart = anychart.treeMap(year2017);
+				// const chart = anychart.treeMap(year2018);
 				chart
 					.headers()
 					.format(
 						'{%name} :: Project disbursements: ${%value}{groupsSeparator:\\,}'
 					);
-				chart.headers().fontSize(15);
 				chart.headers().fontWeight('bold');
+				chart.headers().fontSize(15);
 				chart.labels().format('{%name}');
 				chart.labels().textWrap('byWord');
 				chart.labels().fontSize(10.5);
