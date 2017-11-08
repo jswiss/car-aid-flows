@@ -86,7 +86,6 @@
   import Vue from 'vue';
   import jsonexport from 'jsonexport';
   import DataTable from './v-data-table.vue';
-  import store from '../../store';
 
   // funds.forEach(d => {
   // 	d['2015'] = parseInt(d['2015']);

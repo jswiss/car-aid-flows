@@ -6,4 +6,6 @@ function reduceObj(arr, obj) {
 	}
 }
 
+const projectTable = [];
+
 export { reduceObj };

@@ -183,10 +183,6 @@
 </template>
 
 <script type="text/javascript">
-  import store from '../../store';
-
-  // const projects = store.state.projectTable;
-
   export default {
   	name: 'Project',
   	data() {

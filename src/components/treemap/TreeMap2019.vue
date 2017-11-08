@@ -8,9 +8,6 @@
 </template>
 
 <script type='text/javascript'>
-	// import * as d3 from 'd3';
-	import store from '../../store';
-
 	anychart.licenseKey('80outrage-432962df-89451e8b');
 
 	export default {

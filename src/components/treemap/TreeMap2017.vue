@@ -1,9 +1,9 @@
  <!--tree2017 component-->
-<template>
+<template v-cloak>
   <div id="treemap-=content" class="columns is-mobile">
     <div class="column">
       <div id="container" style="width: 100%; height: 500px;"></div>
-			<div :raw="raw">{{ raw }}</div>
+			<div>{{filtered}}</div>
     </div>
   </div>
 </template>
@@ -20,8 +20,8 @@
 		data() {
 			return {
 				tree2017: '',
-				base: Object.assign(this.raw),
-				arr: this.$store.state.projectTableArray,
+				// base: Object.assign(this.raw),
+				cleaned: '',
 			};
 		},
 
@@ -86,6 +86,7 @@
 				chart.draw();
 			},
 		},
+
 		computed: {
 			filtered() {
 				return this.raw.map(k => {
@@ -109,6 +110,12 @@
 </script>
 
 <style scoped>
+	[v-cloak] > * {
+		display: none;
+	}
+	[v-cloak]::before {
+		content: 'loading…';
+	}
 	.buttons {
 		float: left;
 		margin-top: 8px;

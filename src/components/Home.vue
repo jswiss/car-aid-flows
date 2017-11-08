@@ -38,14 +38,13 @@
 </template>
 
 <script type="text/javascript">
-  import axios from 'axios';
   import HomeText from './HomeText';
   import TreeTabs from './treemap/TreeTabs';
   import TreeMap2017 from './treemap/TreeMap2017';
   import TreeMap2018 from './treemap/TreeMap2018';
   import TreeMap2019 from './treemap/TreeMap2019';
 
-  // const raw = require('../assets/data/aidflows.json');
+  const raw = require('../assets/data/aidflows.json');
 
   export default {
   	name: 'home',
@@ -60,17 +59,8 @@
   		return {
   			tree: '',
   			tree2017: true,
-  			raw: '',
+  			raw: raw,
   		};
-  	},
-  	beforeCreate() {
-  		axios
-  			.get('https://api.myjson.com/bins/16qbu7')
-  			.then(res => {
-  				this.raw = res.data;
-  				// this.$store.commit('SET_RAW_DATA', res.data);
-  			})
-  			.catch(err => console.log(err));
   	},
   };
 </script>

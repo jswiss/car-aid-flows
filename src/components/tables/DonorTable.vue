@@ -95,7 +95,6 @@
   import Vue from 'vue';
   import jsonexport from 'jsonexport';
   import DataTable from './v-data-table.vue';
-  import store from '../../store';
 
   export default {
   	name: 'DonorTable',
