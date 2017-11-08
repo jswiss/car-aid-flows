@@ -26,6 +26,7 @@
         <tree-map-2019 :raw="raw" v-if="tree === 2019"></tree-map-2019>
         <div class="disclaimer">
           <p class="disclaimer-text">
+          {{ test | uppercase }}
             * Projects under a certain value, relative to the largest project within each subsector, are not shown in this chart. To see all projects, please visit the <router-link to="/tables/projects">projects table</router-link>.
           </p>
         </div>
@@ -60,6 +61,7 @@
   			tree: '',
   			tree2017: true,
   			raw: raw,
+  			test: 'alllllll',
   		};
   	},
   };
