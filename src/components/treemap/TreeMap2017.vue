@@ -3,6 +3,7 @@
   <div id="treemap-=content" class="columns is-mobile">
     <div class="column">
       <div id="container" style="width: 100%; height: 500px;"></div>
+			<div :raw="raw">{{ raw }}</div>
     </div>
   </div>
 </template>
@@ -15,6 +16,7 @@
 
 	export default {
 		name: 'TreeMap2017',
+		props: ['raw'],
 		data() {
 			return {
 				// tree2017: tree2017,
@@ -23,7 +25,6 @@
 		mounted() {
 			// this.treeMap();
 		},
-		watch: {},
 		methods: {
 			treeMap() {
 				const colorScheme = [
