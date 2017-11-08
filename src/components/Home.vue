@@ -44,7 +44,7 @@
   import TreeMap2018 from './treemap/TreeMap2018';
   import TreeMap2019 from './treemap/TreeMap2019';
 
-  const raw = require('../assets/data/aidflows.json');
+  import { raw, allHeaders } from '../utils/store';
 
   export default {
   	name: 'home',

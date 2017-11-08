@@ -9,6 +9,18 @@ Vue.config.productionTip = false;
 
 // anychart(process.env.ANYCHART_ID);
 
+Vue.filter('capitalizeAll', value => {
+	if (!value) return '';
+	value = value.toString();
+	value.toUpperCase();
+});
+
+Vue.filter('capitalize', value => {
+	if (!value) return '';
+	value = value.toString();
+	value.toUpperCase();
+});
+
 /* eslint-disable no-new */
 new Vue({
 	template: `

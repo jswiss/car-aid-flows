@@ -100,11 +100,7 @@
   	},
   	data() {
   		return {
-  			locations: this.$store.dispatch('FETCH_DATA').then(d => {
-  				// parse data here
-  				const raw = this.$store.state.rawData;
-  				console.log(raw);
-  			}),
+  			locations: '',
   			gridColumns: [
   				'Location',
   				'Project title',
