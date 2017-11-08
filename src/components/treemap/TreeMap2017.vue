@@ -19,12 +19,12 @@
 		props: ['raw'],
 		data() {
 			return {
-				// tree2017: tree2017,
+				tree2017: '',
+				base: Object.assign(this.raw),
+				arr: this.$store.state.projectTableArray,
 			};
 		},
-		mounted() {
-			// this.treeMap();
-		},
+
 		methods: {
 			treeMap() {
 				const colorScheme = [
@@ -84,6 +84,25 @@
 				);
 				chart.container('container');
 				chart.draw();
+			},
+		},
+		computed: {
+			filtered() {
+				return this.raw.map(k => {
+					return {
+						name: k['Nom du projet'],
+						startDate: k['Date de début'],
+						endDate: k['Date de clôture'],
+						pillar: k['Pilier'],
+						component: k['Composante'],
+						primarySector: k['Secteur principal'],
+						totalUSD: k['Montant du projet USD'],
+						usd2017: k['Décaissements 2017 USD'],
+						projectedUSD2017: k['Prévision de décaissements 2017 USD'],
+						projectedUSD2018: k['Prévision de décaissements 2018 USD'],
+						projectedUSD2019: k['Prévision de décaissements 2019 USD'],
+					};
+				});
 			},
 		},
 	};
