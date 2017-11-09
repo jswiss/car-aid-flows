@@ -10,11 +10,14 @@ Vue.config.productionTip = false;
 
 // anychart(process.env.ANYCHART_ID);
 
-Vue.filter('currency', val => accounting.formatNumber(val));
-Vue.filter('decimal', val => accounting.formatNumber(val, 2));
-Vue.filter('uppercase', function(val) {
-	return val.toUpperCase();
+Vue.filter('currency', function(value) {
+	return value
+		.toString()
+		.replace(/,/g, '')
+		.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 });
+Vue.filter('decimal', value => accounting.formatNumber(value, 2));
+
 /* eslint-disable no-new */
 new Vue({
 	template: `

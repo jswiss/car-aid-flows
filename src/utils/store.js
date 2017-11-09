@@ -7,6 +7,10 @@ const allHeaders = Object.keys(first);
 const locations = raw.map(k => {
 	return {
 		name: k['Nom du projet'],
+		objectives: k['Objectifs du projet'],
+		implementers: k["Partenaires d'exécution"],
+		donors: k['Bailleurs'],
+		ministry: k['Ministère de tutelle'],
 		startDate: k['Date de début'],
 		endDate: k['Date de clôture'],
 		pillar: k['Pilier'],
@@ -22,7 +26,7 @@ const locations = raw.map(k => {
 		lobaye: k['Lobaye'],
 		nanaMambere: k['Nana-Mambéré'],
 		mambereKadei: k['Mambéré-Kadéï'],
-		sanghaMambere: k['Sangha-Mbaéré'],
+		sanghaMbaere: k['Sangha-Mbaéré'],
 		ouham: k['Ouham'],
 		ouhamPende: k['Ouham-Pendé'],
 		ouaka: k['Ouaka'],
@@ -31,7 +35,7 @@ const locations = raw.map(k => {
 		baminguiBangoran: k['Bamingui-Bangoran'],
 		vakaga: k['Vakaga'],
 		hauteKotto: k['Haute-Kotto'],
-		basseKotto: ['Basse-Kotto'],
+		basseKotto: k['Basse-Kotto'],
 		mbomou: k['Mbomou'],
 		hautMbomou: k['Haut-Mbomou'],
 	};
@@ -60,8 +64,12 @@ const locationNames = [
 const locationHeaders = [];
 
 const locationTable = locations.reduce((r, o) => {
-	var exc = [
+	let exc = [
 		'name',
+		'objectives',
+		'implementers',
+		'donors',
+		'ministry',
 		'startDate',
 		'endDate',
 		'pillar',
@@ -79,6 +87,10 @@ const locationTable = locations.reduce((r, o) => {
 				location: k,
 				locationValue: o[k],
 				name: o.name,
+				objective: o.objectives,
+				implementers: o.implementers,
+				donors: o.donors,
+				ministry: o.ministry,
 				startDate: o.startDate,
 				endDate: o.endDate,
 				pillar: o.pillar,
@@ -91,4 +103,11 @@ const locationTable = locations.reduce((r, o) => {
 	return r;
 }, []);
 
-export { raw, allHeaders, locationTable, locationHeaders };
+export {
+	locations,
+	raw,
+	allHeaders,
+	locationNames,
+	locationTable,
+	locationHeaders,
+};

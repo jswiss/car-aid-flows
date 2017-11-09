@@ -44,7 +44,9 @@
   import TreeMap2018 from './treemap/TreeMap2018';
   import TreeMap2019 from './treemap/TreeMap2019';
 
-  import { raw } from '../utils/store';
+  import { raw, locations } from '../utils/store';
+
+  console.log(locations);
 
   export default {
   	name: 'home',

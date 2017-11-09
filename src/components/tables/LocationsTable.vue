@@ -5,7 +5,7 @@
         <div class="level-item">
           <div class="filter-bar control is-grouped">
             <div class="field">
-              <label for="" class="label">Select a Location</label>
+              <label for="" class="label">Sélectionnez un lieu</label>
               <p class="control">
                 <span class="select">
                   <select 
@@ -14,7 +14,7 @@
                     v-model="searchQuery"
                     value="search"
                   >
-                    <option value="">All Locations</option>
+                    <option value="">tous les endroits</option>
                     <option value="baminguiBangoran">Bamingui-Bangoran</option>
                     <option value="bangui">Bangui</option>
                     <option value="basseKotto">Basse-Kotto</option>
@@ -45,48 +45,42 @@
         <span class="icon">
           <i class="fa fa-table"></i>
         </span>
-        <span>Export Table</span>
+        <span>table d'exportation</span>
         </a>
       </div>
     </nav>
     <div class="scrollable">
       <data-table class="table is-bordered is-striped is-narrow"
-        :data="locations"
+        :data="locationTable"
         :columns-to-display="columnsToDisplay"
         :display-names="displayNames"
         :filter-key="searchQuery"
         :child-hideable="true"
         :child-init-hide="true"
       >
-        <template slot="Project title" scope="props">
-          <a v-bind:href="`http://somaliaaidflows.so/projects/${props.entry['Project title']}`"><p class="url">{{ props.entry['Project title'] }}</p></a>
+        <template slot="Project Title" scope="props">
+          <a v-bind:href="`http://somaliaaidflows.so/projects/${props.entry['name']}`"><p class="url">{{ props.entry['name'] }}</p></a>
         </template>
         <template slot="Start Date" scope="props">
-          <p>{{ props.entry['Start Date'] || 'n/a' }}</p>
+          <p>{{ props.entry['startDate'] || 'n/a' }}</p>
         </template>
-        <template slot="End Date " scope="props">
-          <p>{{ props.entry['End Date '] || 'n/a' }}</p>
+        <template slot="End Date" scope="props">
+          <p>{{ props.entry['endDate'] || 'n/a' }}</p>
         </template>
-        <template slot="Location Total 2015-17" scope="props">
-          <p>${{ props.entry['Location Total 2015-17']  | currency }}</p>
-        </template>
-        <template slot="2015 Project Location Allocation" scope="props">
-          <p>{{ props.entry['2015 Project Location Allocation']  | currency }}</p>
-        </template>
-        <template slot="2016 Project Location Allocation" scope="props">
-          <p>{{ props.entry['2016 Project Location Allocation']  | currency }}</p>
-        </template>
-        <template slot="2017 Project Location Allocation" scope="props">
-          <p>{{ props.entry['2017 Project Location Allocation']  | currency }}</p>
+        <template slot="totalUSD" scope="props">
+          <p>${{ props.entry.totalUSD | currency }}</p>
         </template>
         <template slot="child" scope="props">
-          <b>Project Description: </b>{{ props.entry['Project objectives / purpose'] || 'n/a' }}
+          <b>Project Description: </b>{{ props.entry['objective'] || 'n/a' }}
           <br>
           <br>
-          <b>Funders: </b>{{ props.entry['Funders'] || 'n/a' }}
+          <b>Funders: </b>{{ props.entry['donors'] || 'n/a' }}
           <br>
           <br>
-          <b>Implementers: </b>{{ props.entry['Implementers'] || 'n/a' }}
+          <b>Implementers: </b>{{ props.entry['implementers'] || 'n/a' }}
+          <br>
+          <br>
+          <b>Ministry: </b>{{ props.entry['ministry'] || 'n/a' }}
         </template>
       </data-table>
     </div>
@@ -97,11 +91,11 @@
   import Vue from 'vue';
   import jsonexport from 'jsonexport';
   import DataTable from './v-data-table.vue';
-  import {
-  	locationNames,
-  	locationTable,
-  	locationHeaders,
-  } from '../../utils/store';
+  import { locationTable } from '../../utils/store';
+
+  locationTable.forEach(k => {
+  	k.totalUSD = +k.totalUSD;
+  });
 
   export default {
   	name: 'LocationsTable',
@@ -112,26 +106,42 @@
   		return {
   			locationTable,
   			locations: '',
-  			gridColumns: [locationHeaders],
-  			columnsToDisplay: [locationHeaders],
+  			gridColumns: [
+  				'location',
+  				'locationValue',
+  				'name',
+  				'objectives',
+  				'implementers',
+  				'donors',
+  				'ministry',
+  				'startDate',
+  				'endDate',
+  				'pillar',
+  				'component',
+  				'primarySector',
+  				'totalUSD',
+  				'usd2017',
+  				'projectedUSD2017',
+  				'projectedUSD2018',
+  				'projectedUSD2019',
+  			],
+  			columnsToDisplay: ['name', 'startDate', 'endDate', 'totalUSD'],
   			searchQuery: '',
   			displayNames: {
-  				'Project title': 'Project Title',
-  				'Location Total 2015-17': 'Total Project Location Value (2015-17)',
-  				'2015 Project Location Allocation': '2015',
-  				'2016 Project Location Allocation': '2016',
-  				'2017 Project Location Allocation': '2017',
-  				SubSector: 'Primary Sector',
+  				name: 'Project Name',
+  				startDate: 'Start Date',
+  				endDate: 'End Date',
+  				totalUSD: 'Total USD',
   			},
   		};
   	},
   	methods: {
   		exportCSV() {
-  			jsonexport(locations, (err, csv) => {
+  			jsonexport(locationTable, (err, csv) => {
   				if (err) return console.log(err);
   				(function downloadCSV(args) {
   					if (csv === null) return;
-  					const filename = 'localisations.csv';
+  					const filename = 'endroits.csv';
   					if (!csv.match(/^data:text\/csv/i)) {
   						csv = 'data:text/csv;charset=utf-8,' + csv;
   					}
