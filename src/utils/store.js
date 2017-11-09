@@ -97,6 +97,9 @@ const locationTable = locations.reduce((r, o) => {
 				component: o.component,
 				primarySector: o.primarySector,
 				totalUSD: o.totalUSD,
+				projectedUSD2017: o.projectedUSD2017,
+				projectedUSD2018: o.projectedUSD2018,
+				projectedUSD2019: o.projectedUSD2019,
 			});
 		}
 	});

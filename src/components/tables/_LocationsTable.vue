@@ -49,13 +49,6 @@
         </a>
       </div>
     </nav>
-    <div id="location-table">
-      <v-client-table
-        :data="locationTable"
-        :columns="columnsToDisplay"
-        :options="options"
-      ></v-client-table>
-    </div>
     <div class="scrollable">
       <data-table class="table is-bordered is-striped is-narrow"
         :data="locationTable"
@@ -98,14 +91,14 @@
 <script>
   import Vue from 'vue';
   import jsonexport from 'jsonexport';
-  import { ClientTable, Event } from 'vue-tables-2';
+  import DataTable from './v-data-table.vue';
   import { locationTable } from '../../utils/store';
-
-  Vue.use(ClientTable, {});
 
   export default {
   	name: 'LocationsTable',
-  	components: {},
+  	components: {
+  		DataTable,
+  	},
   	data() {
   		return {
   			locationTable,
