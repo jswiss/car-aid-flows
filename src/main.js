@@ -1,7 +1,6 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
-import accounting from 'accounting';
 import App from './App';
 import router from './router';
 import navbar from './components/Navbar';
@@ -16,7 +15,6 @@ Vue.filter('currency', function(value) {
 		.replace(/,/g, '')
 		.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 });
-Vue.filter('decimal', value => accounting.formatNumber(value, 2));
 
 /* eslint-disable no-new */
 new Vue({
