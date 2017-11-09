@@ -3,7 +3,6 @@
   <div id="treemap-=content" class="columns is-mobile">
     <div class="column">
       <div id="container" style="width: 100%; height: 500px;"></div>
-			<div>{{filtered}}</div>
     </div>
   </div>
 </template>
@@ -20,7 +19,6 @@
 		data() {
 			return {
 				tree2017: '',
-				// base: Object.assign(this.raw),
 				cleaned: '',
 			};
 		},

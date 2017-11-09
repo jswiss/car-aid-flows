@@ -26,7 +26,6 @@
         <tree-map-2019 :raw="raw" v-if="tree === 2019"></tree-map-2019>
         <div class="disclaimer">
           <p class="disclaimer-text">
-          {{ test | uppercase }}
             * Projects under a certain value, relative to the largest project within each subsector, are not shown in this chart. To see all projects, please visit the <router-link to="/tables/projects">projects table</router-link>.
           </p>
         </div>
@@ -45,7 +44,7 @@
   import TreeMap2018 from './treemap/TreeMap2018';
   import TreeMap2019 from './treemap/TreeMap2019';
 
-  import { raw, allHeaders } from '../utils/store';
+  import { raw } from '../utils/store';
 
   export default {
   	name: 'home',

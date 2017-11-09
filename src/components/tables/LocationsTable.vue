@@ -15,15 +15,22 @@
                     value="search"
                   >
                     <option value="">All Locations</option>
-                    <option value="FGS">FGS</option>
-                    <option value="Benadir">Benadir</option>
-                    <option value="Galmudug">Galmudug</option>
-                    <option value="HiirShabelle">HiirShabelle</option>
-                    <option value="Jubaland">Jubaland</option>
-                    <option value="Puntland">Puntland</option>
-                    <option value="South West">South West</option>
-                    <option value="Somaliland">Somaliland</option>
-                    <option value="Unattributed">Unattributed</option>
+                    <option value="baminguiBangoran">Bamingui-Bangoran</option>
+                    <option value="bangui">Bangui</option>
+                    <option value="basseKotto">Basse-Kotto</option>
+                    <option value="hauteKotto">Haute-Kotto</option>
+                    <option value="hautMbomou">Haut-Mbomou</option>
+                    <option value="kemo">Kemo</option>
+                    <option value="lobaye">Lobaye</option>
+                    <option value="nanaGrebizi">Nana-Grébizi</option>
+                    <option value="nanaMambere">Nana-Mambéré</option>
+                    <option value="mambereKadei">Mambéré-Kadéï</option>
+                    <option value="mbomou">Mbomou</option>
+                    <option value="ombellaMPoko">Ombella-M'Poko</option>
+                    <option value="ouham">Ouham</option>
+                    <option value="ouhamPende">Ouham-Pendé</option>
+                    <option value="sanghaMambere">Sangha-Mbaéré</option>
+                    <option value="vakaga">Vakaga</option>
                   </select>
                 </span>
               </p>
@@ -86,12 +93,15 @@
   </div>
 </template>
 
-<script src="https://cdn.rawgit.com/mikemenaker/vue-data-table/1.0.1/src/v-data-table.min.js"></script>
-
 <script>
   import Vue from 'vue';
   import jsonexport from 'jsonexport';
   import DataTable from './v-data-table.vue';
+  import {
+  	locationNames,
+  	locationTable,
+  	locationHeaders,
+  } from '../../utils/store';
 
   export default {
   	name: 'LocationsTable',
@@ -100,33 +110,10 @@
   	},
   	data() {
   		return {
+  			locationTable,
   			locations: '',
-  			gridColumns: [
-  				'Location',
-  				'Project title',
-  				'Start Date',
-  				'End Date',
-  				'NDP Pillar',
-  				'SubSector',
-  				'Funders',
-  				'2015 Project Location Allocation',
-  				'2016 Project Location Allocation',
-  				'2017 Project Location Allocation',
-  				'Location Total 2015-17',
-  				'Project objectives / purpose',
-  				'Implementers',
-  			],
-  			columnsToDisplay: [
-  				'Project title',
-  				'Start Date',
-  				'End Date',
-  				'NDP Pillar',
-  				'SubSector',
-  				'2015 Project Location Allocation',
-  				'2016 Project Location Allocation',
-  				'2017 Project Location Allocation',
-  				'Location Total 2015-17',
-  			],
+  			gridColumns: [locationHeaders],
+  			columnsToDisplay: [locationHeaders],
   			searchQuery: '',
   			displayNames: {
   				'Project title': 'Project Title',
@@ -157,7 +144,6 @@
   			});
   		},
   	},
-  	beforeDestroy() {},
   };
 </script>
 
