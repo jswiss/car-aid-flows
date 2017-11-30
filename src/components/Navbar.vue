@@ -14,7 +14,7 @@
         <i class="fa fa-list-alt"></i>Tables
       </router-link>
       <router-link class="nav-item is-tab" to="/about">
-        <i class="fa fa-info-circle"></i>Sur
+        <i class="fa fa-info-circle"></i>Info
       </router-link>
     </div>
     <div class="nav-right">

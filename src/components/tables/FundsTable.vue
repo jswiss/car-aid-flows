@@ -83,7 +83,6 @@
 </template>
 
 <script>
-  import Vue from 'vue';
   import jsonexport from 'jsonexport';
   import DataTable from './v-data-table.vue';
 
