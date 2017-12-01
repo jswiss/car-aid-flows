@@ -21,9 +21,9 @@
             2019 Project-level Disbursements
           </label>
         </p>
-        <tree-map-2017 :raw="raw" v-if="tree2017"></tree-map-2017>
-        <tree-map-2018 :raw="raw" v-if="tree === 2018"></tree-map-2018>
-        <tree-map-2019 :raw="raw" v-if="tree === 2019"></tree-map-2019>
+        <tree-map-2017 v-if="tree2017"></tree-map-2017>
+        <tree-map-2018 v-if="tree === 2018"></tree-map-2018>
+        <tree-map-2019 v-if="tree === 2019"></tree-map-2019>
         <div class="disclaimer">
           <p class="disclaimer-text">
             * Projects under a certain value, relative to the largest project within each subsector, are not shown in this chart. To see all projects, please visit the <router-link to="/tables/projects">projects table</router-link>.
@@ -44,10 +44,6 @@
   import TreeMap2018 from './treemap/TreeMap2018';
   import TreeMap2019 from './treemap/TreeMap2019';
 
-  import { raw, locations } from '../utils/store';
-
-  console.log(locations);
-
   export default {
   	name: 'home',
   	components: {
@@ -61,8 +57,6 @@
   		return {
   			tree: '',
   			tree2017: true,
-  			raw: raw,
-  			test: 'alllllll',
   		};
   	},
   };

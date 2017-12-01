@@ -5,7 +5,10 @@ import { ClientTable } from 'vue-tables-2';
 import App from './App';
 import router from './router';
 import navbar from './components/Navbar';
+import store from './store';
+import VueResource from 'vue-resource';
 
+Vue.use(VueResource);
 Vue.use(ClientTable);
 
 Vue.config.productionTip = false;
@@ -32,11 +35,15 @@ new Vue({
   </div>
   `,
 	router,
+	store,
 	data() {
 		return {};
 	},
 	components: {
 		navbar,
 		App,
+	},
+	created() {
+		this.$store.dispatch('LOAD_CURRENCY_RATES');
 	},
 }).$mount('#app');
