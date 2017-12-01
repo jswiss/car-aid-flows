@@ -16,12 +16,12 @@ const store = new Vuex.Store({
 		currencyRates: [],
 	},
 	getters: {
-		usd: state =>
-			state.currencyRates.filter(rate => (rate.currency_code = 'USD')),
-		eur: state =>
-			state.currencyRates.filter(rate => (rate.currency_code = 'EUR')),
-		xaf: state =>
-			state.currencyRates.filter(rate => (rate.currency_code = 'XAF')),
+		usdObj: state =>
+			state.currencyRates.filter(rate => rate.currency_code === 'USD'),
+		eurObj: state =>
+			state.currencyRates.filter(rate => rate.currency_code === 'EUR'),
+		xafObj: state =>
+			state.currencyRates.filter(rate => rate.currency_code === 'XAF'),
 	},
 	actions: {
 		LOAD_CURRENCY_RATES: ({ commit }) => {

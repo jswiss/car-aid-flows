@@ -1,8 +1,5 @@
 <template>
   <div id="table">
-    xaf: {{ xaf }}
-    rates: {{ rates }}
-    errors: {{ errors }}
     <v-client-table
       :data="tableData"
       :columns="columns"
@@ -24,20 +21,49 @@
   	data() {
   		return {
   			columns: ['id', 'name', 'price'],
-  			rates: [],
-  			errors: [],
   			tableData: [
   				{ id: 1, name: 'John', price: 3333 },
   				{ id: 2, name: 'Jane', price: 4444 },
   				{ id: 3, name: 'Susan', price: 400 },
   				{ id: 4, name: 'Chris', price: 60 },
   				{ id: 5, name: 'Dan', price: 5555555 },
+  				{ id: 1, name: 'John', price: 3333 },
+  				{ id: 2, name: 'Jane', price: 4444 },
+  				{ id: 3, name: 'Susan', price: 400 },
+  				{ id: 4, name: 'Chris', price: 60 },
+  				{ id: 5, name: 'Dan', price: 5555555 },
+  				{ id: 1, name: 'John', price: 3333 },
+  				{ id: 2, name: 'Jane', price: 4444 },
+  				{ id: 3, name: 'Susan', price: 400 },
+  				{ id: 4, name: 'Chris', price: 60 },
+  				{ id: 5, name: 'Dan', price: 5555555 },
+  				{ id: 1, name: 'John', price: 3333 },
+  				{ id: 2, name: 'Jane', price: 4444 },
+  				{ id: 3, name: 'Susan', price: 400 },
+  				{ id: 4, name: 'Chris', price: 60 },
+  				{ id: 5, name: 'Dan', price: 5555555 },
+  				{ id: 1, name: 'John', price: 3333 },
+  				{ id: 2, name: 'Jane', price: 4444 },
+  				{ id: 3, name: 'Susan', price: 400 },
+  				{ id: 4, name: 'Chris', price: 60 },
+  				{ id: 5, name: 'Dan', price: 5555555 },
   			],
-  			options: {},
+  			options: {
+  				filterable: ['name'],
+  				saveState: true,
+  				sortable: true,
+  				storage: 'local',
+  				highlightMatches: true,
+  			},
   		};
   	},
   	computed: {
-  		...mapGetters(['eur', 'xaf', 'usd']),
+  		...mapGetters(['eurObj', 'xafObj', 'usdObj']),
   	},
   };
 </script>
+
+<style scoped>
+
+</style>
+
