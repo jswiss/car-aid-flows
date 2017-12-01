@@ -43,6 +43,7 @@
   import TreeMap2017 from './treemap/TreeMap2017';
   import TreeMap2018 from './treemap/TreeMap2018';
   import TreeMap2019 from './treemap/TreeMap2019';
+  import CurrencySelector from './CurrencySelector';
 
   export default {
   	name: 'home',
@@ -52,6 +53,7 @@
   		TreeMap2017,
   		TreeMap2018,
   		TreeMap2019,
+  		CurrencySelector,
   	},
   	data() {
   		return {

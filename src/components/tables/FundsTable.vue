@@ -84,20 +84,10 @@
 
 <script>
   import jsonexport from 'jsonexport';
-  import DataTable from './v-data-table.vue';
-
-  // funds.forEach(d => {
-  // 	d['2015'] = parseInt(d['2015']);
-  // 	d['2016'] = parseInt(d['2016']);
-  // 	d['2017'] = parseInt(d['2017']);
-  // 	d.Total = parseInt(d.Total);
-  // });
 
   export default {
   	name: 'FundsTable',
-  	components: {
-  		DataTable,
-  	},
+
   	data() {
   		return {
   			gridColumns: ['Fund', 'Partner', '2015', '2016', '2017', 'Total', 'SDRF'],

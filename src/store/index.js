@@ -39,6 +39,9 @@ const store = new Vuex.Store({
 		SET_CURRENCY_RATES: (state, data) => {
 			state.currencyRates = data;
 		},
+		CONVERT_TO_TABLE: (state, data) => {
+			state.rawData;
+		},
 	},
 });
 
