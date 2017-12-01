@@ -1,7 +1,7 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
-import { ClientTable } from 'vue-tables-2';
+import { ClientTable } from 'vue-bulma-tables-2';
 import App from './App';
 import router from './router';
 import navbar from './components/Navbar';
