@@ -65,6 +65,14 @@ const store = new Vuex.Store({
 						o['Prévision de décaissements 2017-2019 USD'],
 				};
 			});
+			state.tableData.forEach(d => {
+				d['Date de début'] = new Date(
+					(d['Date de début'] - (2557 + 2)) * 86400 * 1000
+				);
+				d['Date de clôture'] = new Date(
+					(d['Date de clôture'] - (2557 + 2)) * 86400 * 1000
+				);
+			});
 		},
 	},
 });
