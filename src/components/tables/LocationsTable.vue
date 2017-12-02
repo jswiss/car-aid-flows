@@ -116,6 +116,9 @@
 </script>
 
 <style scoped>
-
+  label.label,
+  div.control {
+  	text-align: center;
+  }
 </style>
 

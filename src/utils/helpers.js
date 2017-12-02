@@ -6,6 +6,10 @@ function reduceObj(arr, obj) {
 	}
 }
 
+function excelToJsDate(excelDate) {
+	return new Date((excelDate - (25567 + 1)) * 86400 * 1000);
+}
+
 const projectTable = [];
 
-export { reduceObj };
+export { reduceObj, excelToJsDate };

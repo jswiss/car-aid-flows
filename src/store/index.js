@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import moment from 'moment';
+import { excelToJsDate } from '../utils/helpers';
 
 Vue.use(Vuex);
 
@@ -80,6 +82,18 @@ const store = new Vuex.Store({
 					'Prévision de décaissements 2017-2019 USD':
 						o['Prévision de décaissements 2017-2019 USD'],
 				};
+			});
+			state.tableData.forEach(d => {
+				if (d['Date de début'] !== null) {
+					d['Date de début'] = moment(excelToJsDate(d['Date de début'])).format(
+						'MMM, YYYY'
+					);
+				}
+				if (d['Date de clôture'] !== null) {
+					d['Date de clôture'] = moment(
+						excelToJsDate(d['Date de clôture'])
+					).format('MMM, YYYY');
+				}
 			});
 		},
 		SET_XAF: (state, data) => {
