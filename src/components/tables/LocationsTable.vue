@@ -76,6 +76,7 @@
   					'Bailleurs',
   					"Partenaires d'exécution",
   				],
+  				dateColumns: ['Date de début', 'Date de clôture'],
   				saveState: true,
   				sortable: [
   					'Nom du projet',
