@@ -9,7 +9,7 @@ import store from './store';
 import VueResource from 'vue-resource';
 
 Vue.use(VueResource);
-Vue.use(ClientTable);
+Vue.use(ClientTable, true);
 
 Vue.config.productionTip = false;
 
@@ -36,14 +36,12 @@ new Vue({
   `,
 	router,
 	store,
-	data() {
-		return {};
-	},
 	components: {
 		navbar,
 		App,
 	},
 	created() {
 		// this.$store.dispatch('LOAD_CURRENCY_RATES');
+		this.$store.dispatch('LOAD_TABLE');
 	},
 }).$mount('#app');

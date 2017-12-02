@@ -19,6 +19,19 @@ const store = new Vuex.Store({
 		xaf: 1,
 		usd: 575,
 		eur: 655.96,
+		tableColumns: [
+			'Nom du projet',
+			'Date de début',
+			'Date de clôture',
+			'Pilier',
+			'Composante',
+			'Secteur principal',
+			'Bailleurs',
+			"Partenaires d'exécution",
+			'Montant du projet en devise',
+			'Décaissements 2017 en devise',
+			'Prévision de décaissements 2017-2019 USD',
+		],
 	},
 	getters: {
 		// usdObj: state =>

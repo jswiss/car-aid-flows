@@ -35,27 +35,32 @@
         :columns="columns"
         :options="options"
       >
-          <template slot="price" scope="props">
+          <template slot="Décaissements 2017 en devise" scope="props">
             <div>
-              <p>{{symbol}} {{ props.row.price | currency }}</p>
+              <p>{{symbol}} {{ props.row['Décaissements 2017 en devise'] | currency }}</p>
+            </div>
+          </template>
+          <template slot="Prévision de décaissements 2017-2019 USD" scope="props">
+            <div>
+              <p>{{symbol}} {{ props.row['Prévision de décaissements 2017-2019 USD'] | currency }}</p>
             </div>
           </template>
       </v-client-table>
     </div>
-    {{ tableData }}
   </div>
 </template>
 
 <script>
-  import { mapGetters } from 'vuex';
-
   export default {
+  	props: ['name'],
   	data() {
   		return {
-  			columns: ['id', 'name', 'price'],
-  			symbol: 'FCFA',
+  			// name: 'carTable',
+  			tableData: this.$store.state.tableData,
+  			columns: [this.$store.state.tableColumns],
+  			symbol: '$',
   			options: {
-  				filterable: ['name'],
+  				filterable: true,
   				saveState: true,
   				sortable: true,
   				storage: 'local',
@@ -63,14 +68,11 @@
   			},
   		};
   	},
-  	computed: {
-  		...mapGetters(['tableData']),
-  	},
   	methods: {
   		changeSymbol() {},
   	},
   	created() {
-  		this.$store.dispatch('LOAD_TABLE');
+  		// this.$store.dispatch('LOAD_TABLE');
   	},
   };
 </script>
