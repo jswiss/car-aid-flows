@@ -2,7 +2,7 @@
   <nav class="nav has-shadow" >
     <div class="nav-left">
       <router-link class="nav-item" to="/">
-        <img src="../assets/images/car-flag.svg" alt="CAR Flag">
+        <img src="../assets/images/car-flag.png" alt="CAR Flag">
       </router-link>
       <router-link class="nav-item is-brand" to="/">
         Flux d'aide de la RCA
