@@ -35,7 +35,7 @@
         :columns="columns"
         :options="options"
       >
-          <template slot="Décaissements 2017 en devise" scope="props">
+          <!-- <template slot="Décaissements 2017 en devise" scope="props">
             <div>
               <p>{{symbol}} {{ props.row['Décaissements 2017 en devise'] | currency }}</p>
             </div>
@@ -44,7 +44,7 @@
             <div>
               <p>{{symbol}} {{ props.row['Prévision de décaissements 2017-2019 USD'] | currency }}</p>
             </div>
-          </template>
+          </template> -->
       </v-client-table>
     </div>
   </div>
@@ -56,8 +56,8 @@
   	data() {
   		return {
   			// name: 'carTable',
-  			tableData: this.$store.state.tableData,
-  			columns: [this.$store.state.tableColumns],
+  			tableData: this.$store.getters.tableData,
+  			columns: this.$store.getters.tableColumns,
   			symbol: '$',
   			options: {
   				filterable: true,
@@ -73,6 +73,7 @@
   	},
   	created() {
   		// this.$store.dispatch('LOAD_TABLE');
+  		// this.tableData = require('../../assets/data/aidflows.json');
   	},
   };
 </script>
