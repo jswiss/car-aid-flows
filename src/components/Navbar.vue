@@ -10,7 +10,7 @@
       <router-link class="nav-item is-tab" to="/charts/oda-chart">
         <i class="fa fa-dashboard"></i>Graphiques
       </router-link>
-      <router-link class="nav-item is-tab" to="/tables/projects">
+      <router-link class="nav-item is-tab" to="/tables/locations">
         <i class="fa fa-list-alt"></i>Tables
       </router-link>
       <router-link class="nav-item is-tab" to="/about">

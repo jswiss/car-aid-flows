@@ -10,19 +10,13 @@
 </template>
 <script type="text/javascript">
   import TablesTabs from './TablesTabs';
-  import ProjectTable from './ProjectTable';
-  import DonorTable from './DonorTable';
   import LocationsTable from './LocationsTable';
-  import FundsTable from './FundsTable';
 
   export default {
   	name: 'tables',
   	components: {
   		TablesTabs,
-  		ProjectTable,
-  		DonorTable,
   		LocationsTable,
-  		FundsTable,
   	},
   	created() {
   		this.$store.dispatch('LOAD_TABLE');

@@ -5,8 +5,8 @@
     </div>-->
     <div id="print-area">
       <div id="title">
-        <a id="title-link" v-bind:href="project['Links to project webpages or documents']">
-          <h1 id="project-title" class="title is-1"> {{ project['Project title'] }}</h1>
+        <a id="title-link" :href="project['Liens vers site internet ou documents du projet']">
+          <h1 id="project-title" class="title is-1"> {{ project['Nom du projet'] }}</h1>
         </a>
       </div>
       <div class="info-box">
@@ -183,12 +183,15 @@
 </template>
 
 <script type="text/javascript">
+  import store from '../../store';
+  const projects = store.state.rawData;
+
   export default {
   	name: 'Project',
   	data() {
   		return {
-  			// projects: projects,
-  			// project: null,
+  			projects: projects,
+  			project: null,
   		};
   	},
   	mounted() {
@@ -201,7 +204,7 @@
   		fetchData() {
   			const projectName = this.$route.params.projectName;
   			function findProject(project) {
-  				return project['Project title'] === projectName;
+  				return project['Nom du projet'] === projectName;
   			}
   			this.project = projects.find(findProject);
   			console.log(this.project);

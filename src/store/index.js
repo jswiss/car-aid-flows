@@ -33,6 +33,7 @@ const store = new Vuex.Store({
 		// 	state.currencyRates.filter(rate => rate.currency_code === 'EUR'),
 		// xafObj: state =>
 		// 	state.currencyRates.filter(rate => rate.currency_code === 'XAF'),
+		raw: state => state.rawData,
 		tableData: state => state.tableData,
 		tableColumns: state => state.tableColumns,
 		xafTableData: state => state.xafTable,
@@ -86,13 +87,13 @@ const store = new Vuex.Store({
 			state.tableData.forEach(d => {
 				if (d['Date de début'] !== null) {
 					d['Date de début'] = moment(excelToJsDate(d['Date de début'])).format(
-						'MMM, YYYY'
+						'YYYY - MM'
 					);
 				}
 				if (d['Date de clôture'] !== null) {
 					d['Date de clôture'] = moment(
 						excelToJsDate(d['Date de clôture'])
-					).format('MMM, YYYY');
+					).format('YYYY - MM');
 				}
 			});
 		},
