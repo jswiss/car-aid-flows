@@ -13,7 +13,9 @@ const store = new Vuex.Store({
 	state: {
 		currencyUnit: null,
 		rawData: require('../assets/data/aidflows.json'),
+		tableHeadersSubs: require('../assets/data/table-headers-subs.json'),
 		currencyRates: [],
+		tableData: [],
 		xaf: 1,
 		usd: 575,
 		eur: 655.96,
@@ -25,6 +27,7 @@ const store = new Vuex.Store({
 		// 	state.currencyRates.filter(rate => rate.currency_code === 'EUR'),
 		// xafObj: state =>
 		// 	state.currencyRates.filter(rate => rate.currency_code === 'XAF'),
+		tableData: state => state.tableData,
 	},
 	actions: {
 		// LOAD_CURRENCY_RATES: ({ commit }) => {
@@ -37,13 +40,31 @@ const store = new Vuex.Store({
 		// 		}
 		// 	);
 		// },
+		LOAD_TABLE: ({ commit }) => {
+			commit('SET_TABLE');
+		},
 	},
 	mutations: {
 		// SET_CURRENCY_RATES: (state, data) => {
 		// 	state.currencyRates = data;
 		// },
-		CONVERT_TO_TABLE: (state, data) => {
-			state.rawData;
+		SET_TABLE: (state, data) => {
+			state.tableData = state.rawData.map(o => {
+				return {
+					'Nom du projet': o['Nom du projet'],
+					'Date de début': o['Date de début'],
+					'Date de clôture': o['Date de clôture'],
+					Pilier: o.Pilier,
+					Composante: o.Composante,
+					'Secteur principal': o['Secteur principal'],
+					Bailleurs: o.Bailleurs,
+					"Partenaires d'exécution": o["Partenaires d'exécution"],
+					'Montant du projet en devise': o['Montant du projet en devise'],
+					'Décaissements 2017 en devise': o['Décaissements 2017 en devise'],
+					'Prévision de décaissements 2017-2019 USD':
+						o['Prévision de décaissements 2017-2019 USD'],
+				};
+			});
 		},
 	},
 });

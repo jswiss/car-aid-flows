@@ -42,6 +42,7 @@
           </template>
       </v-client-table>
     </div>
+    {{ tableData }}
   </div>
 </template>
 
@@ -53,33 +54,6 @@
   		return {
   			columns: ['id', 'name', 'price'],
   			symbol: 'FCFA',
-  			tableData: [
-  				{ id: 1, name: 'John', price: 3333 },
-  				{ id: 2, name: 'Jane', price: 4444 },
-  				{ id: 3, name: 'Susan', price: 400 },
-  				{ id: 4, name: 'Chris', price: 60 },
-  				{ id: 5, name: 'Dan', price: 5555555 },
-  				{ id: 1, name: 'John', price: 3333 },
-  				{ id: 2, name: 'Jane', price: 4444 },
-  				{ id: 3, name: 'Susan', price: 400 },
-  				{ id: 4, name: 'Chris', price: 60 },
-  				{ id: 5, name: 'Dan', price: 5555555 },
-  				{ id: 1, name: 'John', price: 3333 },
-  				{ id: 2, name: 'Jane', price: 4444 },
-  				{ id: 3, name: 'Susan', price: 400 },
-  				{ id: 4, name: 'Chris', price: 60 },
-  				{ id: 5, name: 'Dan', price: 5555555 },
-  				{ id: 1, name: 'John', price: 3333 },
-  				{ id: 2, name: 'Jane', price: 4444 },
-  				{ id: 3, name: 'Susan', price: 400 },
-  				{ id: 4, name: 'Chris', price: 60 },
-  				{ id: 5, name: 'Dan', price: 5555555 },
-  				{ id: 1, name: 'John', price: 3333 },
-  				{ id: 2, name: 'Jane', price: 4444 },
-  				{ id: 3, name: 'Susan', price: 400 },
-  				{ id: 4, name: 'Chris', price: 60 },
-  				{ id: 5, name: 'Dan', price: 5555555 },
-  			],
   			options: {
   				filterable: ['name'],
   				saveState: true,
@@ -90,10 +64,13 @@
   		};
   	},
   	computed: {
-  		...mapGetters(['eurObj', 'xafObj', 'usdObj']),
+  		...mapGetters(['tableData']),
   	},
   	methods: {
   		changeSymbol() {},
+  	},
+  	created() {
+  		this.$store.dispatch('LOAD_TABLE');
   	},
   };
 </script>
