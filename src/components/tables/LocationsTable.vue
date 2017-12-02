@@ -57,17 +57,36 @@
 
 <script>
   export default {
-  	props: ['name'],
+  	// props: {
+  	// 	name: 'carTable',
+  	// },
   	data() {
   		return {
-  			// name: 'carTable',
+  			name: 'carTable',
   			tableData: this.$store.getters.tableData,
   			columns: this.$store.getters.tableColumns,
   			symbol: '$',
   			options: {
-  				filterable: true,
+  				filterable: [
+  					'Nom du projet',
+  					'Pilier',
+  					'Composante',
+  					'Secteur principal',
+  					'Bailleurs',
+  					"Partenaires d'exécution",
+  				],
   				saveState: true,
-  				sortable: true,
+  				sortable: [
+  					'Nom du projet',
+  					'Date de début',
+  					'Date de clôture',
+  					'Pilier',
+  					'Composante',
+  					'Secteur principal',
+  					'Montant du projet en devise',
+  					'Décaissements 2017 en devise',
+  					'Prévision de décaissements 2017-2019 USD',
+  				],
   				storage: 'local',
   				highlightMatches: true,
   			},
