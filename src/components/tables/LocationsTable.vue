@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="columns is-centered">
+    <br>
+    <div class="columns">
       <div class="column is-one-quarter">
         <div class="field is-horizontal">
           <div class="field-label">
@@ -27,6 +28,20 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="column is-one-quarter"></div>
+      <div class="column is-one-quarter"></div>
+      <div class="column is-one-quarter">
+        <div class="level-right">
+            <a class="button is-primary exportCSV" 
+              @click="exportCSV"
+            >
+            <span class="icon">
+              <i class="fa fa-table"></i>
+            </span>
+            <span>Export Table</span>
+            </a>
+          </div>
       </div>
     </div>
     <div id="table">
@@ -56,6 +71,8 @@
 </template>
 
 <script>
+  import jsonexport from 'jsonexport';
+
   export default {
   	data() {
   		return {
@@ -63,6 +80,7 @@
   			tableData: this.$store.getters.tableData,
   			currencyData: [],
   			columns: this.$store.getters.tableColumns,
+  			csv: this.$store.state.rawData,
   			symbol: '$',
   			xafRate: 575,
   			usdRate: 1,
@@ -107,6 +125,24 @@
   			this.symbol = '$';
   			this.tableData = this.$store.getters.tableData;
   		},
+  		exportCSV() {
+  			jsonexport(this.csv, (err, csv) => {
+  				if (err) return console.log(err);
+  				(function downloadCSV(args) {
+  					if (csv === null) return;
+  					const filename = 'RCA_données_de_aide.csv';
+  					if (!csv.match(/^data:text\/csv/i)) {
+  						csv = 'data:text/csv;charset=utf-8,' + csv;
+  					}
+  					const data = encodeURI(csv);
+  					let link = document.createElement('a');
+  					link.setAttribute('href', data);
+  					link.setAttribute('download', filename);
+  					link.click();
+  					console.log('pressed');
+  				})();
+  			});
+  		},
   	},
   	mounted() {
   		this.$store.dispatch('LOAD_EUR');
@@ -116,9 +152,9 @@
 </script>
 
 <style scoped>
-  label.label,
-  div.control {
-  	text-align: center;
-  }
+  /* label.label,
+                          div.control {
+                          	text-align: center;
+                          } */
 </style>
 
