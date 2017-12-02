@@ -3,7 +3,6 @@
   <div id="topmost" class="columns">
     <charts-tabs class="column is-one-quarter"></charts-tabs>
     <div id="chart-content" class="column is-three-quarters">
-      <currency-selector></currency-selector> 
       <oda-chart v-if="['OdaChart'].indexOf($route.name) > -1"></oda-chart>
       <aid-by-category v-if="['AidByCategory'].indexOf($route.name) > -1"></aid-by-category>
       <aid-location-chart v-if="['AidLocationChart'].indexOf($route.name) > -1"></aid-location-chart>
