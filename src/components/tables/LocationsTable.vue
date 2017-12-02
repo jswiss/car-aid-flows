@@ -11,15 +11,15 @@
               <div class="field is-narrow">
                 <div class="control">
                   <label class="radio">
-                    <input type="radio" value="FCFA" name="currency" @click="symbol = 'FCFA'">
+                    <input type="radio" value="FCFA" name="currency" @click="convertToXAF">
                     XAF
                   </label>
                   <label class="radio">
-                    <input type="radio" value="€" name="currency" @click="symbol = '€'">
+                    <input type="radio" value="€" name="currency" @click="convertToEUR">
                     EUR
                   </label>
                   <label class="radio">
-                    <input type="radio" value="$" name="currency" @click="symbol = '$'">
+                    <input type="radio" value="$" name="currency" @click="convertToUSD">
                     USD
                   </label>
                 </div>
@@ -37,17 +37,17 @@
       >
         <template slot="Montant du projet en devise" scope="props">
           <div>
-            <p>{{symbol}} {{ props.row['Montant du projet en devise'] * rate | currency }}</p>
+            <p>{{symbol}} {{ props.row['Montant du projet en devise'] | currency }}</p>
           </div>
         </template>
         <template slot="Décaissements 2017 en devise" scope="props">
           <div>
-            <p>{{symbol}} {{ props.row['Décaissements 2017 en devise'] * rate | currency }}</p>
+            <p>{{symbol}} {{ props.row['Décaissements 2017 en devise'] | currency }}</p>
           </div>
         </template>
         <template slot="Prévision de décaissements 2017-2019 USD" scope="props">
           <div>
-            <p>{{symbol}} {{ props.row['Prévision de décaissements 2017-2019 USD'] * rate | currency }}</p>
+            <p>{{symbol}} {{ props.row['Prévision de décaissements 2017-2019 USD'] | currency }}</p>
           </div>
         </template>
       </v-client-table>
@@ -57,16 +57,16 @@
 
 <script>
   export default {
-  	// props: {
-  	// 	name: 'carTable',
-  	// },
   	data() {
   		return {
   			name: 'carTable',
   			tableData: this.$store.getters.tableData,
+  			currencyData: [],
   			columns: this.$store.getters.tableColumns,
   			symbol: '$',
-  			rate: 1,
+  			xafRate: 575,
+  			usdRate: 1,
+  			eurRate: 1.1408,
   			options: {
   				filterable: [
   					'Nom du projet',
@@ -93,10 +93,23 @@
   			},
   		};
   	},
-  	computed: {
-  		convertToXAF() {},
-  		convertToEUR() {},
-  		convertToUSD() {},
+  	methods: {
+  		convertToXAF() {
+  			this.symbol = 'FCFA';
+  			this.tableData = this.$store.getters.xafTableData;
+  		},
+  		convertToEUR() {
+  			this.symbol = '€';
+  			this.tableData = this.$store.getters.eurTableData;
+  		},
+  		convertToUSD() {
+  			this.symbol = '$';
+  			this.tableData = this.$store.getters.tableData;
+  		},
+  	},
+  	mounted() {
+  		this.$store.dispatch('LOAD_EUR');
+  		this.$store.dispatch('LOAD_XAF');
   	},
   };
 </script>

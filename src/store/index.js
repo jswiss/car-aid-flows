@@ -16,8 +16,10 @@ const store = new Vuex.Store({
 		tableHeadersSubs: require('../assets/data/table-headers-subs.json'),
 		currencyRates: [],
 		tableData: [],
-		xaf: 1,
-		usd: 575,
+		eurTable: [],
+		xafTable: [],
+		xaf: 575,
+		usd: 1,
 		eur: 1.1408,
 		xafToEur: 655.96,
 		tableColumns: [],
@@ -31,6 +33,8 @@ const store = new Vuex.Store({
 		// 	state.currencyRates.filter(rate => rate.currency_code === 'XAF'),
 		tableData: state => state.tableData,
 		tableColumns: state => state.tableColumns,
+		xafTableData: state => state.xafTable,
+		eurTableData: state => state.eurTable,
 	},
 	actions: {
 		// LOAD_CURRENCY_RATES: ({ commit }) => {
@@ -48,6 +52,12 @@ const store = new Vuex.Store({
 		},
 		LOAD_COLUMNS: ({ commit }) => {
 			commit('SET_COLUMNS');
+		},
+		LOAD_EUR: ({ commit }) => {
+			commit('SET_EUR');
+		},
+		LOAD_XAF: ({ commit }) => {
+			commit('SET_XAF');
 		},
 	},
 	mutations: {
@@ -71,14 +81,46 @@ const store = new Vuex.Store({
 						o['Prévision de décaissements 2017-2019 USD'],
 				};
 			});
-			// state.tableData.forEach(d => {
-			// 	d['Date de début'] = new Date(
-			// 		(d['Date de début'] - (2557 + 2)) * 86400 * 1000
-			// 	);
-			// 	d['Date de clôture'] = new Date(
-			// 		(d['Date de clôture'] - (2557 + 2)) * 86400 * 1000
-			// 	);
-			// });
+		},
+		SET_XAF: (state, data) => {
+			state.xafTable = state.rawData.map(o => {
+				return {
+					'Nom du projet': o['Nom du projet'],
+					'Date de début': o['Date de début'],
+					'Date de clôture': o['Date de clôture'],
+					Pilier: o.Pilier,
+					Composante: o.Composante,
+					'Secteur principal': o['Secteur principal'],
+					Bailleurs: o.Bailleurs,
+					"Partenaires d'exécution": o["Partenaires d'exécution"],
+					'Montant du projet en devise':
+						o['Montant du projet en devise'] * state.xaf,
+					'Décaissements 2017 en devise':
+						o['Décaissements 2017 en devise'] * state.xaf,
+					'Prévision de décaissements 2017-2019 USD':
+						o['Prévision de décaissements 2017-2019 USD'] * state.xaf,
+				};
+			});
+		},
+		SET_EUR: (state, data) => {
+			state.eurTable = state.rawData.map(o => {
+				return {
+					'Nom du projet': o['Nom du projet'],
+					'Date de début': o['Date de début'],
+					'Date de clôture': o['Date de clôture'],
+					Pilier: o.Pilier,
+					Composante: o.Composante,
+					'Secteur principal': o['Secteur principal'],
+					Bailleurs: o.Bailleurs,
+					"Partenaires d'exécution": o["Partenaires d'exécution"],
+					'Montant du projet en devise':
+						o['Montant du projet en devise'] * state.eur,
+					'Décaissements 2017 en devise':
+						o['Décaissements 2017 en devise'] * state.eur,
+					'Prévision de décaissements 2017-2019 USD':
+						o['Prévision de décaissements 2017-2019 USD'] * state.eur,
+				};
+			});
 		},
 		SET_COLUMNS: (state, data) => {
 			state.tableColumns = [

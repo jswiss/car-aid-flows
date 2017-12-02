@@ -24,6 +24,10 @@
   		LocationsTable,
   		FundsTable,
   	},
+  	created() {
+  		this.$store.dispatch('LOAD_TABLE');
+  		this.$store.dispatch('LOAD_COLUMNS');
+  	},
   };
 </script>
 
