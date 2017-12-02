@@ -9,6 +9,7 @@
 		"build": "node build/build.js"
 	},
 	"dependencies": {
+		"accounting": "^0.4.1",
 		"anychart": "^8.0.1",
 		"babel-preset-es2015": "^6.24.1",
 		"bulma": "^0.4.1",
@@ -19,7 +20,6 @@
 		"vue-bulma-tables-2": "^0.6.36",
 		"vue-resource": "^1.3.4",
 		"vue-router": "^2.2.0",
-		"vue-tables-2": "^1.0.0",
 		"vuex": "^2.3.1"
 	},
 	"devDependencies": {

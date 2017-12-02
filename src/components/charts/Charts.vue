@@ -21,7 +21,6 @@
   import AidViaFunds from './AidViaFunds';
   import AidByNdpPillar from './AidByNdpPillar';
   import AidOnTreasury from './AidOnTreasury';
-  import CurrencySelector from '../CurrencySelector';
 
   (function(i, s, o, g, r, a, m) {
   	i['GoogleAnalyticsObject'] = r;
@@ -56,7 +55,6 @@
   		AidViaFunds,
   		AidByNdpPillar,
   		AidOnTreasury,
-  		CurrencySelector,
   	},
   };
 </script> 
