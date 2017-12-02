@@ -3,7 +3,7 @@
     <br>
     <div class="columns">
       <div class="column is-one-quarter">
-        <div class="field is-horizontal">
+        <div class="field is-horizontal level">
           <div class="field-label">
             <label for="currency" class="label">
               Select a currency to display
@@ -133,8 +133,8 @@
 
 <style scoped>
   /* label.label,
-                            div.control {
-                            	text-align: center;
-                            } */
+                                div.control {
+                                	text-align: center;
+                                } */
 </style>
 

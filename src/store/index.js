@@ -97,7 +97,7 @@ const store = new Vuex.Store({
 			});
 		},
 		SET_XAF: (state, data) => {
-			state.xafTable = state.rawData.map(o => {
+			state.xafTable = state.tableData.map(o => {
 				return {
 					'Nom du projet': o['Nom du projet'],
 					'Date de début': o['Date de début'],
@@ -117,7 +117,7 @@ const store = new Vuex.Store({
 			});
 		},
 		SET_EUR: (state, data) => {
-			state.eurTable = state.rawData.map(o => {
+			state.eurTable = state.tableData.map(o => {
 				return {
 					'Nom du projet': o['Nom du projet'],
 					'Date de début': o['Date de début'],

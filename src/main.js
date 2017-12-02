@@ -3,6 +3,7 @@
 import Vue from 'vue';
 import { ClientTable } from 'vue-bulma-tables-2';
 import accounting from 'accounting';
+import bulma from 'bulma';
 import App from './App';
 import router from './router';
 import navbar from './components/Navbar';
@@ -11,6 +12,7 @@ import VueResource from 'vue-resource';
 
 Vue.use(VueResource);
 Vue.use(ClientTable);
+Vue.use(bulma);
 
 Vue.config.productionTip = false;
 
