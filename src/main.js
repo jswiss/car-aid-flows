@@ -44,6 +44,6 @@ new Vue({
 		App,
 	},
 	created() {
-		this.$store.dispatch('LOAD_CURRENCY_RATES');
+		// this.$store.dispatch('LOAD_CURRENCY_RATES');
 	},
 }).$mount('#app');

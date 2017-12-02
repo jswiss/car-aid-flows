@@ -1,0 +1,20 @@
+[
+	{
+		"Nom du projet": "Nom du programme / projet",
+		"Date de début": "début effectif des activités (Mois/Année)",
+		"Date de clôture": "Mois/Année",
+		"Pilier": "",
+		"Composante": "",
+		"Secteur principal": "secteur principal concerné par le projet",
+		"Bailleurs":
+			"Toutes les organisations apportant des ressources financières",
+		"Partenaires d'exécution":
+			"Toutes les organisations mettant en œuvre le projet",
+		"Montant du projet en devise":
+			"Total des fonds budgétisés pour le projet / ou mobilisé (cas des UN)",
+		"Décaissements 2017 en devise":
+			"Montant décaissé par le projet en 2017 (effectif )",
+		"Prévision de décaissements 2017-2019 USD":
+			"Montant décaissé par le projet en 2019 (planifié)"
+	}
+]
