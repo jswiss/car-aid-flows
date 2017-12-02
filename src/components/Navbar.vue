@@ -18,7 +18,9 @@
       </router-link>
     </div>
     <div class="nav-right">
-      <a class="nav-item is-tab report" href="https://s3.eu-west-2.amazonaws.com/somaliaaidflows.so/assets/Aid+Flows+Booklet+FINAL.pdf">
+      <a 
+        class="nav-item is-tab report" href="https://s3.eu-west-2.amazonaws.com/somaliaaidflows.so/assets/Aid+Flows+Booklet+FINAL.pdf"
+      >
 Télécharger le rapport</a>
     </div>
   </nav>

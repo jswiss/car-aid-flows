@@ -34,7 +34,7 @@
       <div class="column is-one-quarter">
         <div class="level-right">
             <a class="button is-primary exportCSV" 
-              @click="exportCSV"
+              href="https://s3.eu-west-2.amazonaws.com/test-car/Formulaire+Global+Suivi+Aide+RCA_v2.9+FINAL.xlsx"
             >
             <span class="icon">
               <i class="fa fa-table"></i>
@@ -71,8 +71,6 @@
 </template>
 
 <script>
-  import jsonexport from 'jsonexport';
-
   export default {
   	data() {
   		return {
@@ -125,24 +123,6 @@
   			this.symbol = '$';
   			this.tableData = this.$store.getters.tableData;
   		},
-  		exportCSV() {
-  			jsonexport(this.csv, (err, csv) => {
-  				if (err) return console.log(err);
-  				(function downloadCSV(args) {
-  					if (csv === null) return;
-  					const filename = 'RCA_données_de_aide.csv';
-  					if (!csv.match(/^data:text\/csv/i)) {
-  						csv = 'data:text/csv;charset=utf-8,' + csv;
-  					}
-  					const data = encodeURI(csv);
-  					let link = document.createElement('a');
-  					link.setAttribute('href', data);
-  					link.setAttribute('download', filename);
-  					link.click();
-  					console.log('pressed');
-  				})();
-  			});
-  		},
   	},
   	mounted() {
   		this.$store.dispatch('LOAD_EUR');
@@ -153,8 +133,8 @@
 
 <style scoped>
   /* label.label,
-                          div.control {
-                          	text-align: center;
-                          } */
+                            div.control {
+                            	text-align: center;
+                            } */
 </style>
 
