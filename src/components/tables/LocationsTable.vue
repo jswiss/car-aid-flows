@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="main-table">
     <br>
     <div class="columns">
       <div class="column is-one-quarter">
@@ -132,9 +132,13 @@
 </script>
 
 <style scoped>
-  /* label.label,
-                                div.control {
-                                	text-align: center;
-                                } */
+  label.label,
+  div.control {
+  	text-align: left;
+  }
+  #main-table {
+  	font-size: 12px;
+  	/* overflow: auto; */
+  }
 </style>
 
