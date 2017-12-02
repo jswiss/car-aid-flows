@@ -18,7 +18,8 @@ const store = new Vuex.Store({
 		tableData: [],
 		xaf: 1,
 		usd: 575,
-		eur: 655.96,
+		eur: 1.1408,
+		xafToEur: 655.96,
 		tableColumns: [],
 	},
 	getters: {
@@ -70,14 +71,14 @@ const store = new Vuex.Store({
 						o['Prévision de décaissements 2017-2019 USD'],
 				};
 			});
-			state.tableData.forEach(d => {
-				d['Date de début'] = new Date(
-					(d['Date de début'] - (2557 + 2)) * 86400 * 1000
-				);
-				d['Date de clôture'] = new Date(
-					(d['Date de clôture'] - (2557 + 2)) * 86400 * 1000
-				);
-			});
+			// state.tableData.forEach(d => {
+			// 	d['Date de début'] = new Date(
+			// 		(d['Date de début'] - (2557 + 2)) * 86400 * 1000
+			// 	);
+			// 	d['Date de clôture'] = new Date(
+			// 		(d['Date de clôture'] - (2557 + 2)) * 86400 * 1000
+			// 	);
+			// });
 		},
 		SET_COLUMNS: (state, data) => {
 			state.tableColumns = [

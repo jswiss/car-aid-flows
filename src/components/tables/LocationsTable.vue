@@ -37,17 +37,17 @@
       >
         <template slot="Montant du projet en devise" scope="props">
           <div>
-            <p>{{symbol}} {{ props.row['Montant du projet en devise'] | currency }}</p>
+            <p>{{symbol}} {{ props.row['Montant du projet en devise'] * rate | currency }}</p>
           </div>
         </template>
         <template slot="Décaissements 2017 en devise" scope="props">
           <div>
-            <p>{{symbol}} {{ props.row['Décaissements 2017 en devise'] | currency }}</p>
+            <p>{{symbol}} {{ props.row['Décaissements 2017 en devise'] * rate | currency }}</p>
           </div>
         </template>
         <template slot="Prévision de décaissements 2017-2019 USD" scope="props">
           <div>
-            <p>{{symbol}} {{ props.row['Prévision de décaissements 2017-2019 USD'] | currency }}</p>
+            <p>{{symbol}} {{ props.row['Prévision de décaissements 2017-2019 USD'] * rate | currency }}</p>
           </div>
         </template>
       </v-client-table>
@@ -66,6 +66,7 @@
   			tableData: this.$store.getters.tableData,
   			columns: this.$store.getters.tableColumns,
   			symbol: '$',
+  			rate: 1,
   			options: {
   				filterable: [
   					'Nom du projet',
@@ -92,8 +93,10 @@
   			},
   		};
   	},
-  	methods: {
-  		changeSymbol() {},
+  	computed: {
+  		convertToXAF() {},
+  		convertToEUR() {},
+  		convertToUSD() {},
   	},
   };
 </script>
