@@ -83,7 +83,9 @@
 				chart.draw();
 			},
 		},
-
+		// created() {
+		// 	this.$store.dispatch('LOAD_TREEMAP');
+		// },
 		computed: {
 			filtered() {
 				return this.raw.map(k => {
@@ -99,6 +101,9 @@
 						projectedUSD2019: k['Prévision de décaissements 2019 USD'],
 					};
 				});
+			},
+			loadTreemap() {
+				this.$store.dispatch('LOAD_TREEMAP');
 			},
 		},
 	};

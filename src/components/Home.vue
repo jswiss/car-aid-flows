@@ -56,13 +56,12 @@
   	computed: {
   		setTreeYear() {
   			this.$store.commit('SET_TREEMAP_YEAR', this.year);
+  			this.$store.dispatch('LOAD_TREEMAP');
   		},
-  		setTree() {
-  			this.$store.commit('SET_TREEMAP');
-  		},
+  		setTree() {},
   	},
   	created() {
-  		this.$store.commit('SET_CLEAN_TREE');
+  		this.$store.dispatch('LOAD_TREEMAP');
   	},
   };
 </script>

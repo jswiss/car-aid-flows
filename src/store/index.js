@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import moment from 'moment';
-import { nest } from 'd3-collection';
-import { sum } from 'd3-array';
 import { excelToJsDate } from '../utils/helpers';
+
+const d3 = Object.assign({}, require('d3-array'), require('d3-collection'));
 
 Vue.use(Vuex);
 
@@ -26,8 +26,8 @@ const store = new Vuex.Store({
 		eur: 1.1408,
 		xafToEur: 655.96,
 		tableColumns: [],
-		treemapYear: '',
-		treemap: [],
+		treemapYear: 2017,
+		treemap: {},
 		cleanTree: [],
 	},
 	getters: {
@@ -52,11 +52,11 @@ const store = new Vuex.Store({
 		LOAD_XAF: ({ commit }) => {
 			commit('SET_XAF');
 		},
-		LOAD_CLEAN_TREE: ({ commit }) => {
-			commit('SET_CLEAN_TREE');
-		},
 		LOAD_TREEMAP: ({ commit }) => {
 			commit('SET_TREEMAP');
+		},
+		LOAD_CLEAN_TREE: ({ commit }) => {
+			commit('SET_CLEAN_TREE');
 		},
 	},
 	mutations: {
@@ -165,18 +165,64 @@ const store = new Vuex.Store({
 			});
 		},
 		SET_TREEMAP: (state, data) => {
-			state.treemap = {
-				key: state.treemapYear,
-				values: d3
+			if (state.treemapYear === 2017) {
+				state.treemap.key = 2017;
+				state.treemap.values = d3
 					.nest()
 					.key(d => d.pillar)
 					.key(d => d.component)
 					.key(d => d.sector)
-					.rollup(d => d3.sum(d, d => d[`projectedUSD${state.treemapYear}`]))
-					.entries(state.cleanTree),
-			};
-			// state.treemap =
+					.rollup(d => d3.sum(d, d => d.usd2019))
+					.entries(state.cleanTree);
+			} else if (state.treemapYear === 2018) {
+				state.treemap.key = 2018;
+				state.treemap.values = d3
+					.nest()
+					.key(d => d.pillar)
+					.key(d => d.component)
+					.key(d => d.sector)
+					.rollup(d => d3.sum(d, d => d.usd2018))
+					.entries(state.cleanTree);
+			} else {
+				state.treemap.key = 2019;
+				state.treemap.values = d3
+					.nest()
+					.key(d => d.pillar)
+					.key(d => d.component)
+					.key(d => d.sector)
+					.rollup(d => d3.sum(d, d => d.usd2017))
+					.entries(state.cleanTree);
+			}
 		},
+		//  state.treemap = { key: 2017, values: d3
+		// 		.nest()
+		// 		.key(d => d.pillar)
+		// 		.key(d => d.component)
+		// 		.key(d => d.sector)
+		// 		.rollup(d => d3.sum(d, d => d.usd2017))
+		// 		.entries(state.cleanTree) });
+		// } else if (state.treemapYear === '2018') {
+		// 	state.treemap = {
+		// 		key: 2018,
+		// 		values: d3
+		// 			.nest()
+		// 			.key(d => d.pillar)
+		// 			.key(d => d.component)
+		// 			.key(d => d.sector)
+		// 			.rollup(d => d3.sum(d, d => d.usd2018))
+		// 			.entries(state.cleanTree),
+		// 	};
+		// } else {
+		// 	state.treemap = {
+		// 		key: 2019,
+		// 		values: d3
+		// 			.nest()
+		// 			.key(d => d.pillar)
+		// 			.key(d => d.component)
+		// 			.key(d => d.sector)
+		// 			.rollup(d => d3.sum(d, d => d.usd2019))
+		// 			.entries(state.cleanTree),
+		// 	};
 	},
 });
 
