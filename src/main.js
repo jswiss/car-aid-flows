@@ -40,7 +40,4 @@ new Vue({
 		navbar,
 		App,
 	},
-	created() {
-		this.$store.dispatch('LOAD_CLEAN_TREE');
-	},
 }).$mount('#app');

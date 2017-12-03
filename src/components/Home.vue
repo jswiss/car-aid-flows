@@ -39,6 +39,9 @@
   import HomeText from './HomeText';
   import TreeTabs from './treemap/TreeTabs';
   import TreeMap from './treemap/TreeMap';
+  import store from '../store';
+
+  console.log(store.state.tree2017);
 
   export default {
   	name: 'home',
@@ -61,6 +64,12 @@
   		setTree() {},
   	},
   	created() {
+  		this.$store.dispatch('LOAD_CLEAN_TREE');
+  	},
+  	beforeMount() {
+  		this.$store.dispatch('LOAD_TREES');
+  	},
+  	mounted() {
   		this.$store.dispatch('LOAD_TREEMAP');
   	},
   };

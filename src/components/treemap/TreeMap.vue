@@ -17,7 +17,7 @@
 		name: 'TreeMap',
 		data() {
 			return {
-				treeMap: this.$store.getters.treemap,
+				treemap: this.$store.getters.treemap,
 			};
 		},
 		methods: {
@@ -39,10 +39,9 @@
 				];
 				const colorRange = ['#262261', '#45B9EA'];
 				const treeMapChart = anychart.data.tree(
-					this.treeMap,
-					anychart.enums.TreeFillingMethod.AS_TREE
+					this.treeMap
+					// anychart.enums.TreeFillingMethod.AS_TREE
 				);
-
 				const chart = anychart.treeMap(treeMapChart);
 				chart
 					.headers()
@@ -52,13 +51,12 @@
 				chart.headers().fontSize(15);
 				chart.headers().fontWeight('bold');
 				chart.labels().format('{%name}');
-				chart.labels().textWrap('byWord');
+				// chart.labels().textWrap('byWord');
 				chart.labels().fontSize(10.5);
 				chart.labels().fontWeight(900);
 				chart.tooltip().titleFormat('{%name}');
 				chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
 				chart.hintOpacity(0.7);
-
 				chart.listen('pointClick', e => {
 					// eslint-disable-next-line
 					console.log(e.point.get('name'));
@@ -67,7 +65,6 @@
 						window.open(new_value, '_blank');
 					}
 				});
-
 				chart.maxDepth(1);
 				chart.colorRange(true);
 				chart.colorScale(
@@ -84,7 +81,7 @@
 				chart.draw();
 			},
 		},
-		created() {
+		mounted() {
 			this.drawTreeMap();
 		},
 		computed: {
