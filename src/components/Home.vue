@@ -9,21 +9,19 @@
       <div class="field">
         <p class="control" id="radios">
           <label class="radio">
-            <input type="radio" name="question" value="2017" @click="year = 2017, tree2017 = true, setTreeYear">
+            <input type="radio" name="question" value="2017" @click="year = 2017, setTreeYear">
             2017 Project-level Disbursements
           </label>
           <label class="radio">
-            <input type="radio" name="question" value="2018" @click="year = 2018, tree2018 = false, setTreeYear">
+            <input type="radio" name="question" value="2018" @click="year = 2018, setTreeYear">
             2018 Project-level Disbursements
           </label>
           <label class="radio">
-            <input type="radio" name="question" value="2019" @click="year = 2019, tree2019 = false, setTreeYear">
+            <input type="radio" name="question" value="2019" @click="year = 2019, setTreeYear">
             2019 Project-level Disbursements
           </label>
         </p>
-        <tree-map-2017 v-if="tree2017"></tree-map-2017>
-        <tree-map-2018 v-if="year === 2018"></tree-map-2018>
-        <tree-map-2019 v-if="year === 2019"></tree-map-2019>
+        <tree-map v-if="tree2017"></tree-map>
         <div class="disclaimer">
           <p class="disclaimer-text">
             * Projects under a certain value, relative to the largest project within each subsector, are not shown in this chart. To see all projects, please visit the <router-link to="/tables/projects">projects table</router-link>.
@@ -40,22 +38,18 @@
 <script type="text/javascript">
   import HomeText from './HomeText';
   import TreeTabs from './treemap/TreeTabs';
-  import TreeMap2017 from './treemap/TreeMap2017';
-  import TreeMap2018 from './treemap/TreeMap2018';
-  import TreeMap2019 from './treemap/TreeMap2019';
+  import TreeMap from './treemap/TreeMap';
 
   export default {
   	name: 'home',
   	components: {
   		HomeText,
   		TreeTabs,
-  		TreeMap2017,
-  		TreeMap2018,
-  		TreeMap2019,
+  		TreeMap,
   	},
   	data() {
   		return {
-  			year: '',
+  			year: '2017',
   			tree2017: true,
   		};
   	},
@@ -63,6 +57,12 @@
   		setTreeYear() {
   			this.$store.commit('SET_TREEMAP_YEAR', this.year);
   		},
+  		setTree() {
+  			this.$store.commit('SET_TREEMAP');
+  		},
+  	},
+  	created() {
+  		this.$store.commit('SET_CLEAN_TREE');
   	},
   };
 </script>

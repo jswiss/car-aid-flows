@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import moment from 'moment';
-import { d3 } from 'd3-collection';
+import { nest } from 'd3-collection';
+import { sum } from 'd3-array';
 import { excelToJsDate } from '../utils/helpers';
 
 Vue.use(Vuex);
@@ -27,6 +28,7 @@ const store = new Vuex.Store({
 		tableColumns: [],
 		treemapYear: '',
 		treemap: [],
+		cleanTree: [],
 	},
 	getters: {
 		raw: state => state.rawData,
@@ -49,6 +51,12 @@ const store = new Vuex.Store({
 		},
 		LOAD_XAF: ({ commit }) => {
 			commit('SET_XAF');
+		},
+		LOAD_CLEAN_TREE: ({ commit }) => {
+			commit('SET_CLEAN_TREE');
+		},
+		LOAD_TREEMAP: ({ commit }) => {
+			commit('SET_TREEMAP');
 		},
 	},
 	mutations: {
@@ -139,6 +147,35 @@ const store = new Vuex.Store({
 		},
 		SET_TREEMAP_YEAR: (state, data) => {
 			state.treemapYear = data;
+		},
+		SET_CLEAN_TREE: (state, data) => {
+			state.cleanTree = state.rawData.map(k => {
+				return {
+					name: k['Nom du projet'],
+					pillar: k['Pilier'],
+					component: k['Composante'],
+					sector: k['Secteur principal'],
+					totalUSD: k['Montant du projet USD'],
+					usd2017: k['Décaissements 2017 USD'],
+					projectedUSD2018:
+						k['Prévision de décaissements 2017 USD'] +
+						k['Prévision de décaissements 2018 USD'],
+					projectedUSD2019: k['Prévision de décaissements 2019 USD'],
+				};
+			});
+		},
+		SET_TREEMAP: (state, data) => {
+			state.treemap = {
+				key: state.treemapYear,
+				values: d3
+					.nest()
+					.key(d => d.pillar)
+					.key(d => d.component)
+					.key(d => d.sector)
+					.rollup(d => d3.sum(d, d => d[`projectedUSD${state.treemapYear}`]))
+					.entries(state.cleanTree),
+			};
+			// state.treemap =
 		},
 	},
 });

@@ -1,26 +1,29 @@
- <!--Tree 2019 component-->
-<template v-if="!seen">
+ <!--tree2017 component-->
+<template v-cloak>
   <div id="treemap-=content" class="columns is-mobile">
     <div class="column">
-    <div id="container" style="width: 100%; height: 500px;"></div>
+      <div id="container" style="width: 100%; height: 500px;"></div>
     </div>
   </div>
 </template>
 
-<script type='text/javascript'>
+<script type='module'>
+	import '../../../node_modules/anychart/dist/js/anychart-base.min.js';
+	import '../../../node_modules/anychart/dist/js/anychart-treemap.min.js';
+
 	anychart.licenseKey('80outrage-432962df-89451e8b');
 
 	export default {
-		name: 'TreeMap2019',
+		name: 'TreeMap',
 		data() {
-			return {};
+			return {
+				tree2017: '',
+				cleaned: '',
+			};
 		},
-		mounted() {
-			// this.treeMap();
-		},
+
 		methods: {
 			treeMap() {
-				const years = document.querySelectorAll('input');
 				const colorScheme = [
 					'#45B9EA',
 					'#262261',
@@ -37,16 +40,16 @@
 					'#ecf8fc',
 				];
 				const colorRange = ['#262261', '#45B9EA'];
-				// const year2019 = anychart.data.tree(tree2019, anychart.enums.TreeFillingMethod.AS_TREE);
+				// const year2017 = anychart.data.tree(tree2017, anychart.enums.TreeFillingMethod.AS_TREE);
 
-				// const chart = anychart.treeMap(year2019);
+				// const chart = anychart.treeMap(year2017);
 				chart
 					.headers()
 					.format(
 						'{%name} :: Project disbursements: ${%value}{groupsSeparator:\\,}'
 					);
-				chart.headers().fontWeight('bold');
 				chart.headers().fontSize(15);
+				chart.headers().fontWeight('bold');
 				chart.labels().format('{%name}');
 				chart.labels().textWrap('byWord');
 				chart.labels().fontSize(10.5);
@@ -80,10 +83,34 @@
 				chart.draw();
 			},
 		},
+
+		computed: {
+			filtered() {
+				return this.raw.map(k => {
+					return {
+						name: k['Nom du projet'],
+						pillar: k['Pilier'],
+						component: k['Composante'],
+						primarySector: k['Secteur principal'],
+						totalUSD: k['Montant du projet USD'],
+						usd2017: k['Décaissements 2017 USD'],
+						projectedUSD2017: k['Prévision de décaissements 2017 USD'],
+						projectedUSD2018: k['Prévision de décaissements 2018 USD'],
+						projectedUSD2019: k['Prévision de décaissements 2019 USD'],
+					};
+				});
+			},
+		},
 	};
 </script>
 
 <style scoped>
+	[v-cloak] > * {
+		display: none;
+	}
+	[v-cloak]::before {
+		content: 'loading…';
+	}
 	.buttons {
 		float: left;
 		margin-top: 8px;
