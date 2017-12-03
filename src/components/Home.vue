@@ -9,15 +9,15 @@
       <div class="field">
         <p class="control" id="radios">
           <label class="radio">
-            <input type="radio" name="question" value="2017" v-on:click="tree = 2017, tree2017 = true">
+            <input type="radio" name="question" value="2017" v-on:click="year = 2017, tree2017 = true">
             2017 Project-level Disbursements
           </label>
           <label class="radio">
-            <input type="radio" name="question" value="2018" v-on:click="tree = 2018, tree2018 = false">
+            <input type="radio" name="question" value="2018" v-on:click="year = 2018, tree2018 = false">
             2018 Project-level Disbursements
           </label>
           <label class="radio">
-            <input type="radio" name="question" value="2019" v-on:click="tree = 2019, tree2019 = false">
+            <input type="radio" name="question" value="2019" v-on:click="year = 2019, tree2019 = false">
             2019 Project-level Disbursements
           </label>
         </p>
@@ -55,7 +55,7 @@
   	},
   	data() {
   		return {
-  			tree: '',
+  			year: '',
   			tree2017: true,
   		};
   	},
