@@ -59,7 +59,7 @@
   			tree2017: true,
   		};
   	},
-  	methods: {
+  	computed: {
   		setTreeYear() {
   			this.$store.commit('SET_TREEMAP_YEAR', this.year);
   		},
