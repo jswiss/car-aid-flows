@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import moment from 'moment';
+import { d3 } from 'd3-collection';
 import { excelToJsDate } from '../utils/helpers';
 
 Vue.use(Vuex);
@@ -16,7 +17,6 @@ const store = new Vuex.Store({
 		currencyUnit: null,
 		rawData: require('../assets/data/aidflows.json'),
 		tableHeadersSubs: require('../assets/data/table-headers-subs.json'),
-		currencyRates: [],
 		tableData: [],
 		eurTable: [],
 		xafTable: [],
@@ -25,31 +25,19 @@ const store = new Vuex.Store({
 		eur: 1.1408,
 		xafToEur: 655.96,
 		tableColumns: [],
+		treemapYear: '',
+		treemap: [],
 	},
 	getters: {
-		// usdObj: state =>
-		// 	state.currencyRates.filter(rate => rate.currency_code === 'USD'),
-		// eurObj: state =>
-		// 	state.currencyRates.filter(rate => rate.currency_code === 'EUR'),
-		// xafObj: state =>
-		// 	state.currencyRates.filter(rate => rate.currency_code === 'XAF'),
 		raw: state => state.rawData,
 		tableData: state => state.tableData,
 		tableColumns: state => state.tableColumns,
 		xafTableData: state => state.xafTable,
 		eurTableData: state => state.eurTable,
+		treemapYear: state => state.treemapYear,
+		treemap: state => state.treemap,
 	},
 	actions: {
-		// LOAD_CURRENCY_RATES: ({ commit }) => {
-		// 	Vue.http.get('http://www.mycurrency.net/service/rates').then(
-		// 		res => {
-		// 			commit('SET_CURRENCY_RATES', res.data);
-		// 		},
-		// 		err => {
-		// 			console.log(err);
-		// 		}
-		// 	);
-		// },
 		LOAD_TABLE: ({ commit }) => {
 			commit('SET_TABLE');
 		},
@@ -64,9 +52,6 @@ const store = new Vuex.Store({
 		},
 	},
 	mutations: {
-		// SET_CURRENCY_RATES: (state, data) => {
-		// 	state.currencyRates = data;
-		// },
 		SET_TABLE: (state, data) => {
 			state.tableData = state.rawData.map(o => {
 				return {
@@ -151,6 +136,9 @@ const store = new Vuex.Store({
 				'Décaissements 2017 en devise',
 				'Prévision de décaissements 2017-2019 USD',
 			];
+		},
+		SET_TREEMAP_YEAR: (state, data) => {
+			state.treemapYear = data;
 		},
 	},
 });

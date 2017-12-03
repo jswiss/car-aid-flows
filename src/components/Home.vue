@@ -9,21 +9,21 @@
       <div class="field">
         <p class="control" id="radios">
           <label class="radio">
-            <input type="radio" name="question" value="2017" v-on:click="year = 2017, tree2017 = true">
+            <input type="radio" name="question" value="2017" @click="year = 2017, tree2017 = true, setTreeYear">
             2017 Project-level Disbursements
           </label>
           <label class="radio">
-            <input type="radio" name="question" value="2018" v-on:click="year = 2018, tree2018 = false">
+            <input type="radio" name="question" value="2018" @click="year = 2018, tree2018 = false, setTreeYear">
             2018 Project-level Disbursements
           </label>
           <label class="radio">
-            <input type="radio" name="question" value="2019" v-on:click="year = 2019, tree2019 = false">
+            <input type="radio" name="question" value="2019" @click="year = 2019, tree2019 = false, setTreeYear">
             2019 Project-level Disbursements
           </label>
         </p>
         <tree-map-2017 v-if="tree2017"></tree-map-2017>
-        <tree-map-2018 v-if="tree === 2018"></tree-map-2018>
-        <tree-map-2019 v-if="tree === 2019"></tree-map-2019>
+        <tree-map-2018 v-if="year === 2018"></tree-map-2018>
+        <tree-map-2019 v-if="year === 2019"></tree-map-2019>
         <div class="disclaimer">
           <p class="disclaimer-text">
             * Projects under a certain value, relative to the largest project within each subsector, are not shown in this chart. To see all projects, please visit the <router-link to="/tables/projects">projects table</router-link>.
@@ -58,6 +58,11 @@
   			year: '',
   			tree2017: true,
   		};
+  	},
+  	methods: {
+  		setTreeYear() {
+  			this.$store.commit('SET_TREEMAP_YEAR', this.year);
+  		},
   	},
   };
 </script>
