@@ -36,7 +36,7 @@ const store = new Vuex.Store({
 		tableColumns: state => state.tableColumns,
 		xafTableData: state => state.xafTable,
 		eurTableData: state => state.eurTable,
-		treemapYear: state => state.treemapYear,
+		treeYear: state => state.treemapYear,
 		treemap: state => state.treemap,
 	},
 	actions: {

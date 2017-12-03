@@ -17,13 +17,11 @@
 		name: 'TreeMap',
 		data() {
 			return {
-				tree2017: '',
-				cleaned: '',
+				treeMap: this.$store.getters.treemap,
 			};
 		},
-
 		methods: {
-			treeMap() {
+			drawTreeMap() {
 				const colorScheme = [
 					'#45B9EA',
 					'#262261',
@@ -40,9 +38,12 @@
 					'#ecf8fc',
 				];
 				const colorRange = ['#262261', '#45B9EA'];
-				// const year2017 = anychart.data.tree(tree2017, anychart.enums.TreeFillingMethod.AS_TREE);
+				const treeMapChart = anychart.data.tree(
+					this.treeMap,
+					anychart.enums.TreeFillingMethod.AS_TREE
+				);
 
-				// const chart = anychart.treeMap(year2017);
+				const chart = anychart.treeMap(treeMapChart);
 				chart
 					.headers()
 					.format(
@@ -83,27 +84,13 @@
 				chart.draw();
 			},
 		},
-		// created() {
-		// 	this.$store.dispatch('LOAD_TREEMAP');
-		// },
+		created() {
+			this.drawTreeMap();
+		},
 		computed: {
-			filtered() {
-				return this.raw.map(k => {
-					return {
-						name: k['Nom du projet'],
-						pillar: k['Pilier'],
-						component: k['Composante'],
-						primarySector: k['Secteur principal'],
-						totalUSD: k['Montant du projet USD'],
-						usd2017: k['Décaissements 2017 USD'],
-						projectedUSD2017: k['Prévision de décaissements 2017 USD'],
-						projectedUSD2018: k['Prévision de décaissements 2018 USD'],
-						projectedUSD2019: k['Prévision de décaissements 2019 USD'],
-					};
-				});
-			},
 			loadTreemap() {
 				this.$store.dispatch('LOAD_TREEMAP');
+				this.treemap = this.$store.getters.treemap;
 			},
 		},
 	};
