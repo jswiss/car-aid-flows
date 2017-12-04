@@ -1,4 +1,4 @@
- <!--tree2017 component-->
+<!--tree2017 component-->
 <template v-cloak>
   <div id="treemap-=content" class="columns is-mobile">
     <div class="column">
@@ -10,15 +10,13 @@
 <script type='module'>
 	import '../../../node_modules/anychart/dist/js/anychart-base.min.js';
 	import '../../../node_modules/anychart/dist/js/anychart-treemap.min.js';
-
 	anychart.licenseKey('80outrage-432962df-89451e8b');
-
 	export default {
-		name: 'TreeMap',
+		name: 'TreeMap2017',
 		data() {
 			return {
 				tree2017: this.$store.getters.tree2017,
-				treemap: this.$store.getters.treemap,
+				treemap: this.$store.state.treemap,
 			};
 		},
 		methods: {

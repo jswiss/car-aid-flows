@@ -106,89 +106,11 @@ const SET_CLEAN_TREE = (state, data) => {
 };
 const SET_TREEMAP = (state, data) => {
 	if (state.treemapYear === 2017) {
-		state.treemap = [
-			{
-				name: 2017,
-				children: state.tree2017.values.map(pillar => {
-					return {
-						name: pillar.key,
-						children: pillar.values.map(component => {
-							return {
-								name: component.key,
-								children: component.values.map(sector => {
-									return {
-										name: sector.key,
-										children: sector.values.map(project => {
-											return {
-												name: project.key,
-												value: project.value,
-												url: `http://localhost:7775/projects/${project.key}`,
-											};
-										}),
-									};
-								}),
-							};
-						}),
-					};
-				}),
-			},
-		];
+		state.treemap = state.tree2017;
 	} else if (state.treemapYear === 2018) {
-		state.treemap = [
-			{
-				name: 2018,
-				children: state.tree2018.values.map(pillar => {
-					return {
-						name: pillar.key,
-						children: pillar.values.map(component => {
-							return {
-								name: component.key,
-								children: component.values.map(sector => {
-									return {
-										name: sector.key,
-										children: sector.values.map(project => {
-											return {
-												name: project.key,
-												value: project.value,
-												url: `http://localhost:7775/projects/${project.key}`,
-											};
-										}),
-									};
-								}),
-							};
-						}),
-					};
-				}),
-			},
-		];
+		state.treemap = state.tree2018;
 	} else {
-		state.treemap = [
-			{
-				name: 2019,
-				children: state.tree2019.values.map(pillar => {
-					return {
-						name: pillar.key,
-						children: pillar.values.map(component => {
-							return {
-								name: component.key,
-								children: component.values.map(sector => {
-									return {
-										name: sector.key,
-										children: sector.values.map(project => {
-											return {
-												name: project.key,
-												value: project.value,
-												url: `http://localhost:7775/projects/${project.key}`,
-											};
-										}),
-									};
-								}),
-							};
-						}),
-					};
-				}),
-			},
-		];
+		state.treemap = state.tree2019;
 	}
 };
 const SET_TREES = (state, data) => {
@@ -200,6 +122,33 @@ const SET_TREES = (state, data) => {
 		.key(d => d.project)
 		.rollup(d => d3.sum(d, d => d.usd2017))
 		.entries(state.cleanTree);
+	state.tree2017 = [
+		{
+			name: 2017,
+			children: state.tree2017.values.map(pillar => {
+				return {
+					name: pillar.key,
+					children: pillar.values.map(component => {
+						return {
+							name: component.key,
+							children: component.values.map(sector => {
+								return {
+									name: sector.key,
+									children: sector.values.map(project => {
+										return {
+											name: project.key,
+											value: project.value,
+											url: `http://localhost:7775/projects/${project.key}`,
+										};
+									}),
+								};
+							}),
+						};
+					}),
+				};
+			}),
+		},
+	];
 	state.tree2018.values = d3
 		.nest()
 		.key(d => d.pillar)
@@ -208,6 +157,33 @@ const SET_TREES = (state, data) => {
 		.key(d => d.project)
 		.rollup(d => d3.sum(d, d => d.projectedUSD2018))
 		.entries(state.cleanTree);
+	state.tree2018 = [
+		{
+			name: 2018,
+			children: state.tree2018.values.map(pillar => {
+				return {
+					name: pillar.key,
+					children: pillar.values.map(component => {
+						return {
+							name: component.key,
+							children: component.values.map(sector => {
+								return {
+									name: sector.key,
+									children: sector.values.map(project => {
+										return {
+											name: project.key,
+											value: project.value,
+											url: `http://localhost:7775/projects/${project.key}`,
+										};
+									}),
+								};
+							}),
+						};
+					}),
+				};
+			}),
+		},
+	];
 	state.tree2019.values = d3
 		.nest()
 		.key(d => d.pillar)
@@ -216,6 +192,33 @@ const SET_TREES = (state, data) => {
 		.key(d => d.project)
 		.rollup(d => d3.sum(d, d => d.projectedUSD2019))
 		.entries(state.cleanTree);
+	state.tree2019 = [
+		{
+			name: 2019,
+			children: state.tree2019.values.map(pillar => {
+				return {
+					name: pillar.key,
+					children: pillar.values.map(component => {
+						return {
+							name: component.key,
+							children: component.values.map(sector => {
+								return {
+									name: sector.key,
+									children: sector.values.map(project => {
+										return {
+											name: project.key,
+											value: project.value,
+											url: `http://localhost:7775/projects/${project.key}`,
+										};
+									}),
+								};
+							}),
+						};
+					}),
+				};
+			}),
+		},
+	];
 };
 
 export default {

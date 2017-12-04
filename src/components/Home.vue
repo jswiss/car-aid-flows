@@ -1,4 +1,4 @@
- <!--home page-->
+<!--home page-->
 <template>
   <div id="topmost" class="columns is-gapless is-mobile">  
     <div class="column is-3">
@@ -21,7 +21,7 @@
             2019 Project-level Disbursements
           </label>
         </p>
-        <tree-map v-if="tree2017"></tree-map>
+        <tree-map-2017 v-if="tree2017"></tree-map-2017>
         <div class="disclaimer">
           <p class="disclaimer-text">
             * Projects under a certain value, relative to the largest project within each subsector, are not shown in this chart. To see all projects, please visit the <router-link to="/tables/projects">projects table</router-link>.
@@ -38,17 +38,15 @@
 <script type="text/javascript">
   import HomeText from './HomeText';
   import TreeTabs from './treemap/TreeTabs';
-  import TreeMap from './treemap/TreeMap';
+  import TreeMap2017 from './treemap/TreeMap2017';
   import store from '../store';
-
   console.log(store.state.tree2018);
-
   export default {
   	name: 'home',
   	components: {
   		HomeText,
   		TreeTabs,
-  		TreeMap,
+  		TreeMap2017,
   	},
   	data() {
   		return {
