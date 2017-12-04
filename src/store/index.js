@@ -6,13 +6,9 @@ import getters from './getters';
 import actions from './actions';
 import mutations from './mutations';
 
-Vue.use(Vuex);
+import anychart from 'anychart';
 
-// base currency is USD
-// const currencyUrl = 'http://www.mycurrency.net/service';
-// const api = axios.create({
-// 	baseURL: currencyUrl,
-// });
+Vue.use(Vuex);
 
 const store = new Vuex.Store({
 	state: {
@@ -31,6 +27,15 @@ const store = new Vuex.Store({
 		tree2019: {},
 		treemap: [],
 		cleanTree: [],
+		colorShades: [
+			'#6c82b1',
+			'#8497be',
+			'#9dabcb',
+			'#b5c0d8',
+			'#ced5e5',
+			'#e6eaf2',
+		],
+		colorRange: ['#e6eaf2', '#6c82b1'],
 	},
 	getters,
 	mutations,

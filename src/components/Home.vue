@@ -21,7 +21,7 @@
             2019 Project-level Disbursements
           </label>
         </p>
-        <tree-map-2017 v-if="tree2017 === true"></tree-map-2017>
+        <tree-map-2017 ref="TreeMap2017" v-if="tree2017 === true"></tree-map-2017>
         <tree-map-2018 v-if="year === 2018"></tree-map-2018>
         <tree-map-2019 v-if="year === 2019"></tree-map-2019>
         <div class="disclaimer">
@@ -55,7 +55,7 @@
   	},
   	data() {
   		return {
-  			year: 2017,
+  			year: null,
   			tree2017: true,
   		};
   	},
@@ -73,6 +73,8 @@
   	},
   	mounted() {
   		this.$store.dispatch('LOAD_TREEMAP');
+  		const load2017 = this.$refs.TreeMap2017;
+  		load2017.drawTreeMap2017();
   	},
   };
 </script>
