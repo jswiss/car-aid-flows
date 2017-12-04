@@ -17,12 +17,11 @@
 		name: 'TreeMap2017',
 		data() {
 			return {
-				tree2017: this.$store.getters.tree2017,
 				treemap: this.$store.state.treemap,
 			};
 		},
 		methods: {
-			drawTreeMap() {
+			drawTreeMap2017() {
 				const colorScheme = [
 					'#45B9EA',
 					'#262261',
@@ -83,14 +82,14 @@
 			},
 		},
 		mounted() {
-			this.drawTreeMap();
+			this.drawTreeMap2017();
 		},
-		computed: {
-			loadTreemap() {
-				this.$store.dispatch('LOAD_TREEMAP');
-				this.treemap = this.$store.getters.treemap;
-			},
-		},
+		// computed: {
+		// 	loadTreemap2017() {
+		// 		this.$store.dispatch('LOAD_TREEMAP');
+		// 		this.treemap = this.$store.getters.treemap;
+		// 	},
+		// },
 	};
 </script>
 

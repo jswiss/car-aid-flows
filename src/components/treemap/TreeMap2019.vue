@@ -1,7 +1,6 @@
 <template>
 	<div id="treemap-content" class="columns is-mobile">
     <div class="column">
-			TREE2019
       <div id="container" style="width: 100%; height: 500px;"></div>
     </div>
   </div>
@@ -17,12 +16,11 @@
 		name: 'TreeMap2019',
 		data() {
 			return {
-				tree2018: this.$store.getters.tree2019,
 				treemap: this.$store.state.treemap,
 			};
 		},
 		methods: {
-			drawTreeMap() {
+			drawTreeMap2019() {
 				const colorScheme = [
 					'#45B9EA',
 					'#262261',
@@ -83,14 +81,14 @@
 			},
 		},
 		mounted() {
-			this.drawTreeMap();
+			this.drawTreeMap2019();
 		},
-		computed: {
-			loadTreemap() {
-				this.$store.dispatch('LOAD_TREEMAP');
-				this.treemap = this.$store.getters.treemap;
-			},
-		},
+		//computed: {
+		//	loadTreemap2019() {
+		//		this.$store.dispatch('LOAD_TREEMAP');
+		//		this.treemap = this.$store.getters.treemap;
+		//	},
+		// },
 	};
 </script>
 
