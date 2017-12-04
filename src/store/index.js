@@ -1,12 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import moment from 'moment';
-import { excelToJsDate } from '../utils/helpers';
 import getters from './getters';
 import actions from './actions';
 import mutations from './mutations';
-
-import anychart from 'anychart';
 
 Vue.use(Vuex);
 
@@ -35,7 +31,7 @@ const store = new Vuex.Store({
 			'#ced5e5',
 			'#e6eaf2',
 		],
-		colorRange: ['#e6eaf2', '#6c82b1'],
+		colorRange: ['#6c82b1', '#e6eaf2'],
 	},
 	getters,
 	mutations,

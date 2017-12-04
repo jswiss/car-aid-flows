@@ -5,10 +5,12 @@
           <router-link class="nav-item" to="/charts/oda-chart" >
             <div id="chart-selector-1" class="column">
               <span>
-                <i class="fa fa-area-chart fa-4x"></i>
+                <i class="fa fa-bar-chart fa-4x"></i>
               </span>
               <h4 class="sidebar-title">
-                ODA Trends
+                Piliers et
+                <br>
+                composantes
               </h4>
             </div>
           </router-link>
@@ -82,24 +84,30 @@
   </template>
 
 <script type="text/javascript">
-
-export default {
-  name: 'ChartsTabs',
-};
+  export default {
+  	name: 'ChartsTabs',
+  };
 </script>
 
-  <style>
-    .outline {
-      /*border: 1px solid rgba(0, 209, 178, 0.7);*/
-      margin: 1px;
-    }
+  <style scoped>
+  .outline {
+  	/*border: 1px solid rgba(0, 209, 178, 0.7);*/
+  	margin: 1px;
+  }
 
-    .sidebar-title {
-      font-size: 12px;
-    }
+  .sidebar-title {
+  	font-size: 12px;
+  }
 
-    #chart-menu {
-      margin: 3% 0 0 0;
-    }
+  #chart-menu {
+  	margin: 3% 0 0 0;
+  }
+  .fa-4x {
+  	font-size: 5em !important;
+  }
 
-  </style>
+  i {
+  	width: 100px;
+  	height: 100px;
+  }
+</style>
