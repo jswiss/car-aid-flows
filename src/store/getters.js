@@ -5,6 +5,7 @@ const xafTableData = state => state.xafTable;
 const eurTableData = state => state.eurTable;
 const treeYear = state => state.treemapYear;
 const treemap = state => state.treemap;
+const tree2017 = state => state.tree2017;
 
 export default {
 	raw,
@@ -14,4 +15,5 @@ export default {
 	eurTableData,
 	treeYear,
 	treemap,
+	tree2017,
 };

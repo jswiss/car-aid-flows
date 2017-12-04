@@ -17,6 +17,7 @@
 		name: 'TreeMap',
 		data() {
 			return {
+				tree2017: this.$store.getters.tree2017,
 				treemap: this.$store.getters.treemap,
 			};
 		},
@@ -39,7 +40,7 @@
 				];
 				const colorRange = ['#262261', '#45B9EA'];
 				const treeMapChart = anychart.data.tree(
-					this.treeMap
+					this.treemap
 					// anychart.enums.TreeFillingMethod.AS_TREE
 				);
 				const chart = anychart.treeMap(treeMapChart);

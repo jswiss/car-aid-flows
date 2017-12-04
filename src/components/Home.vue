@@ -41,7 +41,7 @@
   import TreeMap from './treemap/TreeMap';
   import store from '../store';
 
-  console.log(store.state.tree2017);
+  console.log(store.state.tree2018);
 
   export default {
   	name: 'home',

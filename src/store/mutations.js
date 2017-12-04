@@ -121,7 +121,7 @@ const SET_TREEMAP = (state, data) => {
 										children: sector.values.map(project => {
 											return {
 												name: project.key,
-												value: project.values,
+												value: project.value,
 												url: `http://localhost:7775/projects/${project.key}`,
 											};
 										}),
@@ -149,7 +149,7 @@ const SET_TREEMAP = (state, data) => {
 										children: sector.values.map(project => {
 											return {
 												name: project.key,
-												value: project.values,
+												value: project.value,
 												url: `http://localhost:7775/projects/${project.key}`,
 											};
 										}),
@@ -177,7 +177,7 @@ const SET_TREEMAP = (state, data) => {
 										children: sector.values.map(project => {
 											return {
 												name: project.key,
-												value: project.values,
+												value: project.value,
 												url: `http://localhost:7775/projects/${project.key}`,
 											};
 										}),
@@ -206,7 +206,7 @@ const SET_TREES = (state, data) => {
 		.key(d => d.component)
 		.key(d => d.sector)
 		.key(d => d.project)
-		.rollup(d => d3.sum(d, d => d.usd2018))
+		.rollup(d => d3.sum(d, d => d.projectedUSD2018))
 		.entries(state.cleanTree);
 	state.tree2019.values = d3
 		.nest()
@@ -214,7 +214,7 @@ const SET_TREES = (state, data) => {
 		.key(d => d.component)
 		.key(d => d.sector)
 		.key(d => d.project)
-		.rollup(d => d3.sum(d, d => d.usd2019))
+		.rollup(d => d3.sum(d, d => d.projectedUSD2019))
 		.entries(state.cleanTree);
 };
 
