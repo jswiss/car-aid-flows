@@ -1,6 +1,6 @@
 <!--tree2017 component-->
 <template v-cloak>
-  <div id="treemap-=content" class="columns is-mobile">
+  <div id="treemap-content" class="columns is-mobile">
     <div class="column">
       <div id="container" style="width: 100%; height: 500px;"></div>
     </div>
@@ -10,7 +10,9 @@
 <script type='module'>
 	import '../../../node_modules/anychart/dist/js/anychart-base.min.js';
 	import '../../../node_modules/anychart/dist/js/anychart-treemap.min.js';
+
 	anychart.licenseKey('80outrage-432962df-89451e8b');
+
 	export default {
 		name: 'TreeMap2017',
 		data() {
