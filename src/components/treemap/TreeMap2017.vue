@@ -8,11 +8,6 @@
 </template>
 
 <script type='module'>
-	import '../../../node_modules/anychart/dist/js/anychart-base.min.js';
-	import '../../../node_modules/anychart/dist/js/anychart-treemap.min.js';
-
-	anychart.licenseKey('80outrage-432962df-89451e8b');
-
 	export default {
 		name: 'TreeMap2017',
 		data() {

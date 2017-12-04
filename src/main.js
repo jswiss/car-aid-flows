@@ -9,6 +9,11 @@ import router from './router';
 import navbar from './components/Navbar';
 import store from './store';
 
+import '../node_modules/anychart/dist/js/anychart-base.min.js';
+import '../node_modules/anychart/dist/js/anychart-treemap.min.js';
+
+Vue.use(anychart);
+
 // Require the main Sass manifest file
 require('./assets/sass/main.scss');
 
