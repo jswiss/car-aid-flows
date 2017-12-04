@@ -3,7 +3,7 @@
   <div id="topmost" class="columns">
     <charts-tabs class="column is-one-quarter"></charts-tabs>
     <div id="chart-content" class="column is-three-quarters">
-      <oda-chart v-if="['OdaChart'].indexOf($route.name) > -1"></oda-chart>
+      <pillar-count-chart v-if="['PillarCountChart'].indexOf($route.name) > -1"></pillar-count-chart>
       <aid-by-category v-if="['AidByCategory'].indexOf($route.name) > -1"></aid-by-category>
       <aid-location-chart v-if="['AidLocationChart'].indexOf($route.name) > -1"></aid-location-chart>
       <aid-via-funds v-if="['AidViaFunds'].indexOf($route.name) > -1"></aid-via-funds>
@@ -14,7 +14,7 @@
 </template>
 <script type="text/javascript">
   import ChartsTabs from './ChartsTabs';
-  import OdaChart from './OdaChart';
+  import PillarCountChart from './PillarCountChart';
   import AidByCategory from './AidByCategory';
   import AidLocationChart from './AidLocationChart';
   import AidViaFunds from './AidViaFunds';
@@ -48,7 +48,7 @@
   	name: 'Charts',
   	components: {
   		ChartsTabs,
-  		OdaChart,
+  		PillarCountChart,
   		AidByCategory,
   		AidLocationChart,
   		AidViaFunds,

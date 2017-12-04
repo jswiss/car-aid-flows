@@ -5,7 +5,7 @@ import About from '@/components/about/About';
 import Tables from '@/components/tables/Tables';
 import LocationsTable from '@/components/tables/LocationsTable';
 import Charts from '@/components/charts/Charts';
-import OdaChart from '@/components/charts/OdaChart';
+import PillarCountChart from '@/components/charts/PillarCountChart';
 import AidByCategory from '@/components/charts/AidByCategory';
 import AidLocationChart from '@/components/charts/AidLocationChart';
 import AidViaFunds from '@/components/charts/AidViaFunds';
@@ -39,9 +39,9 @@ const routes = [
 		component: Charts,
 		children: [
 			{
-				path: 'oda-chart',
-				name: 'OdaChart',
-				component: OdaChart,
+				path: 'pillar-count-chart',
+				name: 'PillarCountChart',
+				component: PillarCountChart,
 			},
 			{
 				path: 'aid-by-category',

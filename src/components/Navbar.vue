@@ -7,7 +7,7 @@
       <router-link class="nav-item is-brand" to="/">
         Flux d'aide de la RCA
       </router-link>
-      <router-link class="nav-item is-tab" to="/charts/oda-chart">
+      <router-link class="nav-item is-tab" to="/charts/pillar-count-chart">
         <i class="fa fa-dashboard"></i>Graphiques
       </router-link>
       <router-link class="nav-item is-tab" to="/tables/locations">
