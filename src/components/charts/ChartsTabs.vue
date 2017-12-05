@@ -16,13 +16,11 @@
           </router-link>
         </div>
         <div class="outline">
-          <router-link class="nav-item" to="/charts/aid-by-category" >
+          <router-link class="nav-item" to="/charts/pillars-components-2017" >
             <div id="chart-selector-2" class="column">
               <i class="fa fa-bar-chart fa-4x"></i>
               <h4 class="sidebar-title">
-                Aid by 
-                <br>
-                Category
+                2017 Décaissements
               </h4>
             </div>
           </router-link>

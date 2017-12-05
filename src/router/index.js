@@ -6,7 +6,7 @@ import Tables from '@/components/tables/Tables';
 import LocationsTable from '@/components/tables/LocationsTable';
 import Charts from '@/components/charts/Charts';
 import PillarCountChart from '@/components/charts/PillarCountChart';
-import AidByCategory from '@/components/charts/AidByCategory';
+import PillarsComponents2017 from '@/components/charts/PillarsComponents2017';
 import AidLocationChart from '@/components/charts/AidLocationChart';
 import AidViaFunds from '@/components/charts/AidViaFunds';
 import AidByNdpPillar from '@/components/charts/AidByNdpPillar';
@@ -44,9 +44,9 @@ const routes = [
 				component: PillarCountChart,
 			},
 			{
-				path: 'aid-by-category',
-				name: 'AidByCategory',
-				component: AidByCategory,
+				path: 'pillars-components-2017',
+				name: 'PillarsComponents2017',
+				component: PillarsComponents2017,
 			},
 			{
 				path: 'aid-location',

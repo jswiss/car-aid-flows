@@ -4,7 +4,7 @@
     <charts-tabs class="column is-one-quarter"></charts-tabs>
     <div id="chart-content" class="column is-three-quarters">
       <pillar-count-chart v-if="['PillarCountChart'].indexOf($route.name) > -1"></pillar-count-chart>
-      <aid-by-category v-if="['AidByCategory'].indexOf($route.name) > -1"></aid-by-category>
+      <pillars-components-2017 v-if="['PillarsComponents2017'].indexOf($route.name) > -1"></pillars-components-2017>
       <aid-location-chart v-if="['AidLocationChart'].indexOf($route.name) > -1"></aid-location-chart>
       <aid-via-funds v-if="['AidViaFunds'].indexOf($route.name) > -1"></aid-via-funds>
       <aid-by-ndp-pillar v-if="['AidByNdpPillar'].indexOf($route.name) > -1"></aid-by-ndp-pillar>
@@ -15,7 +15,7 @@
 <script type="text/javascript">
   import ChartsTabs from './ChartsTabs';
   import PillarCountChart from './PillarCountChart';
-  import AidByCategory from './AidByCategory';
+  import PillarsComponents2017 from './PillarsComponents2017';
   import AidLocationChart from './AidLocationChart';
   import AidViaFunds from './AidViaFunds';
   import AidByNdpPillar from './AidByNdpPillar';
@@ -49,7 +49,7 @@
   	components: {
   		ChartsTabs,
   		PillarCountChart,
-  		AidByCategory,
+  		PillarsComponents2017,
   		AidLocationChart,
   		AidViaFunds,
   		AidByNdpPillar,
