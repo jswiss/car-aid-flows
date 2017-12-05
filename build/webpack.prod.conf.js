@@ -9,6 +9,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 var CompressionPlugin = require('compression-webpack-plugin');
+var CommonChunksPlugin = require('webpack-vendor-chunk-plugin');
 
 var env =
 	process.env.NODE_ENV === 'testing'
@@ -32,6 +33,15 @@ var webpackConfig = merge(baseWebpackConfig, {
 		// http://vuejs.github.io/vue-loader/en/workflow/production.html
 		new webpack.DefinePlugin({
 			'process.env': env,
+		}),
+		new webpack.optimize.CommonsChunkPlugin({
+			name: 'vendor',
+			minChunks: function(module) {
+				return module.context && module.context.indexOf('node_modules') !== -1;
+			},
+			output: {
+				filename: '[name].[chunkhash].js',
+			},
 		}),
 		new webpack.optimize.DedupePlugin(),
 		new webpack.optimize.UglifyJsPlugin({

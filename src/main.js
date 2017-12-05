@@ -42,7 +42,7 @@ new Vue({
 	router,
 	store,
 	components: {
-		navbar,
-		App,
+		navbar: navbar,
+		App: App,
 	},
 }).$mount('#app');

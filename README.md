@@ -1,10 +1,10 @@
-# world-bank-aid-flow
+# car-aid-flow
 
-> Dashboard and tables of aid flow in Somalia for the World Bank, in Vue.js with D3
+> Charts and tables for World Bank Somalia's tracking of aid flows
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
@@ -27,4 +27,6 @@ npm run e2e
 npm test
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+For detailed explanation on how things work, checkout the
+[guide](http://vuejs-templates.github.io/webpack/) and
+[docs for vue-loader](http://vuejs.github.io/vue-loader).
