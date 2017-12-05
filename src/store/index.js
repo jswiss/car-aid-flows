@@ -12,6 +12,37 @@ const store = new Vuex.Store({
 		tableData: [],
 		eurTable: [],
 		xafTable: [],
+		pillarComponentChart: [
+			{
+				x: 'Pilier 1',
+				value: 123,
+				drillDown: [
+					{ x: 'DDRR', value: 16 },
+					{ x: 'RSS', value: 38 },
+					{ x: 'Justice', value: 37 },
+					{ x: 'Cohésion sociale et réfugiés', value: 42 },
+				],
+			},
+			{
+				x: 'Pilier 2',
+				value: 155,
+				drillDown: [
+					{ x: 'Redéploiement et gouvernance locale', value: 10 },
+					{ x: 'Services sociaux de base', value: 89 },
+					{ x: 'Résilience et sécurité alimentaire', value: 24 },
+					{ x: 'Stabilité macroéconomique et bonne gouvernance', value: 29 },
+				],
+			},
+			{
+				x: 'Pilier 3',
+				value: '62',
+				drillDown: [
+					{ x: 'Secteurs productifs', value: 23 },
+					{ x: 'Infrastructures', value: 28 },
+					{ x: 'Secteur privé et emploi', value: 11 },
+				],
+			},
+		],
 		pillarCountChart: [
 			{
 				x: 'Pilier 1',

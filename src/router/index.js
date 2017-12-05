@@ -3,7 +3,7 @@ import Router from 'vue-router';
 import Home from '@/components/Home';
 import About from '@/components/about/About';
 import Tables from '@/components/tables/Tables';
-import LocationsTable from '@/components/tables/LocationsTable';
+import AidTable from '@/components/tables/AidTable';
 import Charts from '@/components/charts/Charts';
 import PillarCountChart from '@/components/charts/PillarCountChart';
 import PillarsComponents2017 from '@/components/charts/PillarsComponents2017';
@@ -27,9 +27,9 @@ const routes = [
 		component: Tables,
 		children: [
 			{
-				path: 'locations',
-				name: 'LocationsTable',
-				component: LocationsTable,
+				path: "/table-de-flux-d'aide",
+				name: 'AidTable',
+				component: AidTable,
 			},
 		],
 	},

@@ -1,22 +1,16 @@
 <!-- tables -->
 <template lang="html">
   <div id="topmost" class="container is-fluid">
-    <tables-tabs></tables-tabs>
-    <project-table v-if="['ProjectTable'].indexOf($route.name) > -1"></project-table>
-    <donor-table v-if="['DonorTable'].indexOf($route.name) > -1"></donor-table>
-    <locations-table v-if="['LocationsTable'].indexOf($route.name) > -1"></locations-table>
-    <funds-table v-if="['FundsTable'].indexOf($route.name) > -1"></funds-table>
+    <aid-table></aid-table>
   </div>
 </template>
 <script type="text/javascript">
-  import TablesTabs from './TablesTabs';
-  import LocationsTable from './LocationsTable';
+  import AidTable from './AidTable';
 
   export default {
   	name: 'tables',
   	components: {
-  		TablesTabs,
-  		LocationsTable,
+  		AidTable,
   	},
   	created() {
   		this.$store.dispatch('LOAD_TABLE');
