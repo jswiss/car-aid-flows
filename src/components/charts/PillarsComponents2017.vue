@@ -1,12 +1,21 @@
 <!-- PillarsComponents2017 -->
 <template lang="html">
   <div>
-    <div id="container"></div>
+    <div class="columns is-mobile">
+      <div class="column" id="container"></div>
+			<a id="back" @click="backButton" :class="{display: isDisplay}" class="button is-pulled-right">Retour aux piliers</a>
+    </div>
   </div>
 </template>
+
 <script type="text/javascript">
 	export default {
 		name: 'PillarsComponents2017',
+		data() {
+			return {
+				isDisplay: true,
+			};
+		},
 		methods: {
 			backButton() {
 				this.isDisplay = !this.isDisplay;
@@ -96,6 +105,20 @@
 		font-style: italic;
 		font-size: 12px;
 		color: gray;
+	}
+	#back {
+		cursor: pointer;
+		background: #7bc0f7;
+		border: 1px solid #64b5f6;
+		color: #fff;
+		padding: 10px;
+		position: absolute;
+		top: 15px;
+		right: 20px;
+		z-index: 100;
+	}
+	.display {
+		display: none;
 	}
 </style>
 
