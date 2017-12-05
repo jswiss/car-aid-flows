@@ -1,88 +1,83 @@
-<!-- AnnualDisbursementsChart -->
+<!-- PillarsComponents2017 -->
 <template lang="html">
   <div>
     <div id="container"></div>
-    <div class="disclaimer">
-      <p class="disclaimer-text">
-        * For more information, please visit the <router-link to="/tables/donors">donors table</router-link>.
-      </p>
-    </div>
   </div>
 </template>
 <script type="text/javascript">
 	export default {
-		name: 'AidByCategory',
-		data() {
-			return {
-				data: [
-					['2015', 610821157, 588390258, 323847494],
-					['2016', 692250352, 619617477, 366833105],
-					['2017', 612832086, 613980507, 325129693],
-					['2018', 276145677, 71420635, 6611111],
-					['2019', 183244513, 68753968, 0],
-				],
-			};
-		},
-		mounted() {
-			this.bar();
-		},
+		name: 'PillarsComponents2017',
 		methods: {
-			bar() {
-				// set the data
-				const data = anychart.data.set(this.data);
-				// map the data
-				const seriesData_1 = data.mapAs({ x: [0], value: [1] });
-				const seriesData_2 = data.mapAs({ x: [0], value: [2] });
-				const seriesData_3 = data.mapAs({ x: [0], value: [3] });
+			backButton() {
+				this.isDisplay = !this.isDisplay;
+				chart.getSeries(0).data(this.$store.state.pillarComponentChart);
+			},
+			pillarComponent2017() {
+				const vm = this;
+				const chart = anychart.column(this.$store.state.pillarComponentChart);
+				// chart.animate(true);
+				chart.title('Décaissements par piliers et composantes en 2017 ');
+				chart.tooltip().format('{%value} projets');
+				// tune interactivity selection mode
+				chart.interactivity().selectionMode('none');
 
-				// create the chart
-				const chart = anychart.column();
+				chart.label(0, {
+					enabled: false,
+					position: 'rightTop',
+					anchor: 'rightTop',
+					padding: 5,
+					offsetX: 5,
+					offsetY: 5,
+					text: 'Back',
+					background: { stroke: '1 black', enabled: true },
+				});
 
-				// create the first series, set the data and name
-				const series1 = chart.column(seriesData_1);
-				series1.name('Development');
-				series1.fill('#45B9EA', 0.8);
-				series1.stroke(7, '#45B9EA');
+				// load initial data on label click
+				chart.label(0).listen('click', function() {
+					chart.getSeries(0).data(data);
+					chart.label(0).enabled(false);
+				});
 
-				// create the second series, set the data and name
-				const series2 = chart.column(seriesData_2);
-				series2.name('Humanitarian');
-				series2.fill('#00D1B2', 0.8);
-				series2.stroke(7, '#00D1B2');
+				chart.listen('pointClick', function(e) {
+					// check if there is drillDown data available
+					if (e.point.get('drillDown')) {
+						// if so, assign to the only data series we have
+						chart.getSeries(0).data(e.point.get('drillDown'));
+						vm.backButton();
+					} else {
+						// otherwise assign this series the initial
+						// dataset and return to the initial state
+						chart.getSeries(0).data(this.$store.state.pillarComponentChart);
+						vm.backButton();
+					}
+				});
 
-				// create the third series, set the data and name
-				const series3 = chart.column(seriesData_3);
-				series3.name('Peacekeeping');
-				series3.fill('#716558', 0.8);
-				series3.stroke(7, '#716558');
+				// set scale minimum
+				chart.yScale().minimum(0);
 
-				// set the padding between columns
-				chart.barsPadding(-0.2);
+				// set yAxis labels formatter
+				chart
+					.yAxis()
+					.labels()
+					.format('${%Value}{groupsSeparator: }');
 
-				// set the padding between column groups
-				chart.barGroupsPadding(2);
+				// tooltips position and interactivity settings
+				chart.tooltip().positionMode('point');
+				chart.interactivity().hoverMode('by-x');
 
-				// set the chart title
-				chart.title('Cumulative Aid Flow By Category and Year, USD');
+				// axes titles
+				// chart.xAxis().title('Nombre de projets');
+				chart.yAxis().title('FCFA');
 
-				// format the tooltip
-				chart.tooltip().format('{%SeriesName}: ${%Value}{groupsSeparator:\\,}');
-
-				// set the titles of the axes
-				const xAxis = chart.xAxis();
-				xAxis.title('Aid Flow Category');
-				const yAxis = chart.yAxis();
-				yAxis.title('USD');
-
-				const yLabels = chart.yAxis(0).labels();
-				yLabels.format('${%Value}{groupsSeparator:\\,}');
-
-				// set the container id
+				// set container id for the chart
 				chart.container('container');
 
-				// initiate drawing the chart
+				// initiate chart drawing
 				chart.draw();
 			},
+		},
+		mounted() {
+			this.pillarComponent2017();
 		},
 	};
 </script> 
@@ -103,3 +98,5 @@
 		color: gray;
 	}
 </style>
+
+

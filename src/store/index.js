@@ -15,31 +15,34 @@ const store = new Vuex.Store({
 		pillarComponentChart: [
 			{
 				x: 'Pilier 1',
-				value: 123,
+				value: 33475393125,
 				drillDown: [
-					{ x: 'DDRR', value: 16 },
-					{ x: 'RSS', value: 38 },
-					{ x: 'Justice', value: 37 },
-					{ x: 'Cohésion sociale et réfugiés', value: 42 },
+					{ x: 'DDRR', value: 17122588625 },
+					{ x: 'RSS', value: 2538231700 },
+					{ x: 'Justice', value: 4235652400 },
+					{ x: 'Cohésion sociale et réfugiés', value: 9578920975 },
 				],
 			},
 			{
 				x: 'Pilier 2',
-				value: 155,
+				value: 86807900014,
 				drillDown: [
-					{ x: 'Redéploiement et gouvernance locale', value: 10 },
-					{ x: 'Services sociaux de base', value: 89 },
-					{ x: 'Résilience et sécurité alimentaire', value: 24 },
-					{ x: 'Stabilité macroéconomique et bonne gouvernance', value: 29 },
+					{ x: 'Redéploiement et gouvernance locale', value: 8006248825 },
+					{ x: 'Services sociaux de base', value: 11395808275 },
+					{ x: 'Résilience et sécurité alimentaire', value: 2417949750 },
+					{
+						x: 'Stabilité macroéconomique et bonne gouvernance',
+						value: 64987893164,
+					},
 				],
 			},
 			{
 				x: 'Pilier 3',
-				value: '62',
+				value: 17814972000,
 				drillDown: [
-					{ x: 'Secteurs productifs', value: 23 },
-					{ x: 'Infrastructures', value: 28 },
-					{ x: 'Secteur privé et emploi', value: 11 },
+					{ x: 'Secteurs productifs', value: 2689487750 },
+					{ x: 'Infrastructures', value: 12228031650 },
+					{ x: 'Secteur privé et emploi', value: 2897453175 },
 				],
 			},
 		],
@@ -66,7 +69,7 @@ const store = new Vuex.Store({
 			},
 			{
 				x: 'Pilier 3',
-				value: '62',
+				value: 62,
 				drillDown: [
 					{ x: 'Secteurs productifs', value: 23 },
 					{ x: 'Infrastructures', value: 28 },
