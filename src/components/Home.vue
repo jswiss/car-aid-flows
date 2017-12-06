@@ -67,11 +67,13 @@
   	},
   	created() {
   		this.$store.dispatch('LOAD_CLEAN_TREE');
+  		// this.$store.dispatch('GET_RAW_DATA');
   	},
   	beforeMount() {
   		this.$store.dispatch('LOAD_TREES');
   	},
   	mounted() {
+  		console.log(this.$store.state.rawData);
   		this.$store.dispatch('LOAD_TREEMAP');
   		const load2017 = this.$refs.TreeMap2017;
   		load2017.drawTreeMap2017();

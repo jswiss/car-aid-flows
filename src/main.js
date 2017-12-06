@@ -45,4 +45,7 @@ new Vue({
 		navbar: navbar,
 		App: App,
 	},
+	created() {
+		this.$store.dispatch('GET_RAW_DATA');
+	},
 }).$mount('#app');

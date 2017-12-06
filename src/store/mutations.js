@@ -2,6 +2,10 @@ import moment from 'moment';
 import { excelToJsDate } from '../utils/helpers';
 const d3 = Object.assign({}, require('d3-array'), require('d3-collection'));
 
+const SET_RAW_DATA = (state, data) => {
+	state.rawData = data;
+};
+
 const SET_TABLE = (state, data) => {
 	state.tableData = state.rawData.map(o => {
 		return {
@@ -232,4 +236,5 @@ export default {
 	SET_CLEAN_TREE,
 	SET_TREEMAP,
 	SET_TREES,
+	SET_RAW_DATA,
 };

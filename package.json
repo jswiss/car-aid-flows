@@ -15,7 +15,6 @@
 		"bulma": "^0.4.1",
 		"d3-array": "^1.2.1",
 		"d3-collection": "^1.0.4",
-		"dotenv-webpack": "^1.5.4",
 		"firebase": "^4.7.0",
 		"vue": "^2.2.1",
 		"vue-bulma-tables-2": "^0.6.36",

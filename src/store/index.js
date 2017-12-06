@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { firebaseMutations } from 'vuexfire';
 import getters from './getters';
 import actions from './actions';
 import mutations from './mutations';
@@ -9,7 +8,7 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
 	state: {
-		rawData: require('../assets/data/aidflows.json'),
+		rawData: [],
 		tableData: [],
 		eurTable: [],
 		xafTable: [],

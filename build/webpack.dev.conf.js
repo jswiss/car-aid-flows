@@ -25,11 +25,11 @@ module.exports = merge(baseWebpackConfig, {
 			'process.env.DB_KEY': config.dev.env.DB_KEY,
 			'process.env.CHART_KEY': config.dev.env.CHART_KEY,
 
-			'process.env': {
-				NODE_ENV: config.dev.env,
-				API_KEY: JSON.stringify('test'),
-				CHART_KEY: JSON.stringify('best'),
-			},
+			// 'process.env': {
+			// 	NODE_ENV: config.dev.env,
+			// 	API_KEY: JSON.stringify('test'),
+			// 	CHART_KEY: JSON.stringify('best'),
+			// },
 		}),
 		// https://github.com/glenjamin/webpack-hot-middleware#installation--usage
 		new webpack.HotModuleReplacementPlugin(),
