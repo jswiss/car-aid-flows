@@ -16,11 +16,14 @@
           <p id="support">Developed with the support of the World Bank and United Nations.</p>
         </div>
       </div>
+      {{ getRaw }}
     </div>
   </div>
 </template>
 
 <script type="text/javascript">
+  import { mapGetters } from 'vuex';
+  import { dbRef } from '../firebaseConfig';
   import HomeText from './HomeText';
 
   export default {
@@ -37,17 +40,17 @@
   	computed: {
   		setTreeYear() {
   			this.$store.commit('SET_TREEMAP_YEAR', this.year);
-  			this.$store.dispatch('LOAD_TREEMAP');
   		},
+  		...mapGetters(['getRaw']),
   	},
   	created() {
+  		this.$store.dispatch('SET_RAW_DATA', dbRef);
   		this.$store.dispatch('LOAD_CLEAN_TREE');
   	},
   	beforeMount() {
   		this.$store.dispatch('LOAD_TREES');
   	},
   	mounted() {
-  		console.log(this.$store.state.rawData);
   		this.$store.dispatch('LOAD_TREEMAP');
   	},
   };

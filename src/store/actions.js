@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import { firebaseActions, firebaseAction } from 'vuexfire';
 
 const LOAD_TABLE = ({ commit }) => {
 	commit('SET_TABLE');
@@ -21,22 +22,25 @@ const LOAD_CLEAN_TREE = ({ commit }) => {
 const LOAD_TREES = ({ commit }) => {
 	commit('SET_TREES');
 };
-const GET_RAW_DATA = ({ commit }) => {
-	Vue.http
-		.get(
-			`https://api.mlab.com/api/1/databases/car-aid-flows/collections/raw?apiKey=${
-				process.env.DB_KEY
-			}`
-		)
-		.then(
-			res => {
-				commit('SET_RAW_DATA', res.data);
-			},
-			err => {
-				console.log('ERROR: ', err);
-			}
-		);
-};
+const SET_RAW_DATA = firebaseAction(({ bindFirebaseRef }, { ref }) => {
+	bindFirebaseRef('rawData', ref);
+});
+// const GET_RAW_DATA = ({ commit }) => {
+// 	Vue.http
+// 		.get(
+// 			`https://api.mlab.com/api/1/databases/car-aid-flows/collections/raw?apiKey=${
+// 				process.env.DB_KEY
+// 			}`
+// 		)
+// 		.then(
+// 			res => {
+// 				commit('SET_RAW_DATA', res.data);
+// 			},
+// 			err => {
+// 				console.log('ERROR: ', err);
+// 			}
+// 		);
+// };
 
 export default {
 	LOAD_TABLE,
@@ -46,5 +50,6 @@ export default {
 	LOAD_TREEMAP,
 	LOAD_CLEAN_TREE,
 	LOAD_TREES,
-	GET_RAW_DATA,
+	// GET_RAW_DATA,
+	SET_RAW_DATA,
 };

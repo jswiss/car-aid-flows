@@ -1,3 +1,4 @@
+const getRaw = state => state.rawData;
 const tableData = state => state.tableData;
 const tableColumns = state => state.tableColumns;
 const xafTableData = state => state.xafTable;
@@ -21,4 +22,5 @@ export default {
 	treemap,
 	tree2017,
 	project,
+	getRaw,
 };
