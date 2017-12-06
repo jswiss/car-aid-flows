@@ -8,7 +8,7 @@
       <tree-map-2017 v-if="['TreeMap2017'].indexOf($route.name) > -1"></tree-map-2017>
       <tree-map-2018 v-if="['TreeMap2018'].indexOf($route.name) > -1"></tree-map-2018>
       <tree-map-2019 v-if="['TreeMap2019'].indexOf($route.name) > -1"></tree-map-2019>
-      <aid-on-treasury v-if="['AidOnTreasury'].indexOf($route.name) > -1"></aid-on-treasury>
+      <!-- <aid-on-treasury v-if="['AidOnTreasury'].indexOf($route.name) > -1"></aid-on-treasury> -->
     </div>
   </div>
 </template>
@@ -19,7 +19,6 @@
   import TreeMap2017 from './TreeMap2017';
   import TreeMap2018 from './TreeMap2018';
   import TreeMap2019 from './TreeMap2019';
-  import AidOnTreasury from './AidOnTreasury';
 
   (function(i, s, o, g, r, a, m) {
   	i['GoogleAnalyticsObject'] = r;
@@ -53,7 +52,6 @@
   		TreeMap2017,
   		TreeMap2018,
   		TreeMap2019,
-  		AidOnTreasury,
   	},
   	created() {
   		this.$store.dispatch('LOAD_CLEAN_TREE');

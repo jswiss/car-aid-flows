@@ -16,12 +16,6 @@ const TreeMap2018 = resolve =>
 	require(['../components/charts/TreeMap2018.vue'], resolve);
 const TreeMap2019 = resolve =>
 	require(['../components/charts/TreeMap2019.vue'], resolve);
-const AidViaFunds = resolve =>
-	require(['../components/charts/AidViaFunds.vue'], resolve);
-const AidByNdpPillar = resolve =>
-	require(['../components/charts/AidByNdpPillar.vue'], resolve);
-const AidOnTreasury = resolve =>
-	require(['../components/charts/AidOnTreasury.vue'], resolve);
 const Project = resolve =>
 	require(['../components/projects/Project.vue'], resolve);
 
@@ -37,13 +31,6 @@ const routes = [
 		path: '/table',
 		name: 'Tables',
 		component: Tables,
-		// children: [
-		// 	{
-		// 		path: '/aid-table',
-		// 		name: 'AidTable',
-		// 		component: AidTable,
-		// 	},
-		// ],
 	},
 	{
 		path: '/charts',
@@ -74,21 +61,6 @@ const routes = [
 				path: 'treemap-2019',
 				name: 'TreeMap2019',
 				component: TreeMap2019,
-			},
-			{
-				path: 'aid-via-funds',
-				name: 'AidViaFunds',
-				component: AidViaFunds,
-			},
-			{
-				path: 'aid-by-ndp-pillar',
-				name: 'AidByNdpPillar',
-				component: AidByNdpPillar,
-			},
-			{
-				path: 'aid-on-treasury',
-				name: 'AidOnTreasury',
-				component: AidOnTreasury,
 			},
 		],
 	},

@@ -70,7 +70,7 @@
 				chart
 					.yAxis()
 					.labels()
-					.format('${%Value}{groupsSeparator: }');
+					.format('{%Value}{groupsSeparator: }');
 
 				// tooltips position and interactivity settings
 				chart.tooltip().positionMode('point');
