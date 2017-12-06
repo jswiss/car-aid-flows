@@ -5,9 +5,9 @@
     <div id="chart-content" class="column is-three-quarters">
       <pillar-count-chart v-if="['PillarCountChart'].indexOf($route.name) > -1"></pillar-count-chart>
       <pillars-components-2017 v-if="['PillarsComponents2017'].indexOf($route.name) > -1"></pillars-components-2017>
-      <aid-location-chart v-if="['AidLocationChart'].indexOf($route.name) > -1"></aid-location-chart>
-      <aid-via-funds v-if="['AidViaFunds'].indexOf($route.name) > -1"></aid-via-funds>
-      <aid-by-ndp-pillar v-if="['AidByNdpPillar'].indexOf($route.name) > -1"></aid-by-ndp-pillar>
+      <tree-map-2017 v-if="['TreeMap2017'].indexOf($route.name) > -1"></tree-map-2017>
+      <tree-map-2018 v-if="['TreeMap2018'].indexOf($route.name) > -1"></tree-map-2018>
+      <tree-map-2019 v-if="['TreeMap2019'].indexOf($route.name) > -1"></tree-map-2019>
       <aid-on-treasury v-if="['AidOnTreasury'].indexOf($route.name) > -1"></aid-on-treasury>
     </div>
   </div>
@@ -16,9 +16,9 @@
   import ChartsTabs from './ChartsTabs';
   import PillarCountChart from './PillarCountChart';
   import PillarsComponents2017 from './PillarsComponents2017';
-  import AidLocationChart from './AidLocationChart';
-  import AidViaFunds from './AidViaFunds';
-  import AidByNdpPillar from './AidByNdpPillar';
+  import TreeMap2017 from './TreeMap2017';
+  import TreeMap2018 from './TreeMap2018';
+  import TreeMap2019 from './TreeMap2019';
   import AidOnTreasury from './AidOnTreasury';
 
   (function(i, s, o, g, r, a, m) {
@@ -50,9 +50,9 @@
   		ChartsTabs,
   		PillarCountChart,
   		PillarsComponents2017,
-  		AidLocationChart,
-  		AidViaFunds,
-  		AidByNdpPillar,
+  		TreeMap2017,
+  		TreeMap2018,
+  		TreeMap2019,
   		AidOnTreasury,
   	},
   };

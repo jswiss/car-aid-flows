@@ -10,8 +10,12 @@ const PillarCountChart = resolve =>
 	require(['../components/charts/PillarCountChart.vue'], resolve);
 const PillarsComponents2017 = resolve =>
 	require(['../components/charts/PillarsComponents2017.vue'], resolve);
-const AidLocationChart = resolve =>
-	require(['../components/charts/AidLocationChart.vue'], resolve);
+const TreeMap2017 = resolve =>
+	require(['../components/charts/TreeMap2017.vue'], resolve);
+const TreeMap2018 = resolve =>
+	require(['../components/charts/TreeMap2018.vue'], resolve);
+const TreeMap2019 = resolve =>
+	require(['../components/charts/TreeMap2019.vue'], resolve);
 const AidViaFunds = resolve =>
 	require(['../components/charts/AidViaFunds.vue'], resolve);
 const AidByNdpPillar = resolve =>
@@ -57,9 +61,19 @@ const routes = [
 				component: PillarsComponents2017,
 			},
 			{
-				path: 'aid-location',
-				name: 'AidLocationChart',
-				component: AidLocationChart,
+				path: 'treemap-2017',
+				name: 'TreeMap2017',
+				component: TreeMap2017,
+			},
+			{
+				path: 'treemap-2018',
+				name: 'TreeMap2018',
+				component: TreeMap2018,
+			},
+			{
+				path: 'treemap-2019',
+				name: 'TreeMap2019',
+				component: TreeMap2019,
 			},
 			{
 				path: 'aid-via-funds',

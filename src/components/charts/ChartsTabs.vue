@@ -28,25 +28,21 @@
       </div>
       <div class="columns">
         <div class="outline">
-          <router-link class="nav-item" to="/charts/aid-location" >
+          <router-link class="nav-item" to="/charts/treemap-2017" >
             <div id="chart-selector-3" class="column">
-              <i class="fa fa-bar-chart fa-4x"></i>
+              <i class="fa fa-th fa-4x"></i>
               <h4 class="sidebar-title">
-                Aid by
-                <br>
-                Location
+                Treemap 2017
               </h4>
             </div>
           </router-link>
         </div>
         <div class="outline">
-          <router-link class="nav-item" to="/charts/aid-via-funds" >
+          <router-link class="nav-item" to="/charts/treemap-2018" >
             <div id="chart-selector-4" class="column">
-              <i class="fa fa-line-chart fa-4x"></i>
+              <i class="fa fa-th fa-4x"></i>
               <h4 class="sidebar-title">
-                Aid via
-                <br>
-                Funds
+                Treemap 2018
               </h4>
             </div>
           </router-link>
@@ -54,13 +50,11 @@
       </div>
       <div class="columns">
         <div class="outline">
-          <router-link class="nav-item" to="/charts/aid-by-ndp-pillar" >
+          <router-link class="nav-item" to="/charts/treemap-2019" >
             <div id="chart-selector-5" class="column">
-              <i class="fa fa-bar-chart fa-4x"></i>
+              <i class="fa fa-th fa-4x"></i>
               <h4 class="sidebar-title">
-                Aid by
-                <br>
-                NDP Pillar
+                Treemap 2019
               </h4>
             </div>
           </router-link>
