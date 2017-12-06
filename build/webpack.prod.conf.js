@@ -50,7 +50,6 @@ var webpackConfig = merge(baseWebpackConfig, {
 				filename: '[name].[chunkhash].js',
 			},
 		}),
-		new webpack.optimize.DedupePlugin(),
 		new webpack.optimize.UglifyJsPlugin({
 			compress: {
 				warnings: true,
