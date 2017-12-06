@@ -7,6 +7,7 @@ const d3 = Object.assign({}, require('d3-array'), require('d3-collection'));
 import getters from './getters';
 import actions from './actions';
 import { version } from '../../package.json';
+
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
@@ -348,7 +349,7 @@ store.subscribe((mutation, state) => {
 		version: state.version,
 		rawData: state.rawData,
 	};
-	localStorage.setItem('store', JSON.stringify(state));
+	localStorage.setItem('store', JSON.stringify(store));
 });
 
 export default store;

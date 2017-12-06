@@ -3,7 +3,6 @@
 import Vue from 'vue';
 import { ClientTable } from 'vue-bulma-tables-2';
 import accounting from 'accounting';
-import VueResource from 'vue-resource';
 import App from './App';
 import router from './router';
 import navbar from './components/Navbar';
@@ -17,7 +16,6 @@ Vue.use(anychart);
 // Require the main Sass manifest file
 require('./assets/sass/main.scss');
 
-Vue.use(VueResource);
 Vue.use(ClientTable);
 
 Vue.config.productionTip = false;

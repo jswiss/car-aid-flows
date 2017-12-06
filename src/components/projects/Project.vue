@@ -153,33 +153,33 @@
 
 <script type="text/javascript">
   import moment from 'moment';
-  import store from '../../store';
+  // import store from '../../store';
   import { excelToJsDate } from '../../utils/helpers';
-  const projects = store.state.rawData;
+
+  const localState = JSON.parse(localStorage.getItem('store'));
 
   export default {
   	name: 'Project',
   	data() {
   		return {
-  			projects: projects,
-  			// project: '',
+  			// all: JSON.parse(localStorage.getItem('store')),
+  			projects: localState.rawData,
+  			project: '',
   			eur: this.$store.state.eur,
   			usd: this.$store.state.usd,
   			xafToEur: this.$store.state.xafToEur,
   		};
   	},
   	methods: {
-  		setData() {
-  			this.project = this.$store.getters.project(
-  				this.$route.params.projectName
-  			);
-  		},
+  		// setData() {
+  		// 	this.projects = this.all.rawData;
+  		// },
   		fetchData() {
   			const projectName = this.$route.params.projectName;
   			function findProject(project) {
   				return project['Nom du projet'] === projectName;
   			}
-  			this.project = projects.find(findProject);
+  			this.project = this.projects.find(findProject);
   			console.log(this.project);
   		},
   		printPage(el) {
@@ -202,16 +202,6 @@
   	},
   	created() {
   		this.fetchData();
-  	},
-  	computed: {
-  		project() {
-  			const projectName = this.$route.params.projectName;
-  			function findProject(project) {
-  				return project['Nom du projet'] === projectName;
-  			}
-  			projects.find(findProject);
-  			// console.log(this.project);
-  		},
   	},
   	watch: {
   		$route: 'fetchData',

@@ -52,7 +52,7 @@
       >
         <template slot="Nom du projet" scope="props">
           <div>
-            <a :href="`http://localhost:7775/projects/${props.row['Nom du projet']}`">{{ props.row['Nom du projet'] }}</a>
+            <a :href="`http://localhost:7775/projects/${props.row['Nom du projet']}`" target="_blank">{{ props.row['Nom du projet'] }}</a>
           </div>
         </template>
         <template slot="Montant du projet en devise" scope="props">
