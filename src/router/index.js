@@ -1,17 +1,25 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from '@/components/Home';
-import About from '@/components/about/About';
-import Tables from '@/components/tables/Tables';
-import AidTable from '@/components/tables/AidTable';
-import Charts from '@/components/charts/Charts';
-import PillarCountChart from '@/components/charts/PillarCountChart';
-import PillarsComponents2017 from '@/components/charts/PillarsComponents2017';
-import AidLocationChart from '@/components/charts/AidLocationChart';
-import AidViaFunds from '@/components/charts/AidViaFunds';
-import AidByNdpPillar from '@/components/charts/AidByNdpPillar';
-import AidOnTreasury from '@/components/charts/AidOnTreasury';
-import Project from '@/components/projects/Project';
+const Home = resolve => require(['../components/Home.vue'], resolve);
+const About = resolve => require(['../components/about/About.vue'], resolve);
+const Tables = resolve => require(['../components/tables/Tables.vue'], resolve);
+// const AidTable = resolve =>
+// require(['../components/tables/AidTable.vue'], resolve);
+const Charts = resolve => require(['../components/charts/Charts.vue'], resolve);
+const PillarCountChart = resolve =>
+	require(['../components/charts/PillarCountChart.vue'], resolve);
+const PillarsComponents2017 = resolve =>
+	require(['../components/charts/PillarsComponents2017.vue'], resolve);
+const AidLocationChart = resolve =>
+	require(['../components/charts/AidLocationChart.vue'], resolve);
+const AidViaFunds = resolve =>
+	require(['../components/charts/AidViaFunds.vue'], resolve);
+const AidByNdpPillar = resolve =>
+	require(['../components/charts/AidByNdpPillar.vue'], resolve);
+const AidOnTreasury = resolve =>
+	require(['../components/charts/AidOnTreasury.vue'], resolve);
+const Project = resolve =>
+	require(['../components/projects/Project.vue'], resolve);
 
 Vue.use(Router);
 
@@ -22,16 +30,16 @@ const routes = [
 		component: Home,
 	},
 	{
-		path: '/tables',
+		path: '/table',
 		name: 'Tables',
 		component: Tables,
-		children: [
-			{
-				path: "/table-de-flux-d'aide",
-				name: 'AidTable',
-				component: AidTable,
-			},
-		],
+		// children: [
+		// 	{
+		// 		path: '/aid-table',
+		// 		name: 'AidTable',
+		// 		component: AidTable,
+		// 	},
+		// ],
 	},
 	{
 		path: '/charts',

@@ -10,6 +10,8 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 var CompressionPlugin = require('compression-webpack-plugin');
 var CommonChunksPlugin = require('webpack-vendor-chunk-plugin');
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+	.BundleAnalyzerPlugin;
 
 var env =
 	process.env.NODE_ENV === 'testing'
@@ -31,6 +33,8 @@ var webpackConfig = merge(baseWebpackConfig, {
 	},
 	plugins: [
 		// http://vuejs.github.io/vue-loader/en/workflow/production.html
+		new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+		new BundleAnalyzerPlugin(),
 		new webpack.DefinePlugin({
 			'process.env': env,
 		}),

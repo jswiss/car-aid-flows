@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import { firebaseMutations } from 'vuexfire';
 import getters from './getters';
 import actions from './actions';
 import mutations from './mutations';

@@ -10,7 +10,7 @@
       <router-link class="nav-item is-tab" to="/charts/pillar-count-chart">
         <i class="fa fa-dashboard"></i>Graphiques
       </router-link>
-      <router-link class="nav-item is-tab" to="/tables/table-de-flux-d'aide">
+      <router-link class="nav-item is-tab" to="/table">
         <i class="fa fa-list-alt"></i>Table
       </router-link>
       <router-link class="nav-item is-tab" to="/about">
