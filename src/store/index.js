@@ -6,12 +6,12 @@ import { excelToJsDate } from '../utils/helpers';
 const d3 = Object.assign({}, require('d3-array'), require('d3-collection'));
 import getters from './getters';
 import actions from './actions';
-// import mutations from './mutations';
-
+import { version } from '../../package.json';
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
 	state: {
+		version: '',
 		rawData: [],
 		tableData: [],
 		eurTable: [],
@@ -105,6 +105,16 @@ const store = new Vuex.Store({
 	getters,
 	actions,
 	mutations: {
+		INITIALISE_STORE: state => {
+			let store = JSON.parse(localStorage.getItem('store'));
+			// Check the version stored against current. If different, don't
+			// load the cached version
+			if (store.version == version) {
+				this.replaceState(Object.assign(state, store));
+			} else {
+				state.version = version;
+			}
+		},
 		SET_RAW_DATA: (state, data) => {
 			state.rawData = data;
 		},
@@ -331,6 +341,14 @@ const store = new Vuex.Store({
 		},
 		...firebaseMutations,
 	},
+});
+
+store.subscribe((mutation, state) => {
+	let store = {
+		version: state.version,
+		rawData: state.rawData,
+	};
+	localStorage.setItem('store', JSON.stringify(state));
 });
 
 export default store;
