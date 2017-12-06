@@ -16,7 +16,6 @@
           <p id="support">Developed with the support of the World Bank and United Nations.</p>
         </div>
       </div>
-      {{ getRaw }}
     </div>
   </div>
 </template>
@@ -37,21 +36,8 @@
   			tree2017: true,
   		};
   	},
-  	computed: {
-  		setTreeYear() {
-  			this.$store.commit('SET_TREEMAP_YEAR', this.year);
-  		},
-  		...mapGetters(['getRaw']),
-  	},
   	created() {
   		this.$store.dispatch('SET_RAW_DATA', dbRef);
-  		this.$store.dispatch('LOAD_CLEAN_TREE');
-  	},
-  	beforeMount() {
-  		this.$store.dispatch('LOAD_TREES');
-  	},
-  	mounted() {
-  		this.$store.dispatch('LOAD_TREEMAP');
   	},
   };
 </script>

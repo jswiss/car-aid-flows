@@ -91,7 +91,9 @@ const store = new Vuex.Store({
 		tree2017: {},
 		tree2018: {},
 		tree2019: {},
-		treemap: [],
+		treemap2017: [],
+		treemap2018: [],
+		treemap2019: [],
 		cleanTree: [],
 		colorShades: [
 			'#6c82b1',
@@ -223,15 +225,6 @@ const store = new Vuex.Store({
 					projectedUSD2019: k['Prévision de décaissements 2019 USD'],
 				};
 			});
-		},
-		SET_TREEMAP: (state, data) => {
-			if (state.treemapYear === 2017) {
-				state.treemap = state.tree2017;
-			} else if (state.treemapYear === 2018) {
-				state.treemap = state.tree2018;
-			} else {
-				state.treemap = state.tree2019;
-			}
 		},
 		SET_TREES: (state, data) => {
 			state.tree2017.values = d3

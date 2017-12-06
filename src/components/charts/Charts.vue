@@ -55,6 +55,12 @@
   		TreeMap2019,
   		AidOnTreasury,
   	},
+  	created() {
+  		this.$store.dispatch('LOAD_CLEAN_TREE');
+  	},
+  	beforeMount() {
+  		this.$store.dispatch('LOAD_TREES');
+  	},
   };
 </script> 
 

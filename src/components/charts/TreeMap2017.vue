@@ -12,7 +12,7 @@
 		name: 'TreeMap2017',
 		data() {
 			return {
-				treemap: this.$store.state.treemap,
+				treemap: this.$store.getters.tree2017,
 			};
 		},
 		methods: {
