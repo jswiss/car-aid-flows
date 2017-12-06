@@ -116,6 +116,10 @@
   		};
   	},
   	methods: {
+  		setData() {
+  			const localData = JSON.parse(localStorage.getItem('store'));
+  			this.tableData = localData.tableData;
+  		},
   		convertToXAF() {
   			this.symbol = 'FCFA';
   			this.tableData = this.$store.getters.xafTableData;
@@ -128,6 +132,9 @@
   			this.symbol = '$';
   			this.tableData = this.$store.getters.tableData;
   		},
+  	},
+  	created() {
+  		this.setData();
   	},
   	mounted() {
   		this.$store.dispatch('LOAD_EUR');

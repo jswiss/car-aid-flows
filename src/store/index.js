@@ -2,6 +2,8 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import { firebaseMutations } from 'vuexfire';
 import moment from 'moment';
+import Cookies from 'js-cookie';
+// import VuexPersist from 'vuex-persist';
 import { excelToJsDate } from '../utils/helpers';
 const d3 = Object.assign({}, require('d3-array'), require('d3-collection'));
 import getters from './getters';
@@ -9,6 +11,18 @@ import actions from './actions';
 import { version } from '../../package.json';
 
 Vue.use(Vuex);
+
+// const badMutations = ['SET_TREES', 'SET_XAF', 'SET_EUR'];
+
+// const vuexLocalStorage = new VuexPersist({
+// 	key: 'vuex',
+// 	storage: window.sessionStorage,
+// 	reducer: state => ({
+// 		rawData: state.rawData,
+// 		tableData: state.tableData,
+// 	}),
+// 	filter: mutation => badMutations.indexOf(mutation.type) === -1,
+// });
 
 const store = new Vuex.Store({
 	state: {
@@ -108,16 +122,16 @@ const store = new Vuex.Store({
 	getters,
 	actions,
 	mutations: {
-		INITIALISE_STORE: state => {
-			let store = JSON.parse(localStorage.getItem('store'));
-			// Check the version stored against current. If different, don't
-			// load the cached version
-			if (store.version == version) {
-				this.replaceState(Object.assign(state, store));
-			} else {
-				state.version = version;
-			}
-		},
+		// INITIALISE_STORE: state => {
+		// 	let store = JSON.parse(localStorage.getItem('store'));
+		// 	// Check the version stored against current. If different, don't
+		// 	// load the cached version
+		// 	if (store.version == version) {
+		// 		this.replaceState(Object.assign(state, store));
+		// 	} else {
+		// 		state.version = version;
+		// 	}
+		// },
 		SET_RAW_DATA: (state, data) => {
 			state.rawData = data;
 		},
@@ -341,8 +355,11 @@ store.subscribe((mutation, state) => {
 	let store = {
 		version: state.version,
 		rawData: state.rawData,
+		tableData: state.tableData,
 	};
+	// if (!localStorage.getItem('store')) {
 	localStorage.setItem('store', JSON.stringify(store));
+	// }
 });
 
 export default store;
