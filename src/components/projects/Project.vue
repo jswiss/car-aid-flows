@@ -201,14 +201,14 @@
   		},
   	},
   	mounted() {
-  		this.fetchData();
+  		// this.fetchData();
   		this.dateFormat();
   	},
   	watch: {
   		$route: 'fetchData',
   	},
   	beforeCreate() {
-  		this.dateFormat();
+  		// this.dateFormat();
   	},
   };
 </script>
