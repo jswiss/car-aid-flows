@@ -48,8 +48,12 @@
   			series3.fill('#dc3f22', 0.8);
   			series3.stroke(7, '#dc3f22');
 
+  			// legend
+  			const legend = chart.legend();
+  			legend.enabled(true);
+
   			// set the padding between columns
-  			chart.barsPadding(-0.1);
+  			chart.barsPadding(0);
 
   			// set the padding between column groups
   			chart.barGroupsPadding(2);
