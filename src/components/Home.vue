@@ -11,7 +11,7 @@
           Ce site présente les données du suivi de l’aide extérieure pour l’année 2017 pour la RCA. Les données ont été collectées lors de l’exercice de cartographie de l’aide qui a eu lieu à fin 2017, en vue d’alimenter le rapport de la revue annuelle de la première année du RCPCA. Les données ont été récoltées par l’Unité de suivi de l’aide du Secrétariat du RCPCA. En savoir plus sur l'exercice de cartographie de l'aide.
           <br>
           <br>
-          L’arborescence de cette page permet d’explorer les projets de relèvement, consolidation de la paix et développement par piliers, composantes et secteurs du RCPCA. Elle n’inclut pas l’aide humanitaire d’urgence, qui fait l’objet du Plan de réponse humanitaire et dont les données sont accessibles sur la base FTS d’OCHA.
+          L’arborescence de cette page permet d’explorer les projets de relèvement, consolidation de la paix et développement par piliers, composantes et secteurs du RCPCA. Elle n’inclut pas l’aide humanitaire d’urgence, qui fait l’objet du Plan de réponse humanitaire et dont les données sont accessibles sur la base <a href="https://fts.unocha.org/countries/43/summary/2017" target="_blank">FTS d’OCHA</a>.
         </p>
         <div>
           <p id="support">Développé avec le support de la Banque mondiale.</p>
