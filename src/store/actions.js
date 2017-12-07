@@ -6,9 +6,6 @@ const LOAD_TABLE = ({ commit }) => {
 const LOAD_RAW = ({ commit }) => {
 	commit('SET_RAW');
 };
-const LOAD_MAP = ({ commit }) => {
-	commit('SET_MAP');
-};
 const LOAD_COLUMNS = ({ commit }) => {
 	commit('SET_COLUMNS');
 };
@@ -35,6 +32,5 @@ export default {
 	LOAD_XAF,
 	LOAD_CLEAN_TREE,
 	LOAD_TREES,
-	// SET_RAW_DATA,
 	LOAD_RAW,
 };

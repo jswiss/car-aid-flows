@@ -18,8 +18,6 @@ const store = new Vuex.Store({
 		version: '',
 		rawData: [],
 		tableData: [],
-		mapData: [],
-		dummyData: [],
 		eurTable: [],
 		xafTable: [],
 		pillarComponentChart: [
@@ -123,9 +121,6 @@ const store = new Vuex.Store({
 
 		SET_RAW: (state, data) => {
 			state.rawData = require('../assets/data/table-data.json');
-		},
-		SET_MAP: (state, data) => {
-			state.mapData = require('../assets/data/map-data.json');
 		},
 		SET_TABLE: (state, data) => {
 			state.tableData = state.rawData.map(o => {
