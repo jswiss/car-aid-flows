@@ -60,13 +60,13 @@
           </router-link>
         </div>
           <div class="outline">
-            <router-link class="nav-item" to="/charts/aid-on-treasury">
+            <router-link class="nav-item" to="/charts/budget-support">
               <div id="chart-selector-6" class="column">
                 <i class="fa fa-bar-chart fa-4x"></i>
                 <h4 class="sidebar-title">
-                 Aid Delivered
+                 Appui budgétaire
                  <br>
-                 on Treasury
+                 2016 et 2017
                 </h4>
               </div>
             </router-link>

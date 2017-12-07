@@ -20,6 +20,16 @@ const store = new Vuex.Store({
 		tableData: [],
 		eurTable: [],
 		xafTable: [],
+		budgetSupport: [
+			['Fonds monétaire international', 34871795, 55623711],
+			['Fonds monétaire international*', 0, 15819588],
+			['Banque mondiale**', 20000000, 0],
+			['Union Européenne', 24615385, 22283505],
+			['Banque africaine de développement', 0, 16500000],
+			['France (Agence française de développement)', 14529915, 11226804],
+			['Fonds monétaire international', 34871795, 55623711],
+			['Autres (Congo, Cameroun, CEMAC, Timor-Leste)', 6153846, 1701031],
+		],
 		pillarComponentChart: [
 			{
 				x: 'Pilier 1',

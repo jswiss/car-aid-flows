@@ -16,6 +16,8 @@ const TreeMap2018 = resolve =>
 	require(['../components/charts/TreeMap2018.vue'], resolve);
 const TreeMap2019 = resolve =>
 	require(['../components/charts/TreeMap2019.vue'], resolve);
+const BudgetSupport = resolve =>
+	require(['../components/charts/BudgetSupport.vue'], resolve);
 const Project = resolve =>
 	require(['../components/projects/Project.vue'], resolve);
 
@@ -71,6 +73,11 @@ const routes = [
 				path: 'treemap-2019',
 				name: 'TreeMap2019',
 				component: TreeMap2019,
+			},
+			{
+				path: 'budget-support',
+				name: 'BudgetSupport',
+				component: BudgetSupport,
 			},
 		],
 	},
