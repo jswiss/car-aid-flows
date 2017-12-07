@@ -23,13 +23,8 @@
 </template>
 
 <script type="text/javascript">
-  import HomeText from './HomeText';
-
   export default {
   	name: 'home',
-  	components: {
-  		HomeText,
-  	},
 
   	mounted() {
   		this.$store.dispatch('LOAD_RAW');
