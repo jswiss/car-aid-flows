@@ -3,7 +3,7 @@
     <div id="container"></div>
     <div class="disclaimer">
       <p class="disclaimer-text">
-        *Sous réserve de la décision du conseil d'administration du FMI prévue le 15/12 un supplément de $15,819,588 sera payé 
+        *Sous réserve de la décision du conseil d'administration du FMI prévue le 15/12 un supplément de <strong>$15,819,588</strong> sera payé 
         <br>
         **L'appui budgétaire prévu pour 2017 n'a pas encore été versé car les conditions n'ont pas été remplies à temps
       </p>

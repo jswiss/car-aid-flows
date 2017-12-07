@@ -26,7 +26,7 @@
 				const chart = anychart.column(this.$store.state.pillarComponentChart);
 				// chart.animate(true);
 				chart.title('Décaissements par piliers et composantes en 2017 ');
-				chart.tooltip().format('{%value} projets');
+				chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
 				// tune interactivity selection mode
 				chart.interactivity().selectionMode('none');
 
