@@ -153,17 +153,16 @@
 
 <script type="text/javascript">
   import moment from 'moment';
-  // import store from '../../store';
   import { excelToJsDate } from '../../utils/helpers';
 
-  const localState = JSON.parse(localStorage.getItem('store'));
+  // const localState = JSON.parse(localStorage.getItem('store'));
 
   export default {
   	name: 'Project',
   	data() {
   		return {
   			// all: JSON.parse(localStorage.getItem('store')),
-  			projects: localState.rawData,
+  			projects: '',
   			project: '',
   			eur: this.$store.state.eur,
   			usd: this.$store.state.usd,
@@ -201,6 +200,8 @@
   		},
   	},
   	created() {
+  		this.$store.dispatch('LOAD_RAW');
+  		this.projects = this.$store.getters.getRaw;
   		this.fetchData();
   	},
   	watch: {

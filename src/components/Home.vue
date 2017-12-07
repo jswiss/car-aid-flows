@@ -21,8 +21,6 @@
 </template>
 
 <script type="text/javascript">
-  import { mapGetters } from 'vuex';
-  import { dbRef } from '../firebaseConfig';
   import HomeText from './HomeText';
 
   export default {
@@ -30,14 +28,8 @@
   	components: {
   		HomeText,
   	},
-  	data() {
-  		return {
-  			year: null,
-  			tree2017: true,
-  		};
-  	},
-  	created() {
-  		this.$store.dispatch('SET_RAW_DATA', dbRef);
+  	mounted() {
+  		this.$store.dispatch('LOAD_RAW');
   	},
   };
 </script>

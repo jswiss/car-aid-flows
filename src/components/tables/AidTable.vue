@@ -117,8 +117,9 @@
   	},
   	methods: {
   		setData() {
-  			const localData = JSON.parse(localStorage.getItem('store'));
-  			this.tableData = localData.tableData;
+  			// const localData = JSON.parse(localStorage.getItem('store'));
+  			// this.tableData = localData.tableData;
+  			this.tableData = this.$store.getters.tableData;
   		},
   		convertToXAF() {
   			this.symbol = 'FCFA';

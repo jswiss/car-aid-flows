@@ -1,8 +1,13 @@
 import Vue from 'vue';
-import { firebaseActions, firebaseAction } from 'vuexfire';
 
 const LOAD_TABLE = ({ commit }) => {
 	commit('SET_TABLE');
+};
+const LOAD_RAW = ({ commit }) => {
+	commit('SET_RAW');
+};
+const LOAD_MAP = ({ commit }) => {
+	commit('SET_MAP');
 };
 const LOAD_COLUMNS = ({ commit }) => {
 	commit('SET_COLUMNS');
@@ -19,9 +24,9 @@ const LOAD_CLEAN_TREE = ({ commit }) => {
 const LOAD_TREES = ({ commit }) => {
 	commit('SET_TREES');
 };
-const SET_RAW_DATA = firebaseAction(({ bindFirebaseRef }, { ref }) => {
-	bindFirebaseRef('rawData', ref);
-});
+// const SET_RAW_DATA = firebaseAction(({ bindFirebaseRef }, { ref }) => {
+// 	bindFirebaseRef('rawData', ref);
+// });
 
 export default {
 	LOAD_TABLE,
@@ -30,5 +35,6 @@ export default {
 	LOAD_XAF,
 	LOAD_CLEAN_TREE,
 	LOAD_TREES,
-	SET_RAW_DATA,
+	// SET_RAW_DATA,
+	LOAD_RAW,
 };

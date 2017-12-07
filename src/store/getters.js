@@ -1,4 +1,5 @@
 const getRaw = state => state.rawData;
+const getMap = state => state.mapData;
 const tableData = state => state.tableData;
 const tableColumns = state => state.tableColumns;
 const xafTableData = state => state.xafTable;

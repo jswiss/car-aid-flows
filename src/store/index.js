@@ -1,9 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { firebaseMutations } from 'vuexfire';
 import moment from 'moment';
-import Cookies from 'js-cookie';
-// import VuexPersist from 'vuex-persist';
+import createPersistedState from 'vuex-persistedstate';
 import { excelToJsDate } from '../utils/helpers';
 const d3 = Object.assign({}, require('d3-array'), require('d3-collection'));
 import getters from './getters';
@@ -12,23 +10,16 @@ import { version } from '../../package.json';
 
 Vue.use(Vuex);
 
-// const badMutations = ['SET_TREES', 'SET_XAF', 'SET_EUR'];
-
-// const vuexLocalStorage = new VuexPersist({
-// 	key: 'vuex',
-// 	storage: window.sessionStorage,
-// 	reducer: state => ({
-// 		rawData: state.rawData,
-// 		tableData: state.tableData,
-// 	}),
-// 	filter: mutation => badMutations.indexOf(mutation.type) === -1,
-// });
+// set require statements as actions, called beforeRouteEnter
 
 const store = new Vuex.Store({
+	plugins: [createPersistedState()],
 	state: {
 		version: '',
 		rawData: [],
 		tableData: [],
+		mapData: [],
+		dummyData: [],
 		eurTable: [],
 		xafTable: [],
 		pillarComponentChart: [
@@ -105,9 +96,6 @@ const store = new Vuex.Store({
 		tree2017: {},
 		tree2018: {},
 		tree2019: {},
-		treemap2017: [],
-		treemap2018: [],
-		treemap2019: [],
 		cleanTree: [],
 		colorShades: [
 			'#6c82b1',
@@ -132,10 +120,13 @@ const store = new Vuex.Store({
 		// 		state.version = version;
 		// 	}
 		// },
-		SET_RAW_DATA: (state, data) => {
-			state.rawData = data;
-		},
 
+		SET_RAW: (state, data) => {
+			state.rawData = require('../assets/data/table-data.json');
+		},
+		SET_MAP: (state, data) => {
+			state.mapData = require('../assets/data/map-data.json');
+		},
 		SET_TABLE: (state, data) => {
 			state.tableData = state.rawData.map(o => {
 				return {
@@ -347,19 +338,19 @@ const store = new Vuex.Store({
 				},
 			];
 		},
-		...firebaseMutations,
+		// ...firebaseMutations,
 	},
 });
 
-store.subscribe((mutation, state) => {
-	let store = {
-		version: state.version,
-		rawData: state.rawData,
-		tableData: state.tableData,
-	};
-	// if (!localStorage.getItem('store')) {
-	localStorage.setItem('store', JSON.stringify(store));
-	// }
-});
+// store.subscribe((mutation, state) => {
+// 	let store = {
+// 		version: state.version,
+// 		rawData: state.rawData,
+// 		tableData: state.tableData,
+// 	};
+// 	// if (!localStorage.getItem('store')) {
+// 	localStorage.setItem('store', JSON.stringify(store));
+// 	// }
+// });
 
 export default store;

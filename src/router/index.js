@@ -19,6 +19,8 @@ const TreeMap2019 = resolve =>
 const Project = resolve =>
 	require(['../components/projects/Project.vue'], resolve);
 
+import store from '../store';
+
 Vue.use(Router);
 
 const routes = [
@@ -31,6 +33,14 @@ const routes = [
 		path: '/table',
 		name: 'Tables',
 		component: Tables,
+		beforeRouteEnter: (to, from, next) => {
+			store.dispatch('LOAD_RAW');
+			next();
+		},
+		beforeUpdate: (to, from, next) => {
+			store.dispatch('LOAD_RAW');
+			next();
+		},
 	},
 	{
 		path: '/charts',
