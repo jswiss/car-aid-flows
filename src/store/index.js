@@ -13,7 +13,7 @@ Vue.use(Vuex);
 // set require statements as actions, called beforeRouteEnter
 
 const store = new Vuex.Store({
-	plugins: [createPersistedState()],
+	// plugins: [createPersistedState()],
 	state: {
 		version: '',
 		rawData: [],
@@ -21,14 +21,13 @@ const store = new Vuex.Store({
 		eurTable: [],
 		xafTable: [],
 		budgetSupport: [
-			['Fonds monétaire international', 34871795, 55623711],
-			['Fonds monétaire international*', 0, 15819588],
-			['Banque mondiale**', 20000000, 0],
-			['Union Européenne', 24615385, 22283505],
-			['Banque africaine de développement', 0, 16500000],
-			['France (Agence française de développement)', 14529915, 11226804],
-			['Fonds monétaire international', 34871795, 55623711],
-			['Autres (Congo, Cameroun, CEMAC, Timor-Leste)', 6153846, 1701031],
+			['Fonds monétaire international*', 34871795, 55623711, 47692308],
+			// ['Fonds monétaire international*', 0, 15819588, 0],
+			['Banque mondiale**', 20000000, 0, 25000000],
+			['Union Européenne', 24615385, 22283505, 22393162],
+			['Banque africaine de développement', 0, 16500000, 0],
+			['Agence française de développement', 14529915, 11226804, 11282051],
+			['Autres', 6153846, 1701031, 3760684],
 		],
 		pillarComponentChart: [
 			{

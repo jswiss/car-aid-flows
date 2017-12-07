@@ -3,7 +3,7 @@
     <div id="container"></div>
     <div class="disclaimer">
       <p class="disclaimer-text">
-        *Sous réserve de la décision du conseil d’administration du FMI prévu le 15/12
+        *Sous réserve de la décision du conseil d'administration du FMI prévue le 15/12 un supplément de $15,819,588 sera payé 
         <br>
         **L'appui budgétaire prévu pour 2017 n'a pas encore été versé car les conditions n'ont pas été remplies à temps
       </p>
@@ -16,7 +16,7 @@
   	name: 'BudgetSupport',
   	data() {
   		return {
-  			budgetSupport: this.$store.state.budgetSupport,
+  			budgetSupport: this.$store.getters.budgetSupport,
   		};
   	},
   	methods: {
@@ -25,6 +25,7 @@
   			// map the data
   			const seriesData_1 = chartData.mapAs({ x: [0], value: [1] });
   			const seriesData_2 = chartData.mapAs({ x: [0], value: [2] });
+  			const seriesData_3 = chartData.mapAs({ x: [0], value: [3] });
 
   			// create the chart
   			const chart = anychart.column();
@@ -32,14 +33,20 @@
   			// create the first series, set the data and name
   			const series1 = chart.column(seriesData_1);
   			series1.name('2016');
-  			series1.fill('#45B9EA', 0.8);
-  			series1.stroke(7, '#45B9EA');
+  			series1.fill('#0A2F7E', 0.8);
+  			series1.stroke(7, '#0A2F7E');
 
   			// create the second series, set the data and name
   			const series2 = chart.column(seriesData_2);
   			series2.name('2017');
-  			series2.fill('#00D1B2', 0.8);
-  			series2.stroke(7, '#00D1B2');
+  			series2.fill('#4B9537', 0.8);
+  			series2.stroke(7, '#4B9537');
+
+  			// create third series
+  			const series3 = chart.column(seriesData_3);
+  			series3.name('2018 (prévision)');
+  			series3.fill('#dc3f22', 0.8);
+  			series3.stroke(7, '#dc3f22');
 
   			// set the padding between columns
   			chart.barsPadding(-0.1);
@@ -55,6 +62,8 @@
 
   			// set the titles of the axes
   			const xAxis = chart.xAxis();
+  			xAxis.staggerMode(true);
+  			xAxis.staggerLines(2);
   			xAxis.title('Fonds');
   			const yAxis = chart.yAxis();
   			yAxis.title('USD');
