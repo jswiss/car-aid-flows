@@ -36,9 +36,10 @@
 				chart.headers().fontSize(15);
 				chart.headers().fontWeight('bold');
 				chart.labels().format('{%name}');
-				// chart.labels().textWrap('byWord');
-				chart.labels().fontSize(10.5);
+				chart.labels().fontSize(11);
 				chart.labels().fontWeight(900);
+				chart.labels().fontColor('White');
+				// chart.labels().textWrap('byWord');
 				chart.tooltip().titleFormat('{%name}');
 				chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
 				chart.hintOpacity(0.7);
