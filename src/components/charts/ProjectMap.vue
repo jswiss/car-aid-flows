@@ -22,6 +22,12 @@
 				// set geoIdField to 'id', this field contains in geo data meta properties
 				series.geoIdField('id');
 
+				// set tooltip
+				series.tooltip().format(e => {
+					return 'Projets: ' + e.getData('value');
+				});
+
+				// set title
 				map.title('Nombre de projets par préfecture');
 
 				// set map color settings
