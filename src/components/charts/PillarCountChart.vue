@@ -25,8 +25,37 @@
 				const series = chart.column(data);
 
 				// configure visual settings
-				series.fill('#4B9537', 0.8);
-				series.stroke('#4B9537', 0.8);
+				series.fill('#0A2F7E', 0.8);
+				series.stroke('#0A2F7E', 0.8);
+
+				// enable labels for a series
+				series.labels(true);
+				series.selected().labels(true);
+
+				// enable labels for a series
+				series.labels().format('{%Value} projets');
+				series
+					.selected()
+					.labels()
+					.format('{%x}');
+
+				// background border color
+				series
+					.labels()
+					.background()
+					.stroke('#663399');
+				series
+					.selected()
+					.labels()
+					.background()
+					.stroke('Green');
+
+				// font color
+				series.labels().fontColor('#663399');
+				series
+					.selected()
+					.labels()
+					.fontColor('Green');
 
 				// chart.animate(true);
 				chart.title('Nombre de projets par piliers et composantes');

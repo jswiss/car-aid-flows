@@ -31,6 +31,32 @@
 				series.fill('#4B9537', 0.8);
 				series.stroke('#4B9537', 0.8);
 
+				// configure visual settings
+				series.fill('#4B9537', 0.8);
+				series.stroke('#4B9537', 0.8);
+
+				// enable labels for a series
+				series.labels(true);
+				series.selected().labels(true);
+
+				// enable labels for a series
+				series.labels().format('${%Value}{groupsSeparator:\\,}');
+				series
+					.selected()
+					.labels()
+					.format('');
+
+				// background border color
+				series
+					.labels()
+					.background()
+					.stroke('#663399');
+				series
+					.selected()
+					.labels()
+					.background()
+					.stroke('Green');
+
 				chart.title('Décaissements par piliers et composantes en 2017 ');
 				chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
 				// tune interactivity selection mode
