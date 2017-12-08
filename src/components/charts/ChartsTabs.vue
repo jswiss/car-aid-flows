@@ -87,6 +87,18 @@
             </div>
           </router-link>
         </div>
+        <div class="outline">
+          <router-link class="nav-item" to="/charts/needs-coverage" >
+            <div id="chart-selector-7" class="column">
+              <i class="fa fa-bar-chart flipped fa-4x"></i>
+              <h4 class="sidebar-title">
+                Couverture
+                <br>
+                des besoins
+              </h4>
+            </div>
+          </router-link>
+        </div>
       </div>
     </div>
   </template>
@@ -117,5 +129,9 @@
   i {
   	width: 80px;
   	height: 80px;
+  }
+
+  .flipped {
+  	transform: rotate(90deg) scaleX(-1);
   }
 </style>

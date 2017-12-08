@@ -39,6 +39,7 @@ const store = new Vuex.Store({
 			{ id: 'CF.HM', name: 'Haut-Mbomou', value: 18 },
 			{ id: 'CF.KG', name: 'Kémo', value: 26 },
 		],
+		needsCoverage: [],
 		disbursementRate: [
 			['Pilier 1', 223957862, 58218075, 58218075],
 			['Pilier 2', 811980973, 150970261, 58218075],
