@@ -18,12 +18,22 @@
 		methods: {
 			loadMap() {
 				const map = anychart.choropleth();
-				const dataSet = anychart.data.set([this.mapData]);
+				const dataSet = anychart.data.set(this.mapData);
 				const series = map.choropleth(dataSet);
 				// set geoIdField to 'id', this field contains in geo data meta properties
 				series.geoIdField('id');
+
 				// set map color settings
-				series.colorScale(anychart.scales.linearColor('#deebf7', '#3182bd'));
+				series.colorScale(
+					anychart.scales.ordinalColor([
+						{ less: 20, color: '#536da4' },
+						{ from: 20, to: 25, color: '#3a5897' },
+						{ from: 26, to: 30, color: '#22438a' },
+						{ from: 31, to: 35, color: '#0a2f7e' },
+						{ from: 36, to: 40, color: '#082564' },
+						{ greater: 40, color: '#061c4b' },
+					])
+				);
 				series.hovered().fill('#addd8e');
 				// set geo data, you can find this map in our geo maps collection
 				// https://www.anychart.com/download/cdn/
