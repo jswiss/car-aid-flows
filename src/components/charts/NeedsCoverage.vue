@@ -42,48 +42,62 @@
   	},
   	methods: {
   		loadChart() {
-  			// set data
-  			const chartData = anychart.data.set(this.needsCoverage);
+  			var data = anychart.data.set([
+  				['January', 12000, 10000],
+  				['February', 15000, 12000],
+  				['March', 16000, 18000],
+  				['April', 15000, 11000],
+  				['May', 14000, 9000],
+  			]);
 
-  			// set data series
-  			const seriesData_1 = chartData.mapAs({
-  				x: 0,
-  				value: 1,
-  			});
-  			const seriesData_2 = chartData.mapAs({
-  				x: 0,
-  				value: 2,
-  			});
-  			const seriesData_3 = chartData.mapAs({
-  				x: 0,
-  				value: 3,
-  			});
+  			// map the data
+  			var seriesData_1 = data.mapAs({ x: 0, value: 1 });
+  			var seriesData_2 = data.mapAs({ x: 0, value: 2 });
 
-  			// set chart type
-  			const chart = anychart.bar();
+  			// create a chart
+  			var chart = anychart.area();
 
-  			// enable the percent stacking mode
-  			chart.yScale().stackMode('value');
+  			// set the interactivity mode
+  			chart.interactivity().hoverMode('single');
 
-  			const series1 = chart.bar(seriesData_1);
-  			const series2 = chart.bar(seriesData_2);
-  			const series3 = chart.bar(seriesData_3);
+  			// create the first series, set the data and name
+  			var series1 = chart.area(seriesData_1);
+  			series1.name('2004');
 
-  			// configure tooltip
-  			chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
+  			// configure the visual settings of the first series
+  			series1.normal().fill('#00cc99', 0.3);
+  			series1.hovered().fill('#00cc99', 0.1);
+  			series1.selected().fill('#00cc99', 0.5);
+  			series1.normal().stroke('#00cc99', 1, '10 5', 'round');
+  			series1.hovered().stroke('#00cc99', 2, '10 5', 'round');
+  			series1.selected().stroke('#00cc99', 4, '10 5', 'round');
 
-  			// configure y-axis label
-  			chart
-  				.yAxis()
-  				.labels()
-  				.format('{%Value}');
+  			// create the second series, set the data and name
+  			var series2 = chart.area(seriesData_2);
+  			series2.name('2005');
 
-  			// set chart title
-  			chart.title('Taux de décaissement par pilier');
+  			// configure the visual settings of the second series
+  			series2.normal().fill('#0066cc', 0.3);
+  			series2.hovered().fill('#0066cc', 0.1);
+  			series2.selected().fill('#0066cc', 0.5);
+  			series2.normal().hatchFill('forward-diagonal', '#0066cc', 1, 15);
+  			series2.hovered().hatchFill('forward-diagonal', '#0066cc', 1, 15);
+  			series2.selected().hatchFill('forward-diagonal', '#0066cc', 1, 15);
+  			series2.normal().stroke('#0066cc');
+  			series2.hovered().stroke('#0066cc', 2);
+  			series2.selected().stroke('#0066cc', 4);
 
-  			// set container id for the chart
+  			// set the chart title
+  			chart.title('Area Chart: Appearance');
+
+  			// set the titles of the axes
+  			chart.xAxis().title('Month');
+  			chart.yAxis().title('Sales, $');
+
+  			// set the container id
   			chart.container('container');
-  			// initiate chart drawing
+
+  			// initiate drawing the chart
   			chart.draw();
   		},
   		mounted() {
@@ -98,7 +112,7 @@
   body,
   #container {
   	width: 100%;
-  	height: 100%;
+  	height: 500px;
   	margin: 0;
   	padding: 0;
   }

@@ -4,7 +4,7 @@
     <div id="topmost" class="columns is-mobile">
       <div class="column is-2 buffer"></div>
       <div class="column is-8">
-        <p class="is-2 title">l'exercice de cartographie de l'aide</p>
+        <p class="is-2 title">La campagne de cartographie de l'aide extérieure</p>
         <p>
           En 2017, les flux d'aide en RCA ont été suivis dans le cadre d’un exercice biannuel de cartographie. La première campagne a eu lieu de fin mars à fin mai 2017, et la seconde de début octobre à fin novembre 2017. Les données présentées couvrent la période janvier à septembre 2017, à savoir les neuf premiers mois de la première année de mise en œuvre du RCPCA. La mise en ligne de ces données doit contribuer à un progrès significatif dans l'amélioration de la transparence de l'aide, ce qui permettra d'améliorer la coordination. Les données sur l'aide devraient également se révéler utiles pour surveiller les principes d'efficacité de l'aide.
         </p>

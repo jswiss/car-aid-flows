@@ -33,8 +33,8 @@
       <div class="column is-one-quarter"></div>
       <div class="column is-one-quarter">
         <div class="level-right">
-            <a class="button is-primary exportCSV" 
-              href="https://firebasestorage.googleapis.com/v0/b/msjc-8912c.appspot.com/o/Formulaire%20Global%20Suivi%20Aide%20RCA_v2.11%20FINAL.xlsx?alt=media&token=8123ffcf-d2db-49b2-9816-32e9b2cd1e7a"
+            <a class="button is-primary" 
+              href="https://s3.eu-central-1.amazonaws.com/car-downloads/Formulaire+Global+Suivi+Aide+RCA_v2.11+FINAL.xlsx"
             >
             <span class="icon">
               <i class="fa fa-table"></i>

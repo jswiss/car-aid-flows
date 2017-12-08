@@ -39,7 +39,7 @@ const store = new Vuex.Store({
 			{ id: 'CF.HM', name: 'Haut-Mbomou', value: 18 },
 			{ id: 'CF.KG', name: 'Kémo', value: 26 },
 		],
-		needsCoverage: [],
+		needsCoverage: [[]],
 		disbursementRate: [
 			['Pilier 1', 223957862, 58218075, 58218075],
 			['Pilier 2', 811980973, 150970261, 58218075],
@@ -51,7 +51,7 @@ const store = new Vuex.Store({
 			['Banque mondiale**', 20000000, 0, 25000000],
 			['Union Européenne', 24615385, 22283505, 22393162],
 			['Banque africaine de développement', 0, 16500000, 0],
-			['Agence française de développement', 14529915, 11226804, 11282051],
+			['AFD', 14529915, 11226804, 11282051],
 			['Autres', 6153846, 1701031, 3760684],
 		],
 		pillarComponentChart: [
