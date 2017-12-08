@@ -25,7 +25,16 @@
 			},
 			pillarChart() {
 				const vm = this;
-				const chart = anychart.column(this.$store.state.pillarCountChart);
+				const data = this.$store.state.pillarCountChart;
+				const chart = anychart.column();
+				const series = chart.column(data);
+
+				// const series = anychart.column(data);
+
+				// // configure visual settings
+				series.fill('#4B9537', 0.8);
+				series.stroke('#4B9537', 0.8);
+
 				// chart.animate(true);
 				chart.title('Nombre de projets par piliers et composantes');
 				chart.tooltip().format('{%value} projets');
@@ -107,8 +116,8 @@
 	}
 	#back {
 		cursor: pointer;
-		background: #7bc0f7;
-		border: 1px solid #64b5f6;
+		background: #4b9537;
+		border: 1px solid #4b9537;
 		color: #fff;
 		padding: 10px;
 		position: absolute;

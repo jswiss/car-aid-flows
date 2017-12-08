@@ -22,7 +22,6 @@
 				chart.getSeries(0).data(this.$store.state.pillarComponentChart);
 			},
 			pillarComponent2017() {
-				const vm = this;
 				const chart = anychart.column(this.$store.state.pillarComponentChart);
 				// chart.animate(true);
 				chart.title('Décaissements par piliers et composantes en 2017 ');

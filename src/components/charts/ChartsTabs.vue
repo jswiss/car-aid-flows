@@ -20,7 +20,9 @@
             <div id="chart-selector-2" class="column">
               <i class="fa fa-bar-chart fa-4x"></i>
               <h4 class="sidebar-title">
-                2017 Décaissements
+                2017
+                <br>
+                Décaissements
               </h4>
             </div>
           </router-link>
@@ -72,6 +74,34 @@
             </router-link>
           </div>
       </div>
+      <div class="columns">
+        <div class="outline">
+          <router-link class="nav-item" to="/charts/disbursement-rate" >
+            <div id="chart-selector-7" class="column">
+              <i class="fa fa-bar-chart fa-4x"></i>
+              <h4 class="sidebar-title">
+                Taux de
+                <br>
+                décaissement
+              </h4>
+            </div>
+          </router-link>
+        </div>
+          <div class="outline">
+            <router-link class="nav-item" to="/charts/project-map">
+              <div id="chart-selector-8" class="column">
+                <i class="fa fa-globe fa-4x"></i>
+                <h4 class="sidebar-title">
+                 Appui 
+                 <br>
+                 budgétaire
+                 <br>
+                 2016-2018
+                </h4>
+              </div>
+            </router-link>
+          </div>
+      </div>
     </div>
   </template>
 
@@ -92,14 +122,14 @@
   }
 
   #chart-menu {
-  	margin: 3% 0 0 0;
+  	margin: 1% 0 0 0;
   }
   .fa-4x {
   	font-size: 5em !important;
   }
 
   i {
-  	width: 100px;
-  	height: 100px;
+  	width: 80px;
+  	height: 80px;
   }
 </style>

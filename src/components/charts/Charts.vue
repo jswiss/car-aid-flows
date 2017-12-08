@@ -9,6 +9,8 @@
       <tree-map-2018 v-if="['TreeMap2018'].indexOf($route.name) > -1"></tree-map-2018>
       <tree-map-2019 v-if="['TreeMap2019'].indexOf($route.name) > -1"></tree-map-2019>
       <budget-support v-if="['BudgetSupport'].indexOf($route.name) > -1"></budget-support>
+      <disbursement-rate v-if="['DisbursementRate'].indexOf($route.name) > -1"></disbursement-rate>
+      <project-map v-if="['ProjectMap'].indexOf($route.name) > -1"></project-map>
     </div>
   </div>
 </template>
@@ -20,6 +22,8 @@
 	import TreeMap2018 from './TreeMap2018';
 	import TreeMap2019 from './TreeMap2019';
 	import BudgetSupport from './BudgetSupport';
+	import DisbursementRate from './DisbursementRate';
+	import ProjectMap from './ProjectMap';
 
 	export default {
 		name: 'Charts',
@@ -30,7 +34,9 @@
 			TreeMap2017,
 			TreeMap2018,
 			TreeMap2019,
+			DisbursementRate,
 			BudgetSupport,
+			ProjectMap,
 		},
 		created() {
 			this.$store.dispatch('LOAD_RAW');

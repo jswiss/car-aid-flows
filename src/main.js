@@ -10,6 +10,7 @@ import store from './store';
 
 import '../node_modules/anychart/dist/js/anychart-base.min.js';
 import '../node_modules/anychart/dist/js/anychart-treemap.min.js';
+import '../node_modules/anychart/dist/js/anychart-map.min.js';
 
 Vue.use(anychart);
 

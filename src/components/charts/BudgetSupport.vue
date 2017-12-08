@@ -8,6 +8,21 @@
         **L'appui budgétaire prévu pour 2017 n'a pas encore été versé car les conditions n'ont pas été remplies à temps
       </p>
     </div>
+    <br>
+    <br>
+    <div class="body">
+      <p class="text">
+        L’appui budgétaire des partenaires (inclus dans la composante 4 – stabilité macroéconomique et bonne gouvernance – du pilier 2) constitue une part importante des décaissements et contribue de manière significative au budget de l’Etat. Il représentait ainsi près de 36% du budget en 2016 . L’appui budgétaire pour l’année 2016 (tableau 5), qui a été versé en majorité vers la fin de l’année, a grandement contribué à financer le fonctionnement de l’Etat en 2017.
+      </p>
+      <br>
+      <p>
+        L’appui budgétaire pour l’année 2017 (tableau 6), qui a été versé ou sera versé en décembre est en hausse par rapport à 2016 et contribuera à nouveau significativement au budget de l’Etat. A noter que l’appui budgétaire de la Banque mondiale prévu pour 2017 ne sera versé qu’en 2018, car les déclencheurs du versement n’ont pas été remplis à temps par le Gouvernement.
+      </p>
+      <br>
+      <p>
+        L’appui budgétaire prévu pour l’année 2018 (tableau 7) sera à nouveau conséquent. Il est cependant probable qu’après ces quelques années d’appui budgétaire très élevés, les montants diminuent de manière significative. Il est donc capital que les mesures (fiscales, douanières, de développement de l’activité économique pour élargir l’assiette fiscale) pour augmenter les recettes propres de l’Etat soient mises en œuvre de manière décidée dans l’intervalle. 
+      </p>
+    </div>
   </div>
 </template>
 
@@ -68,7 +83,7 @@
   			const xAxis = chart.xAxis();
   			xAxis.staggerMode(true);
   			xAxis.staggerLines(2);
-  			xAxis.title('Fonds');
+  			// xAxis.title('Fonds');
   			const yAxis = chart.yAxis();
   			yAxis.title('USD');
 
@@ -93,7 +108,7 @@
   body,
   #container {
   	width: 100%;
-  	height: 600px;
+  	height: 500px;
   	margin: 0;
   	padding: 0;
   }
