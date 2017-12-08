@@ -22,8 +22,6 @@ const Project = resolve =>
 	require(['../components/projects/Project.vue'], resolve);
 const DisbursementRate = resolve =>
 	require(['../components/charts/DisbursementRate.vue'], resolve);
-const ProjectMap = resolve =>
-	require(['../components/charts/ProjectMap.vue'], resolve);
 
 import store from '../store';
 
@@ -87,11 +85,6 @@ const routes = [
 				path: 'disbursement-rate',
 				name: 'DisbursementRate',
 				component: DisbursementRate,
-			},
-			{
-				path: 'project-map',
-				name: 'ProjectMap',
-				component: ProjectMap,
 			},
 		],
 	},

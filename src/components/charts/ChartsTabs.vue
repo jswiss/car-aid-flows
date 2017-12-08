@@ -87,20 +87,6 @@
             </div>
           </router-link>
         </div>
-          <div class="outline">
-            <router-link class="nav-item" to="/charts/project-map">
-              <div id="chart-selector-8" class="column">
-                <i class="fa fa-globe fa-4x"></i>
-                <h4 class="sidebar-title">
-                 Appui 
-                 <br>
-                 budgétaire
-                 <br>
-                 2016-2018
-                </h4>
-              </div>
-            </router-link>
-          </div>
       </div>
     </div>
   </template>
