@@ -21,7 +21,7 @@ const store = new Vuex.Store({
 		eurTable: [],
 		xafTable: [],
 		mapData: [
-			{ id: 'CF.', value: 93 },
+			{ id: 'CF.BG', value: 93 },
 			{ id: 'CF.MP', value: 37 },
 			{ id: 'CF.LB', value: 26 },
 			{ id: 'CF.NM', value: 29 },

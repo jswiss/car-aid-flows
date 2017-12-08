@@ -1,7 +1,6 @@
 <template>
   <div>
     <div id="container"></div>
-    </div>
   </div>
 </template>
 
@@ -22,6 +21,8 @@
 				const series = map.choropleth(dataSet);
 				// set geoIdField to 'id', this field contains in geo data meta properties
 				series.geoIdField('id');
+
+				map.title('Nombre de projets par préfecture');
 
 				// set map color settings
 				series.colorScale(
