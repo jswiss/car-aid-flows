@@ -21,8 +21,8 @@
 		},
 		methods: {
 			drawTreeMap2019() {
-				const colorShades = this.$store.state.colorShades;
-				const colorRange = this.$store.state.colorRange;
+				const colorShades = this.$store.state.colorShades2019;
+				const colorRange = this.$store.state.colorRange2019;
 				const treeMapChart = anychart.data.tree(
 					this.treemap
 					// anychart.enums.TreeFillingMethod.AS_TREE

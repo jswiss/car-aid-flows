@@ -17,8 +17,8 @@
 		},
 		methods: {
 			drawTreeMap2017() {
-				const colorShades = this.$store.state.colorShades;
-				const colorRange = this.$store.state.colorRange;
+				const colorShades = this.$store.state.colorShades2017;
+				const colorRange = this.$store.state.colorRange2017;
 				const treeMapChart = anychart.data.tree(
 					this.treemap
 					// anychart.enums.TreeFillingMethod.AS_TREE
@@ -33,8 +33,9 @@
 				chart.headers().fontWeight('bold');
 				chart.labels().format('{%name}');
 				// chart.labels().textWrap('byWord');
-				chart.labels().fontSize(10.5);
+				chart.labels().fontSize(11);
 				chart.labels().fontWeight(900);
+				chart.labels().fontColor('White');
 				chart.tooltip().titleFormat('{%name}');
 				chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
 				chart.hintOpacity(0.7);
