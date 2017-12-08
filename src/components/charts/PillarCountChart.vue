@@ -24,14 +24,11 @@
 				chart.getSeries(0).data(this.$store.state.pillarCountChart);
 			},
 			pillarChart() {
-				const vm = this;
 				const data = this.$store.state.pillarCountChart;
 				const chart = anychart.column();
 				const series = chart.column(data);
 
-				// const series = anychart.column(data);
-
-				// // configure visual settings
+				// configure visual settings
 				series.fill('#4B9537', 0.8);
 				series.stroke('#4B9537', 0.8);
 

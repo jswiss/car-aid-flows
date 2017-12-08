@@ -22,8 +22,14 @@
 				chart.getSeries(0).data(this.$store.state.pillarComponentChart);
 			},
 			pillarComponent2017() {
-				const chart = anychart.column(this.$store.state.pillarComponentChart);
-				// chart.animate(true);
+				const data = this.$store.state.pillarComponentChart;
+				const chart = anychart.column();
+				const series = chart.column(data);
+
+				// configure visual settings
+				series.fill('#4B9537', 0.8);
+				series.stroke('#4B9537', 0.8);
+
 				chart.title('Décaissements par piliers et composantes en 2017 ');
 				chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
 				// tune interactivity selection mode
@@ -67,7 +73,7 @@
 				chart
 					.yAxis()
 					.labels()
-					.format('${%Value}{groupsSeparator: }');
+					.format('${%Value}{groupsSeparator:\\,}');
 
 				// tooltips position and interactivity settings
 				chart.tooltip().positionMode('point');
@@ -107,8 +113,8 @@
 	}
 	#back {
 		cursor: pointer;
-		background: #7bc0f7;
-		border: 1px solid #64b5f6;
+		background: #4b9537;
+		border: 1px solid #4b9537;
 		color: #fff;
 		padding: 10px;
 		position: absolute;

@@ -19,100 +19,49 @@
   	},
   	methods: {
   		loadChart() {
-  			chart = anychart.bar();
+  			// set data
+  			const chartData = anychart.data.set(this.disbursement);
 
-  			chart.animation(true);
+  			// set data series
+  			const seriesData_1 = chartData.mapAs({
+  				x: 0,
+  				value: 1,
+  			});
+  			const seriesData_2 = chartData.mapAs({
+  				x: 0,
+  				value: 2,
+  			});
+  			const seriesData_3 = chartData.mapAs({
+  				x: 0,
+  				value: 3,
+  			});
 
-  			chart.padding([10, 40, 5, 20]);
+  			// set chart type
+  			const chart = anychart.bar();
 
-  			chart.title('Top 10 Cosmetic Products by Revenue');
+  			// enable the percent stacking mode
+  			chart.yScale().stackMode('value');
 
-  			// create area series with passed data
-  			var series = chart.bar([
-  				['Eyeshadows', '249980'],
-  				['Eyeliner', '213210'],
-  				['Eyebrow pencil', '170670'],
-  				['Nail polish', '143760'],
-  				['Lipstick', '128000'],
-  				['Lip gloss', '110430'],
-  				['Mascara', '102610'],
-  				['Foundation', '94190'],
-  				['Rouge', '80540'],
-  				['Powder', '53540'],
-  			]);
+  			const series1 = chart.bar(seriesData_1);
+  			const series2 = chart.bar(seriesData_2);
+  			const series3 = chart.bar(seriesData_3);
 
-  			// set tooltip settings
-  			series
-  				.tooltip()
-  				.position('right')
-  				.anchor('left-center')
-  				.offsetX(5)
-  				.offsetY(0)
-  				.titleFormat('{%X}')
-  				.format('${%Value}');
+  			// configure tooltip
+  			chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
 
-  			// set yAxis labels formatter
+  			// configure y-axis label
   			chart
   				.yAxis()
   				.labels()
-  				.format('{%Value}{groupsSeparator: }');
+  				.format('{%Value}');
 
-  			// set titles for axises
-  			chart.xAxis().title('Products by Revenue');
-  			chart.yAxis().title('Revenue in Dollars');
-  			chart.interactivity().hoverMode('by-x');
-  			chart.tooltip().positionMode('point');
-  			// set scale minimum
-  			chart.yScale().minimum(0);
+  			// set chart title
+  			chart.title('Taux de décaissement par pilier');
 
   			// set container id for the chart
   			chart.container('container');
   			// initiate chart drawing
   			chart.draw();
-
-  			// set data
-  			// const chartData = anychart.data.set(this.disbursement);
-
-  			// // set data series
-  			// const seriesData_1 = chartData.mapAs({
-  			// 	x: 0,
-  			// 	value: 1,
-  			// });
-  			// const seriesData_2 = chartData.mapAs({
-  			// 	x: 0,
-  			// 	value: 2,
-  			// });
-  			// const seriesData_3 = chartData.mapAs({
-  			// 	x: 0,
-  			// 	value: 3,
-  			// });
-
-  			// // set chart type
-  			// const chart = anychart.bar();
-
-  			// // enable the percent stacking mode
-  			// chart.yScale().stackMode('value');
-
-  			// const series1 = chart.bar(seriesData_1);
-  			// const series2 = chart.bar(seriesData_2);
-  			// const series3 = chart.bar(seriesData_3);
-
-  			// // configure tooltip
-  			// chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
-
-  			// // configure y-axis label
-  			// chart
-  			// 	.yAxis()
-  			// 	.labels()
-  			// 	.format('{%Value}');
-
-  			// // set chart title
-  			// chart.title('Taux de décaissement par pilier');
-
-  			// // set container id for the chart
-  			// chart.container('container');
-  			// // initiate chart drawing
-  			// chart.draw();
   		},
   		mounted() {
   			this.loadChart();
