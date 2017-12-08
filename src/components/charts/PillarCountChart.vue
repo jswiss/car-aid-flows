@@ -3,7 +3,6 @@
   <div>
     <div class="columns is-mobile">
       <div class="column" id="container"></div>
-			<a id="back" @click="backButton" :class="{display: isDisplay}" class="button is-pulled-right">Retour aux piliers</a>
     </div>
   </div>
 </template>
@@ -19,11 +18,8 @@
 			this.pillarChart();
 		},
 		methods: {
-			backButton() {
-				this.isDisplay = !this.isDisplay;
-				chart.getSeries(0).data(this.$store.state.pillarCountChart);
-			},
 			pillarChart() {
+				const vm = this;
 				const data = this.$store.state.pillarCountChart;
 				const chart = anychart.column();
 				const series = chart.column(data);
@@ -38,6 +34,7 @@
 				// tune interactivity selection mode
 				chart.interactivity().selectionMode('none');
 
+				// add chart label, set placement, color and text
 				chart.label(0, {
 					enabled: false,
 					position: 'rightTop',
@@ -60,12 +57,10 @@
 					if (e.point.get('drillDown')) {
 						// if so, assign to the only data series we have
 						chart.getSeries(0).data(e.point.get('drillDown'));
-						vm.backButton();
 					} else {
 						// otherwise assign this series the initial
 						// dataset and return to the initial state
-						chart.getSeries(0).data(this.$store.state.pillarCountChart);
-						vm.backButton();
+						chart.getSeries(0).data(data);
 					}
 				});
 
@@ -87,10 +82,7 @@
 				chart.yAxis().title('Nombre de projets');
 
 				// set container id for the chart
-				chart.container('container');
-
-				// initiate chart drawing
-				chart.draw();
+				chart.container('container').draw();
 			},
 		},
 	};

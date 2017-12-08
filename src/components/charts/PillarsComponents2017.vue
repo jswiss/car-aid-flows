@@ -3,7 +3,7 @@
   <div>
     <div class="columns is-mobile">
       <div class="column" id="container"></div>
-			<a id="back" @click="backButton" :class="{display: isDisplay}" class="button is-pulled-right">Retour aux piliers</a>
+			<!-- <a id="back" ref="backButton"  class="button is-pulled-right">Retour aux piliers</a> -->
     </div>
   </div>
 </template>
@@ -17,11 +17,12 @@
 			};
 		},
 		methods: {
-			backButton() {
+			backButton(chart) {
 				this.isDisplay = !this.isDisplay;
 				chart.getSeries(0).data(this.$store.state.pillarComponentChart);
 			},
 			pillarComponent2017() {
+				const vm = this;
 				const data = this.$store.state.pillarComponentChart;
 				const chart = anychart.column();
 				const series = chart.column(data);
@@ -57,13 +58,29 @@
 					if (e.point.get('drillDown')) {
 						// if so, assign to the only data series we have
 						chart.getSeries(0).data(e.point.get('drillDown'));
-						vm.backButton();
 					} else {
 						// otherwise assign this series the initial
 						// dataset and return to the initial state
-						chart.getSeries(0).data(this.$store.state.pillarComponentChart);
-						vm.backButton();
+						chart.getSeries(0).data(data);
 					}
+				});
+
+				// add chart label, set placement, color and text
+				chart.label(0, {
+					enabled: false,
+					position: 'rightTop',
+					anchor: 'rightTop',
+					padding: 5,
+					offsetX: 5,
+					offsetY: 5,
+					text: 'Back',
+					background: { stroke: '1 black', enabled: true },
+				});
+
+				// load initial data on label click
+				chart.label(0).listen('click', function() {
+					chart.getSeries(0).data(data);
+					chart.label(0).enabled(false);
 				});
 
 				// set scale minimum
@@ -84,10 +101,7 @@
 				chart.yAxis().title('FCFA');
 
 				// set container id for the chart
-				chart.container('container');
-
-				// initiate chart drawing
-				chart.draw();
+				chart.container('container').draw();
 			},
 		},
 		mounted() {
