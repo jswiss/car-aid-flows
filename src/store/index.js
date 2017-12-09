@@ -236,7 +236,7 @@ const store = new Vuex.Store({
 				"Partenaires d'exécution",
 				'Montant du projet en devise',
 				'Décaissements 2017 en devise',
-				'Prévision de décaissements 2017-2019 USD',
+				'Prévision de décaissements 2017-2019',
 			];
 		},
 		SET_TREEMAP_YEAR: (state, data) => {

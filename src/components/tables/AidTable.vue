@@ -108,7 +108,7 @@
   					'Secteur principal',
   					'Montant du projet en devise',
   					'Décaissements 2017 en devise',
-  					'Prévision de décaissements 2017-2019 USD',
+  					'Prévision de décaissements 2017-2019',
   				],
   				storage: 'local',
   				highlightMatches: true,
