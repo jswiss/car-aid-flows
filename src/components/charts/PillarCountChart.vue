@@ -102,6 +102,11 @@
 					.labels()
 					.format('{%Value}{groupsSeparator: }');
 
+				chart
+					.xAxis()
+					.labels()
+					.rotation(-45);
+
 				// tooltips position and interactivity settings
 				chart.tooltip().positionMode('point');
 				chart.interactivity().hoverMode('by-x');

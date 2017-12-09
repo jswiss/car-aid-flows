@@ -11,7 +11,25 @@
 		name: 'ProjectMap',
 		data() {
 			return {
-				mapData: this.$store.getters.getMap,
+				mapData: [
+					{ id: 'CF.BG', name: 'Bangui', value: 93 },
+					{ id: 'CF.MP', name: "Ombella-M'Poko", value: 37 },
+					{ id: 'CF.LB', name: 'Lobaye', value: 26 },
+					{ id: 'CF.NM', name: 'Nana-Mambéré', value: 29 },
+					{ id: 'CF.HS', name: 'Mambéré-Kadéï', value: 30 },
+					{ id: 'CF.SE', name: 'Sangha-Mbaéré', value: 22 },
+					{ id: 'CF.AC', name: 'Ouham', value: 33 },
+					{ id: 'CF.OP', name: 'Ouham-Pendé', value: 29 },
+					{ id: 'CF.UK', name: 'Ouaka', value: 35 },
+					{ id: 'CF.KB', name: 'Nana-Grébizi', value: 26 },
+					{ id: 'CF.BB', name: 'Bamingui-Bangoran', value: 34 },
+					{ id: 'CF.VK', name: 'Vakaga', value: 29 },
+					{ id: 'CF.HK', name: 'Haute-Kotto', value: 25 },
+					{ id: 'CF.BK', name: 'Basse-Kotto', value: 20 },
+					{ id: 'CF.MB', name: 'Mbomou', value: 22 },
+					{ id: 'CF.HM', name: 'Haut-Mbomou', value: 18 },
+					{ id: 'CF.KG', name: 'Kémo', value: 26 },
+				],
 			};
 		},
 		methods: {

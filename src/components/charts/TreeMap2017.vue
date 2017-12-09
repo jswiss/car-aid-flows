@@ -27,7 +27,7 @@
 				chart
 					.headers()
 					.format(
-						'{%name} :: Project disbursements: ${%value}{groupsSeparator:\\,}'
+						'{%name} :: Décaissements effectifs par projet: ${%value}{groupsSeparator:\\,}'
 					);
 				chart.headers().fontSize(15);
 				chart.headers().fontWeight('bold');

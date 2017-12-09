@@ -13,32 +13,12 @@ Vue.use(Vuex);
 // set require statements as actions, called beforeRouteEnter
 
 const store = new Vuex.Store({
-	// plugins: [createPersistedState()],
 	state: {
 		version: '',
 		rawData: [],
 		tableData: [],
 		eurTable: [],
 		xafTable: [],
-		mapData: [
-			{ id: 'CF.BG', name: 'Bangui', value: 93 },
-			{ id: 'CF.MP', name: "Ombella-M'Poko", value: 37 },
-			{ id: 'CF.LB', name: 'Lobaye', value: 26 },
-			{ id: 'CF.NM', name: 'Nana-Mambéré', value: 29 },
-			{ id: 'CF.HS', name: 'Mambéré-Kadéï', value: 30 },
-			{ id: 'CF.SE', name: 'Sangha-Mbaéré', value: 22 },
-			{ id: 'CF.AC', name: 'Ouham', value: 33 },
-			{ id: 'CF.OP', name: 'Ouham-Pendé', value: 29 },
-			{ id: 'CF.UK', name: 'Ouaka', value: 35 },
-			{ id: 'CF.KB', name: 'Nana-Grébizi', value: 26 },
-			{ id: 'CF.BB', name: 'Bamingui-Bangoran', value: 34 },
-			{ id: 'CF.VK', name: 'Vakaga', value: 29 },
-			{ id: 'CF.HK', name: 'Haute-Kotto', value: 25 },
-			{ id: 'CF.BK', name: 'Basse-Kotto', value: 20 },
-			{ id: 'CF.MB', name: 'Mbomou', value: 22 },
-			{ id: 'CF.HM', name: 'Haut-Mbomou', value: 18 },
-			{ id: 'CF.KG', name: 'Kémo', value: 26 },
-		],
 		needsCoverage: [[]],
 		disbursementRate: [
 			['Pilier 1', 223957862, 58218075, 58218075],
@@ -57,34 +37,34 @@ const store = new Vuex.Store({
 		pillarComponentChart: [
 			{
 				x: 'Pilier 1',
-				value: 33475393125,
+				value: 58218075,
 				drillDown: [
-					{ x: 'DDRR', value: 17122588625 },
-					{ x: 'RSS', value: 2538231700 },
-					{ x: 'Justice', value: 4235652400 },
-					{ x: 'Cohésion sociale et réfugiés', value: 9578920975 },
+					{ x: 'DDRR', value: 29778415 },
+					{ x: 'RSS', value: 4414316 },
+					{ x: 'Justice', value: 7366352 },
+					{ x: 'Cohésion sociale et réfugiés', value: 16658993 },
 				],
 			},
 			{
 				x: 'Pilier 2',
-				value: 86807900014,
+				value: 150970261,
 				drillDown: [
-					{ x: 'Redéploiement et gouvernance locale', value: 8006248825 },
-					{ x: 'Services sociaux de base', value: 11395808275 },
-					{ x: 'Résilience et sécurité alimentaire', value: 2417949750 },
+					{ x: 'Redéploiement et gouvernance locale', value: 13923911 },
+					{ x: 'Services sociaux de base', value: 19818797 },
+					{ x: 'Résilience et sécurité alimentaire', value: 4205130 },
 					{
 						x: 'Stabilité macroéconomique et bonne gouvernance',
-						value: 64987893164,
+						value: 113022423,
 					},
 				],
 			},
 			{
 				x: 'Pilier 3',
-				value: 17814972000,
+				value: 30982560,
 				drillDown: [
-					{ x: 'Secteurs productifs', value: 2689487750 },
-					{ x: 'Infrastructures', value: 12228031650 },
-					{ x: 'Secteur privé et emploi', value: 2897453175 },
+					{ x: 'Secteurs productifs', value: 4677370 },
+					{ x: 'Infrastructures', value: 21266142 },
+					{ x: 'Secteur privé et emploi', value: 5039049 },
 				],
 			},
 		],
@@ -303,7 +283,9 @@ const store = new Vuex.Store({
 												return {
 													name: project.key,
 													value: project.value,
-													url: `http://localhost:7775/projects/${project.key}`,
+													url: `http://fluxaide-rca.cf.s3-website.eu-central-1.amazonaws.com/projects/${
+														project.key
+													}`,
 												};
 											}),
 										};
@@ -338,7 +320,9 @@ const store = new Vuex.Store({
 												return {
 													name: project.key,
 													value: project.value,
-													url: `http://localhost:7775/projects/${project.key}`,
+													url: `http://fluxaide-rca.cf.s3-website.eu-central-1.amazonaws.com/projects/${
+														project.key
+													}`,
 												};
 											}),
 										};
@@ -373,7 +357,9 @@ const store = new Vuex.Store({
 												return {
 													name: project.key,
 													value: project.value,
-													url: `http://localhost:7775/projects/${project.key}`,
+													url: `http://fluxaide-rca.cf.s3-website.eu-central-1.amazonaws.com/projects/${
+														project.key
+													}`,
 												};
 											}),
 										};
@@ -387,6 +373,7 @@ const store = new Vuex.Store({
 		},
 		// ...firebaseMutations,
 	},
+	plugins: [createPersistedState()],
 });
 
 // store.subscribe((mutation, state) => {

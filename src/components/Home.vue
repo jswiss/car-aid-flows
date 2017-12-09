@@ -7,10 +7,13 @@
           Le RCPCA est le Plan National de Relèvement et de Consolidation de la Paix de la République Centrafricaine (RCA). Le RCPCA couvre la période 2017-2021. Le rapport de synthèse du RCPCA a été approuvé par le Gouvernement en octobre 2016 et présenté aux partenaires de la RCA le 17 novembre 2016 lors de la Conférence de Bruxelles. 
           <br>
           <br>
-          Ce site présente les données du suivi de l’aide extérieure pour l’année 2017 pour la RCA. Les données ont été collectées lors de l’exercice de cartographie de l’aide qui a eu lieu à fin 2017, en vue d’alimenter le rapport de la revue annuelle de la première année du RCPCA. Les données ont été récoltées par l’Unité de suivi de l’aide du Secrétariat du RCPCA. En savoir plus sur l'exercice de cartographie de l'aide.
+          Ce site présente les données du suivi de l’aide extérieure pour l’année 2017 pour la RCA. Les données ont été collectées lors de l’exercice de cartographie de l’aide qui a eu lieu à fin 2017, en vue d’alimenter le rapport de la revue annuelle de la première année du RCPCA. Les données ont été récoltées par l’Unité de suivi de l’aide du Secrétariat du RCPCA. <a href="http://fluxaide-rca.cf.s3-website.eu-central-1.amazonaws.com/about">En savoir plus sur l'exercice de cartographie de l'aide</a>.
           <br>
           <br>
           L’arborescence de cette page permet d’explorer les projets de relèvement, consolidation de la paix et développement par piliers, composantes et secteurs du RCPCA. Elle n’inclut pas l’aide humanitaire d’urgence, qui fait l’objet du Plan de réponse humanitaire et dont les données sont accessibles sur la base <a href="https://fts.unocha.org/countries/43/summary/2017" target="_blank">FTS d’OCHA</a>.
+          <br>
+          <br>
+          Le RCPCA est le Plan National de Relèvement et de Consolidation de la Paix de la République Centrafricaine (RCA). Le RCPCA couvre la période 2017-2021. Le rapport de synthèse du RCPCA a été approuvé par le Gouvernement en octobre 2016 et présenté aux partenaires de la RCA le 17 novembre 2016 lors de la Conférence de Bruxelles. Le rapport technique du RCPCA complète le rapport de synthèse.
         </p>
       </div>
     </div>

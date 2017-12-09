@@ -11,10 +11,10 @@
         <i class="fa fa-dashboard"></i>Graphiques
       </router-link>
       <router-link class="nav-item is-tab" to="/table">
-        <i class="fa fa-list-alt"></i>Table
+        <i class="fa fa-list-alt"></i>Tableau
       </router-link>
       <router-link class="nav-item is-tab" to="/about">
-        <i class="fa fa-info-circle"></i>Info
+        <i class="fa fa-info-circle"></i>Information
       </router-link>
     </div>
     <div class="nav-right">

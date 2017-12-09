@@ -14,12 +14,13 @@
 		data() {
 			return {
 				isDisplay: true,
+				chartData: this.$store.state.pillarComponentChart,
 			};
 		},
 		methods: {
 			backButton(chart) {
 				this.isDisplay = !this.isDisplay;
-				chart.getSeries(0).data(this.$store.state.pillarComponentChart);
+				chart.getSeries(0).data(this.chartData);
 			},
 			pillarComponent2017() {
 				const vm = this;
@@ -108,6 +109,11 @@
 					chart.getSeries(0).data(data);
 					chart.label(0).enabled(false);
 				});
+
+				chart
+					.xAxis()
+					.labels()
+					.rotation(-45);
 
 				// set scale minimum
 				chart.yScale().minimum(0);

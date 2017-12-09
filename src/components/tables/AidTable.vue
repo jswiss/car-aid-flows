@@ -6,7 +6,7 @@
         <div class="field is-horizontal level">
           <div class="field-label">
             <label for="currency" class="label">
-              Select a currency to display
+              Sélectionnez la devise d'affichage
             </label>
             <div class="field-body">
               <div class="field is-narrow">
@@ -52,7 +52,7 @@
       >
         <template slot="Nom du projet" scope="props">
           <div>
-            <a :href="`http://localhost:7775/projects/${props.row['Nom du projet']}`" target="_blank">{{ props.row['Nom du projet'] }}</a>
+            <a :href="`http://fluxaide-rca.cf.s3-website.eu-central-1.amazonaws.com/projects/${props.row['Nom du projet']}`" target="_blank">{{ props.row['Nom du projet'] }}</a>
           </div>
         </template>
         <template slot="Montant du projet en devise" scope="props">
@@ -65,7 +65,7 @@
             <p>{{symbol}} {{ props.row['Décaissements 2017 en devise'] | currency }}</p>
           </div>
         </template>
-        <template slot="Prévision de décaissements 2017-2019 USD" scope="props">
+        <template slot="Prévision de décaissements 2017-2019" scope="props">
           <div>
             <p>{{symbol}} {{ props.row['Prévision de décaissements 2017-2019 USD'] | currency }}</p>
           </div>
