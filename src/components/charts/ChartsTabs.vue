@@ -39,28 +39,6 @@
             </div>
           </router-link>
         </div>
-        <div class="outline">
-          <router-link class="nav-item" to="/charts/treemap-2018" >
-            <div id="chart-selector-4" class="column">
-              <i class="fa fa-th fa-4x"></i>
-              <h4 class="sidebar-title">
-                Treemap 2018
-              </h4>
-            </div>
-          </router-link>
-        </div>
-      </div>
-      <div class="columns">
-        <div class="outline">
-          <router-link class="nav-item" to="/charts/treemap-2019" >
-            <div id="chart-selector-5" class="column">
-              <i class="fa fa-th fa-4x"></i>
-              <h4 class="sidebar-title">
-                Treemap 2019
-              </h4>
-            </div>
-          </router-link>
-        </div>
           <div class="outline">
             <router-link class="nav-item" to="/charts/budget-support">
               <div id="chart-selector-6" class="column">

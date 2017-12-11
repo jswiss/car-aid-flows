@@ -1,89 +1,90 @@
 <template>
   <div>
-    <div id="container"></div>
-    <div class="body">
-      <p class="text">
-        Le taux de décaissement a été calculé en divisant le total des décaissements pour 2017  par la valeur totale du portefeuille de projets actifs et clôturés (mais qui étaient encore actifs au début 2017 et ont décaissé pendant l’année). Avec 26% pour le pilier 1, 19% pour le pilier 2 et 7% pour le pilier 3, ces taux semblent bas (tableau 5), mais en l’absence d’une information sur la durée moyenne des projets , il est difficile de comparer ce taux de décaissement entre piliers. 
-      </p>
-    </div>
+		<div class="columns is-mobile">
+			<div class="column">
+				<div id="container"></div>
+				<div class="body">
+					<p class="text">
+						Le taux de décaissement a été calculé en divisant le total des décaissements pour 2017  par la valeur totale du portefeuille de projets actifs et clôturés (mais qui étaient encore actifs au début 2017 et ont décaissé pendant l’année). Avec 26% pour le pilier 1, 19% pour le pilier 2 et 7% pour le pilier 3, ces taux semblent bas (tableau 5), mais en l’absence d’une information sur la durée moyenne des projets , il est difficile de comparer ce taux de décaissement entre piliers. 
+					</p>
+				</div>
+			</div>
+		</div>
   </div>
 </template>
 
-<script>
-  export default {
-  	name: 'DisbursementRate',
-  	data() {
-  		return {
-  			disbursement: this.$store.getters.disbursementRate,
-  		};
-  	},
-  	methods: {
-  		loadChart() {
-  			// set data
-  			const chartData = anychart.data.set(this.disbursement);
+<script type="text/javascript">
+	export default {
+		name: 'DisbursementRate',
+		methods: {
+			disbursementRate() {
+				// set data
 
-  			// set data series
-  			const seriesData_1 = chartData.mapAs({
-  				x: 0,
-  				value: 1,
-  			});
-  			const seriesData_2 = chartData.mapAs({
-  				x: 0,
-  				value: 2,
-  			});
-  			const seriesData_3 = chartData.mapAs({
-  				x: 0,
-  				value: 3,
-  			});
+				const chartData = this.$store.state.disbursementRate;
+				anychart.data.set(chartData);
 
-  			// set chart type
-  			const chart = anychart.bar();
+				// set data series
+				const seriesData_1 = chartData.mapAs({
+					x: 0,
+					value: 1,
+				});
+				const seriesData_2 = chartData.mapAs({
+					x: 0,
+					value: 2,
+				});
+				const seriesData_3 = chartData.mapAs({
+					x: 0,
+					value: 3,
+				});
 
-  			// enable the percent stacking mode
-  			chart.yScale().stackMode('value');
+				// set chart type
+				const chart = anychart.bar();
 
-  			const series1 = chart.bar(seriesData_1);
-  			const series2 = chart.bar(seriesData_2);
-  			const series3 = chart.bar(seriesData_3);
+				// enable the percent stacking mode
+				chart.yScale().stackMode('value');
 
-  			// configure tooltip
-  			chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
+				const series1 = chart.bar(seriesData_1);
+				const series2 = chart.bar(seriesData_2);
+				const series3 = chart.bar(seriesData_3);
 
-  			// configure y-axis label
-  			chart
-  				.yAxis()
-  				.labels()
-  				.format('{%Value}');
+				// configure tooltip
+				chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
 
-  			// set chart title
-  			chart.title('Taux de décaissement par pilier');
+				// configure y-axis label
+				chart
+					.yAxis()
+					.labels()
+					.format('{%Value}');
 
-  			// set container id for the chart
-  			chart.container('container');
-  			// initiate chart drawing
-  			chart.draw();
-  		},
-  		mounted() {
-  			this.loadChart();
-  		},
-  	},
-  };
+				// set chart title
+				chart.title('Taux de décaissement par pilier');
+
+				// set container id for the chart
+				chart.container('container');
+				// initiate chart drawing
+				chart.draw();
+			},
+			mounted() {
+				this.disbursementRate();
+			},
+		},
+	};
 </script>
 
 <style scoped>
-  html,
-  body,
-  #container {
-  	width: 100%;
-  	height: 500px;
-  	margin: 0;
-  	padding: 0;
-  }
-  .disclaimer-text {
-  	margin-left: 10%;
-  	font-style: italic;
-  	font-size: 12px;
-  	color: gray;
-  }
+	html,
+	body,
+	#container {
+		width: 100%;
+		height: 500px;
+		margin: 0;
+		padding: 0;
+	}
+	.disclaimer-text {
+		margin-left: 10%;
+		font-style: italic;
+		font-size: 12px;
+		color: gray;
+	}
 </style>
 

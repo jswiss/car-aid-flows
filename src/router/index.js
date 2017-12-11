@@ -1,29 +1,21 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-const Home = resolve => require(['../components/Home.vue'], resolve);
-const About = resolve => require(['../components/about/About.vue'], resolve);
-const Tables = resolve => require(['../components/tables/Tables.vue'], resolve);
-// const AidTable = resolve =>
-// require(['../components/tables/AidTable.vue'], resolve);
-const Charts = resolve => require(['../components/charts/Charts.vue'], resolve);
-const PillarCountChart = resolve =>
-	require(['../components/charts/PillarCountChart.vue'], resolve);
-const PillarsComponents2017 = resolve =>
-	require(['../components/charts/PillarsComponents2017.vue'], resolve);
-const TreeMap2017 = resolve =>
-	require(['../components/charts/TreeMap2017.vue'], resolve);
-const TreeMap2018 = resolve =>
-	require(['../components/charts/TreeMap2018.vue'], resolve);
-const TreeMap2019 = resolve =>
-	require(['../components/charts/TreeMap2019.vue'], resolve);
-const BudgetSupport = resolve =>
-	require(['../components/charts/BudgetSupport.vue'], resolve);
-const Project = resolve =>
-	require(['../components/projects/Project.vue'], resolve);
-const DisbursementRate = resolve =>
-	require(['../components/charts/DisbursementRate.vue'], resolve);
-const NeedsCoverage = resolve =>
-	require(['../components/charts/NeedsCoverage.vue'], resolve);
+const Home = () => import('../components/Home.vue');
+const About = () => import('../components/about/About.vue');
+const Tables = () => import('../components/tables/Tables.vue');
+// const AidTable = () =>
+// import('../components/tables/AidTable.vue');
+const Charts = () => import('../components/charts/Charts.vue');
+const PillarCountChart = () =>
+	import('../components/charts/PillarCountChart.vue');
+const PillarsComponents2017 = () =>
+	import('../components/charts/PillarsComponents2017.vue');
+const TreeMap2017 = () => import('../components/charts/TreeMap2017.vue');
+const BudgetSupport = () => import('../components/charts/BudgetSupport.vue');
+const Project = () => import('../components/projects/Project.vue');
+const DisbursementRate = () =>
+	import('../components/charts/DisbursementRate.vue');
+const NeedsCoverage = () => import('../components/charts/NeedsCoverage.vue');
 
 import store from '../store';
 
@@ -67,16 +59,6 @@ const routes = [
 				path: 'treemap-2017',
 				name: 'TreeMap2017',
 				component: TreeMap2017,
-			},
-			{
-				path: 'treemap-2018',
-				name: 'TreeMap2018',
-				component: TreeMap2018,
-			},
-			{
-				path: 'treemap-2019',
-				name: 'TreeMap2019',
-				component: TreeMap2019,
 			},
 			{
 				path: 'budget-support',

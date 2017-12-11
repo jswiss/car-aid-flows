@@ -52,7 +52,7 @@
       >
         <template slot="Nom du projet" scope="props">
           <div>
-            <a :href="`http://fluxaide-rca.cf.s3-website.eu-central-1.amazonaws.com/projects/${props.row['Nom du projet']}`" target="_blank">{{ props.row['Nom du projet'] }}</a>
+            <a :href="`http://suiviaide-rca.cf.s3-website.eu-central-1.amazonaws.com/projects/${props.row['Nom du projet']}`" target="_blank">{{ props.row['Nom du projet'] }}</a>
           </div>
         </template>
         <template slot="Montant du projet en devise" scope="props">

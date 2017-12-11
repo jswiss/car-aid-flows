@@ -19,7 +19,7 @@
 		},
 		methods: {
 			pillarChart() {
-				const vm = this;
+				// const vm = this;
 				const data = this.$store.state.pillarCountChart;
 				const chart = anychart.column();
 				const series = chart.column(data);

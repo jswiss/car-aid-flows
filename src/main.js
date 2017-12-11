@@ -14,6 +14,8 @@ import '../node_modules/anychart/dist/js/anychart-map.min.js';
 
 Vue.use(anychart);
 
+anychart.licenseKey(process.env.CHART_KEY);
+
 // Require the main Sass manifest file
 require('./assets/sass/main.scss');
 
