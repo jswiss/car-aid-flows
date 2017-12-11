@@ -51,7 +51,7 @@
 					.stroke('Green');
 
 				// font color
-				series.labels().fontColor('#663399');
+				series.labels().fontColor('#000000');
 				series
 					.selected()
 					.labels()
@@ -105,7 +105,7 @@
 				chart
 					.xAxis()
 					.labels()
-					.rotation(-45);
+					.rotation(-15);
 
 				// tooltips position and interactivity settings
 				chart.tooltip().positionMode('point');

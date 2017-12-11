@@ -56,7 +56,7 @@
         <div class="outline">
           <router-link class="nav-item" to="/charts/disbursement-rate" >
             <div id="chart-selector-7" class="column">
-              <i class="fa fa-bar-chart fa-4x"></i>
+              <i class="fa fa-bar-chart flipped fa-4x"></i>
               <h4 class="sidebar-title">
                 Taux de
                 <br>
@@ -68,7 +68,7 @@
         <div class="outline">
           <router-link class="nav-item" to="/charts/needs-coverage" >
             <div id="chart-selector-7" class="column">
-              <i class="fa fa-bar-chart flipped fa-4x"></i>
+              <i class="fa fa-area-chart fa-4x"></i>
               <h4 class="sidebar-title">
                 Couverture
                 <br>

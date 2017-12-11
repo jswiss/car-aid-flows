@@ -23,14 +23,9 @@
 				chart.getSeries(0).data(this.chartData);
 			},
 			pillarComponent2017() {
-				const vm = this;
 				const data = this.$store.state.pillarComponentChart;
 				const chart = anychart.column();
 				const series = chart.column(data);
-
-				// configure visual settings
-				series.fill('#4B9537', 0.8);
-				series.stroke('#4B9537', 0.8);
 
 				// configure visual settings
 				series.fill('#4B9537', 0.8);
@@ -51,12 +46,12 @@
 				series
 					.labels()
 					.background()
-					.stroke('#663399');
+					.stroke('#000000');
 				series
 					.selected()
 					.labels()
 					.background()
-					.stroke('Green');
+					.stroke('#000000');
 
 				chart.title('Décaissements par piliers et composantes en 2017 ');
 				chart.tooltip().format('${%Value}{groupsSeparator:\\,}');
@@ -92,28 +87,10 @@
 					}
 				});
 
-				// add chart label, set placement, color and text
-				chart.label(0, {
-					enabled: false,
-					position: 'rightTop',
-					anchor: 'rightTop',
-					padding: 5,
-					offsetX: 5,
-					offsetY: 5,
-					text: 'Back',
-					background: { stroke: '1 black', enabled: true },
-				});
-
-				// load initial data on label click
-				chart.label(0).listen('click', function() {
-					chart.getSeries(0).data(data);
-					chart.label(0).enabled(false);
-				});
-
 				chart
 					.xAxis()
 					.labels()
-					.rotation(-45);
+					.rotation(-40);
 
 				// set scale minimum
 				chart.yScale().minimum(0);

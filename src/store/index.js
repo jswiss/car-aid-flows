@@ -34,9 +34,9 @@ const store = new Vuex.Store({
 			['Secteur privé et emploi', 50120545, 42000000],
 		],
 		disbursementRate: [
-			['Pilier 1', 223957862, 58218075, 58218075],
-			['Pilier 2', 811980973, 150970261, 58218075],
-			['Pilier 3', 441070532, 30352426, 58218075],
+			['Pilier 1', 223957862, 58218075],
+			['Pilier 2', 811980973, 150970261],
+			['Pilier 3', 441070532, 30352426],
 		],
 		budgetSupport: [
 			['Fonds monétaire international*', 34871795, 55623711, 47692308],

@@ -47,7 +47,6 @@
 		},
 		methods: {
 			drawArea() {
-				console.log('hitting');
 				var data = anychart.data.set(this.needsCoverage);
 
 				// map the data
@@ -65,37 +64,54 @@
 				series1.name('Portefeuille de projets');
 
 				// configure the visual settings of the first series
-				series1.normal().fill('#00cc99', 0.3);
-				series1.hovered().fill('#00cc99', 0.1);
-				series1.selected().fill('#00cc99', 0.5);
-				series1.normal().stroke('#00cc99', 1, '10 5', 'round');
-				series1.hovered().stroke('#00cc99', 2, '10 5', 'round');
-				series1.selected().stroke('#00cc99', 4, '10 5', 'round');
+				series1.normal().fill('#4B9537', 0.5);
+				series1.hovered().fill('#4B9537', 0.3);
+				series1.selected().fill('#4B9537', 0.7);
+				series1.normal().stroke('#4B9537', 1, '10 5', 'round');
+				series1.hovered().stroke('#4B9537', 2, '10 5', 'round');
+				series1.selected().stroke('#4B9537', 4, '10 5', 'round');
 
 				// create the second series, set the data and name
 				var series2 = chart.area(seriesData_2);
 				series2.name('Besoins 2017-2019 (en $US)');
 
 				// configure the visual settings of the second series
-				series2.normal().fill('#0066cc', 0.3);
-				series2.hovered().fill('#0066cc', 0.1);
-				series2.selected().fill('#0066cc', 0.5);
-				series2.normal().hatchFill('forward-diagonal', '#0066cc', 1, 15);
-				series2.hovered().hatchFill('forward-diagonal', '#0066cc', 1, 15);
-				series2.selected().hatchFill('forward-diagonal', '#0066cc', 1, 15);
-				series2.normal().stroke('#0066cc');
-				series2.hovered().stroke('#0066cc', 2);
-				series2.selected().stroke('#0066cc', 4);
+				series2.normal().fill('#0A2F7E', 0.5);
+				series2.hovered().fill('#0A2F7E', 0.3);
+				series2.selected().fill('#0A2F7E', 0.7);
+				series2.normal().hatchFill('forward-diagonal', '#0A2F7E', 1, 15);
+				series2.hovered().hatchFill('forward-diagonal', '#0A2F7E', 1, 15);
+				series2.selected().hatchFill('forward-diagonal', '#0A2F7E', 1, 15);
+				series2.normal().stroke('#0A2F7E');
+				series2.hovered().stroke('#0A2F7E', 2);
+				series2.selected().stroke('#0A2F7E', 4);
 
 				// set the chart title
 				chart.title('Couverture des besoins par piliers et composantes');
 
 				// set the titles of the axes
-				chart.xAxis().title('Composantes');
+				// chart.xAxis().title('Composantes');
+
+				// set the titles of the axes
+				// chart.xAxis().staggerMode(true);
+				// chart.xAxis().staggerLines(2);
+				// chart.xAxis().title('Composantes');
+				chart
+					.xAxis()
+					.labels()
+					.rotation(-80);
+				// xAxis.title('Fonds');
+				const yAxis = chart.yAxis();
+				yAxis.title('USD');
 				chart.yAxis().title('USD');
+
+				const yLabels = chart.yAxis(0).labels();
+				yLabels.format('${%Value}{groupsSeparator:\\,}');
 
 				// set the container id
 				chart.container('container');
+
+				chart.legend().enabled(true);
 
 				// initiate drawing the chart
 				chart.draw();
@@ -112,7 +128,7 @@
 	body,
 	#container {
 		width: 100%;
-		height: 500px;
+		height: 700px;
 		margin: 0;
 		padding: 0;
 	}
