@@ -37,6 +37,7 @@
 </template>
 
 <script>
+	import anychart from 'anychart';
 	export default {
 		name: 'NeedsCoverage',
 		data() {
@@ -45,14 +46,8 @@
 			};
 		},
 		methods: {
-			needsCoverage() {
-				var data = anychart.data.set([
-					['January', 12000, 10000],
-					['February', 15000, 12000],
-					['March', 16000, 18000],
-					['April', 15000, 11000],
-					['May', 14000, 9000],
-				]);
+			drawArea() {
+				var data = anychart.data.set(this.needsCoverage);
 
 				// map the data
 				var seriesData_1 = data.mapAs({ x: 0, value: 1 });
@@ -66,9 +61,10 @@
 
 				// create the first series, set the data and name
 				var series1 = chart.area(seriesData_1);
-				series1.name('2004');
+				series1.name('Portefeuille de projets');
 
 				// configure the visual settings of the first series
+				debugger;
 				series1.normal().fill('#00cc99', 0.3);
 				series1.hovered().fill('#00cc99', 0.1);
 				series1.selected().fill('#00cc99', 0.5);
@@ -78,7 +74,7 @@
 
 				// create the second series, set the data and name
 				var series2 = chart.area(seriesData_2);
-				series2.name('2005');
+				series2.name('Besoins 2017-2019 (en $US)');
 
 				// configure the visual settings of the second series
 				series2.normal().fill('#0066cc', 0.3);
@@ -92,11 +88,11 @@
 				series2.selected().stroke('#0066cc', 4);
 
 				// set the chart title
-				chart.title('Area Chart: Appearance');
+				chart.title('Couverture des besoins par piliers et composantes');
 
 				// set the titles of the axes
-				chart.xAxis().title('Month');
-				chart.yAxis().title('Sales, $');
+				chart.xAxis().title('Composantes');
+				chart.yAxis().title('USD');
 
 				// set the container id
 				chart.container('container');
@@ -104,8 +100,8 @@
 				// initiate drawing the chart
 				chart.draw();
 			},
-			mounted() {
-				this.needsCoverage();
+			created() {
+				this.drawArea();
 			},
 		},
 	};
