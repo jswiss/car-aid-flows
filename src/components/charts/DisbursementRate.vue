@@ -14,7 +14,6 @@
 </template>
 
 <script>
-	import anychart from 'anychart';
 	export default {
 		name: 'DisbursementRate',
 		methods: {
@@ -65,9 +64,9 @@
 				// initiate chart drawing
 				chart.draw();
 			},
-			mounted() {
-				this.disbursementRate();
-			},
+		},
+		mounted() {
+			this.disbursementRate();
 		},
 	};
 </script>

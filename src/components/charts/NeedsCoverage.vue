@@ -47,6 +47,7 @@
 		},
 		methods: {
 			drawArea() {
+				console.log('hitting');
 				var data = anychart.data.set(this.needsCoverage);
 
 				// map the data
@@ -64,7 +65,6 @@
 				series1.name('Portefeuille de projets');
 
 				// configure the visual settings of the first series
-				debugger;
 				series1.normal().fill('#00cc99', 0.3);
 				series1.hovered().fill('#00cc99', 0.1);
 				series1.selected().fill('#00cc99', 0.5);
@@ -100,9 +100,9 @@
 				// initiate drawing the chart
 				chart.draw();
 			},
-			created() {
-				this.drawArea();
-			},
+		},
+		mounted() {
+			this.drawArea();
 		},
 	};
 </script>
