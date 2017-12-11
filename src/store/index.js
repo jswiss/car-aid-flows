@@ -13,7 +13,7 @@ Vue.use(Vuex);
 // set require statements as actions, called beforeRouteEnter
 
 const store = new Vuex.Store({
-	// plugins: [createPersistedState()],
+	plugins: [createPersistedState()],
 	state: {
 		version: '',
 		rawData: [],

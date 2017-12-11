@@ -16,13 +16,13 @@
           </router-link>
         </div>
         <div class="outline">
-          <router-link class="nav-item" to="/charts/pillars-components-2017" >
-            <div id="chart-selector-2" class="column">
-              <i class="fa fa-bar-chart fa-4x"></i>
+          <router-link class="nav-item" to="/charts/needs-coverage" >
+            <div id="chart-selector-7" class="column">
+              <i class="fa fa-area-chart fa-4x"></i>
               <h4 class="sidebar-title">
-                2017
+                Couverture
                 <br>
-                Décaissements
+                des besoins
               </h4>
             </div>
           </router-link>
@@ -54,6 +54,18 @@
       </div>
       <div class="columns">
         <div class="outline">
+          <router-link class="nav-item" to="/charts/pillars-components-2017" >
+            <div id="chart-selector-2" class="column">
+              <i class="fa fa-bar-chart fa-4x"></i>
+              <h4 class="sidebar-title">
+                2017
+                <br>
+                Décaissements
+              </h4>
+            </div>
+          </router-link>
+        </div>
+        <div class="outline">
           <router-link class="nav-item" to="/charts/disbursement-rate" >
             <div id="chart-selector-7" class="column">
               <i class="fa fa-bar-chart flipped fa-4x"></i>
@@ -61,18 +73,6 @@
                 Taux de
                 <br>
                 décaissement
-              </h4>
-            </div>
-          </router-link>
-        </div>
-        <div class="outline">
-          <router-link class="nav-item" to="/charts/needs-coverage" >
-            <div id="chart-selector-7" class="column">
-              <i class="fa fa-area-chart fa-4x"></i>
-              <h4 class="sidebar-title">
-                Couverture
-                <br>
-                des besoins
               </h4>
             </div>
           </router-link>
