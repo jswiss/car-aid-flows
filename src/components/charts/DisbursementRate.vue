@@ -13,7 +13,8 @@
   </div>
 </template>
 
-<script type="text/javascript">
+<script type="module">
+	import anychart from 'anychart';
 	export default {
 		name: 'DisbursementRate',
 		methods: {

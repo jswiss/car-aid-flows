@@ -13,13 +13,26 @@ Vue.use(Vuex);
 // set require statements as actions, called beforeRouteEnter
 
 const store = new Vuex.Store({
+	// plugins: [createPersistedState()],
 	state: {
 		version: '',
 		rawData: [],
 		tableData: [],
 		eurTable: [],
 		xafTable: [],
-		needsCoverage: [[]],
+		needsCoverage: [
+			['DDRR', 87355512, 115000000],
+			['RSS', 24785343, 98000000],
+			['Justice', 33509799, 64000000],
+			['Cohésion sociale et réfugiés', 78307208, 82000000],
+			['Redéploiement et gouvernance locale', 93563239, 71000000],
+			['Services sociaux de base', 257108524, 310000000],
+			['Résilience et sécurité alimentaire', 64303531, 54000000],
+			['Stabilité macroéconomique et bonne gouvernance', 451797604, 296000000],
+			['Secteurs productifs', 132312723, 175000000],
+			['Infrastructures', 441138657, 286000000],
+			['Secteur privé et emploi', 50120545, 42000000],
+		],
 		disbursementRate: [
 			['Pilier 1', 223957862, 58218075, 58218075],
 			['Pilier 2', 811980973, 150970261, 58218075],
@@ -27,7 +40,6 @@ const store = new Vuex.Store({
 		],
 		budgetSupport: [
 			['Fonds monétaire international*', 34871795, 55623711, 47692308],
-			// ['Fonds monétaire international*', 0, 15819588, 0],
 			['Banque mondiale**', 20000000, 0, 25000000],
 			['Union Européenne', 24615385, 22283505, 22393162],
 			['Banque africaine de développement', 0, 16500000, 0],
@@ -299,7 +311,6 @@ const store = new Vuex.Store({
 		},
 		// ...firebaseMutations,
 	},
-	plugins: [createPersistedState()],
 });
 
 // store.subscribe((mutation, state) => {
