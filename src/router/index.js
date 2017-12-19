@@ -16,6 +16,7 @@ const Project = () => import('../components/projects/Project.vue');
 const DisbursementRate = () =>
 	import('../components/charts/DisbursementRate.vue');
 const NeedsCoverage = () => import('../components/charts/NeedsCoverage.vue');
+const DocsRcpca = () => import('../components/DocsRcpca.vue');
 
 import store from '../store';
 
@@ -81,6 +82,11 @@ const routes = [
 		path: '/about',
 		name: 'About',
 		component: About,
+	},
+	{
+		path: '/documents-rcpca',
+		name: 'DocsRcpca',
+		component: DocsRcpca,
 	},
 	{
 		path: '/projects/:projectName',

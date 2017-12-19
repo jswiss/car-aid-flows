@@ -16,6 +16,9 @@
       <router-link class="nav-item is-tab" to="/about">
         <i class="fa fa-info-circle"></i>Information
       </router-link>
+      <router-link class="nav-item is-tab" to="/documents-rcpca">
+        <i class="fa fa-file-text"></i>Documents RCPCA
+      </router-link>
     </div>
     <div class="nav-right">
       <a 
