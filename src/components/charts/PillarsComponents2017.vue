@@ -93,10 +93,12 @@
 					if (e.point.get('drillDown')) {
 						// if so, assign to the only data series we have
 						chart.getSeries(0).data(e.point.get('drillDown'));
+						chart.title('Décaissements par composantes en 2017');
 					} else {
 						// otherwise assign this series the initial
 						// dataset and return to the initial state
 						chart.getSeries(0).data(data);
+						chart.title('Décaissements par piliers en 2017');
 					}
 				});
 
