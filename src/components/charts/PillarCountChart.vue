@@ -70,7 +70,7 @@
 					.fontColor('Green');
 
 				// chart.animate(true);
-				chart.title('Nombre de projets par piliers et composantes');
+				chart.title('Nombre de projets par piliers');
 				chart.tooltip().format('{%value} projets');
 				// tune interactivity selection mode
 				chart.interactivity().selectionMode('none');
@@ -98,10 +98,12 @@
 					if (e.point.get('drillDown')) {
 						// if so, assign to the only data series we have
 						chart.getSeries(0).data(e.point.get('drillDown'));
+						chart.title('Nombre de projets par composantes');
 					} else {
 						// otherwise assign this series the initial
 						// dataset and return to the initial state
 						chart.getSeries(0).data(data);
+						chart.title('Nombre de projets par piliers');
 					}
 				});
 
