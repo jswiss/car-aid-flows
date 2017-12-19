@@ -2,7 +2,19 @@
 <template lang="html">
   <div>
     <div class="columns is-mobile">
-      <div class="column" id="container"></div>
+			<div class="column">
+				<div class="column" id="container"></div>
+				<br>
+				<div class="body">
+				<p class="text">
+					340 projets ont été identifiés, dont la répartition par piliers et composantes est détaillée dans le chart au dessus. 
+				</p>
+				<br>
+				<p>
+					De plus, il a été identifié que 160 projets sont actifs, 24 sont prêts et en attente d’être mis en vigueur ou en préparation, 16 sont clôturés (mais étaient actifs au début 2017 et ont décaissés durant l’année) et 140 dont le statut n’a pas pu être identifié (par défaut, ils sont supposés être actifs). Au sujet des projets en préparation, seuls les projets dont le financement est acquis et la préparation a effectivement commencé ont été intégrés. Il faut cependant préciser que certains bailleurs n’ont pas inclus les projets en préparation, ce qui limite la visibilité pour les années à venir. Il a aussi été identifié que 102 projets dataient d’avant Bruxelles, 84 ont été préparés après Bruxelles et 154 dont ce statut n’a pas pu être déterminé. 
+				</p>
+			</div>
+			</div>	
     </div>
   </div>
 </template>
@@ -105,7 +117,7 @@
 				chart
 					.xAxis()
 					.labels()
-					.rotation(-15);
+					.rotation(-35);
 
 				// tooltips position and interactivity settings
 				chart.tooltip().positionMode('point');
@@ -136,19 +148,5 @@
 		font-style: italic;
 		font-size: 12px;
 		color: gray;
-	}
-	#back {
-		cursor: pointer;
-		background: #4b9537;
-		border: 1px solid #4b9537;
-		color: #fff;
-		padding: 10px;
-		position: absolute;
-		top: 15px;
-		right: 20px;
-		z-index: 100;
-	}
-	.display {
-		display: none;
 	}
 </style>

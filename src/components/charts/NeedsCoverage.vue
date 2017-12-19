@@ -37,7 +37,6 @@
 </template>
 
 <script>
-	import anychart from 'anychart';
 	export default {
 		name: 'NeedsCoverage',
 		data() {

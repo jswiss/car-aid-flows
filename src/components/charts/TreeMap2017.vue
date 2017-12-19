@@ -2,6 +2,9 @@
 <template v-cloak>
   <div id="treemap-content" class="columns is-mobile">
     <div class="column">
+			<div class="has-text-right">
+				<p class="text">Faire glisser le curseur pour faire apparaître les montants</p>
+			</div>
       <div id="container" style="width: 100%; height: 500px;"></div>
     </div>
   </div>
@@ -27,7 +30,7 @@
 				chart
 					.headers()
 					.format(
-						'{%name} :: Décaissements effectifs par projet: ${%value}{groupsSeparator:\\,}'
+						'{%name} :: Décaissements effectifs: ${%value}{groupsSeparator:\\,}'
 					);
 				chart.headers().fontSize(15);
 				chart.headers().fontWeight('bold');
@@ -91,5 +94,9 @@
 	}
 	label {
 		font-size: 18px;
+	}
+	.text {
+		color: #6a6d68;
+		font-style: italic;
 	}
 </style>

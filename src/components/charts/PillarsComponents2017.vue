@@ -2,7 +2,20 @@
 <template lang="html">
   <div>
     <div class="columns is-mobile">
-      <div class="column" id="container"></div>
+			<div class="column">
+				<div class="column" id="container"></div>
+				<div class="body">
+          <br>
+          <br>
+					<p class="text">
+						Les décaissements sur l’année 2017  se montent de manière globale à plus de 138 milliards de FCFA, ou plus de 240 millions de $US (tableau 2). 33,475 milliards de FFCA (58,218 millions $US), ou 24% du total ont été décaissés sur le pilier 1 ; 86,808 milliards de FCFA (150,970 millions $US), ou 63% du total ont été décaissés sur le pilier 2 (dont plus de 63 milliards de FCFA, ou plus de 107 millions de $US sont forme d’appui budgétaire – voir section ci-dessous – ce qui représente 45% des décaissements totaux de l’aide extérieure) ; et 17,815 milliards de FFCA (30,983 millions $US), ou 13% du total ont été décaissés sur le pilier 3. 
+						<br>
+						<br>
+						Sur les 340 projets identifiés, 24 étaient en préparation ou prêt et en attente de mise en vigueur (et n’ont donc pas pu décaisser). Sur les 316 projets restants, 133 seulement ont décaissé en 2017 (dont 62 sur 123 pour le pilier 1 ; 47 sur 147 pour le pilier 2 ; et 24 sur 46 pour le pilier 3). A noter cependant que les informations de décaissement n’ont pas été transmises par certains bailleurs.
+ 
+					</p>
+				</div>
+			</div>
 			<!-- <a id="back" ref="backButton"  class="button is-pulled-right">Retour aux piliers</a> -->
     </div>
   </div>
