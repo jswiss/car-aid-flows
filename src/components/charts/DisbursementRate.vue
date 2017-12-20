@@ -33,8 +33,10 @@
 					x: 0,
 					value: 2,
 				});
-				// create bar chart
+
 				const chart = anychart.bar();
+
+				// create bar chart
 				// turn on chart animation
 				// chart.animation(true);
 				chart.padding([10, 40, 5, 20]);
@@ -58,17 +60,16 @@
 					series.stroke('3 #fff 1');
 					series.hovered().stroke('3 #fff 1');
 				};
-				// temp variable to store series instance
-				let series;
+
 				// create first series with mapped data
-				series = chart.bar(seriesData_1);
-				setupSeries(series, 'Portefeuille projets actifs et clôturés ');
-				series.fill('#dc3f22', 0.8);
+				const series1 = chart.bar(seriesData_1);
+				setupSeries(series1, 'Portefeuille projets actifs et clôturés ');
+				series1.fill('#dc3f22', 0.8);
 				// create second series with mapped data
-				series = chart.bar(seriesData_2);
-				setupSeries(series, 'Décaissements en $US');
+				const series2 = chart.bar(seriesData_2);
+				setupSeries(series2, 'Décaissements en $US');
 				// configure visual settings
-				series.fill('#F8CF47');
+				series2.fill('#F8CF47');
 				// turn on legend
 				chart
 					.legend()
@@ -84,10 +85,15 @@
 					.tooltip()
 					.format(
 						'${%value}{groupsSeparator:\\,} \n Taux de décaissement {%yPercentOfCategory}{decimalsCount:2}%'
-					)
-					.displayMode('separated');
+					);
+				// .displayMode('separated');
 				// set container id for the chart
 				chart.container('container');
+
+				// add summed labels
+				series1.labels().enabled(true);
+				series1.labels().format('TOTAL: ${%CategoryYSum}{groupsSeparator:\\,}');
+
 				// initiate chart drawing
 				chart.draw();
 			},
