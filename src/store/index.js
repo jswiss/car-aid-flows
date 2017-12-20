@@ -295,9 +295,7 @@ const store = new Vuex.Store({
 												return {
 													name: project.key,
 													value: project.value,
-													url: `http://suiviaide-rca.cf.s3-website.eu-central-1.amazonaws.com/projects/${
-														project.key
-													}`,
+													url: `http://suiviaide-rca.cf/projects/${project.key}`,
 												};
 											}),
 										};
